@@ -31,6 +31,9 @@
  			$rootScope.go = function(path) {
  				$location.path(path);
  			}
+ 			$rootScope.back = function() {
+ 				$window.history.back();
+ 			}
  		}
  	}
  });

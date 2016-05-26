@@ -10,6 +10,31 @@ angular.module("Love").constant("config", {
 	},
 	common_params: {},
 	interceptor: [
-		"index"
+		"account",
+		"appointment",
+		"appointment1",
+		"appointment2",
+		"authen",
+		"basic",
+		"chat",
+		"create_appointment",
+		"index",
+		"lovers",
+		"manual_authen",
+		"mating",
+		"member",
+		"member1",
+		"member2",
+		"messages",
+		"mylove",
+		"phone_authen",
+		"realname_authen",
+		"search",
+		"services",
+		"signin",
+		"signup",
+		"single",
+		"ta",
+		"vistors"
 	]
 });
