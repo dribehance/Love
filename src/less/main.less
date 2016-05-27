@@ -1,0 +1,182 @@
+/**重用样式*/
+.input-group{
+	margin-bottom: 20px;
+	padding-left: 0;
+	.input-group-item{
+		position: relative;
+		display: block;
+		padding: 10px 15px;
+		background-color: #fff;
+		border-bottom: 1px solid #ddd;
+		color: #555;
+		.input-icon-left{
+			position: absolute;
+			top: 11px;
+			left:8px;
+		}
+		.input-icon-right{
+			position: absolute;
+			top: 12px;
+		}
+		.input-lg-width{
+			width: 85%;
+	    }
+
+	    .input-sm-width{
+			width: 65%;
+	    }
+
+	    input{
+	    	outline: none;
+	    	border: none;
+	    	line-height: 19px;
+	    	
+	    }
+	    
+	}
+	
+}
+
+.btn-width{
+	width: 80%;
+	margin: 0 auto;
+
+}
+
+.tag{
+	display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: @btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+
+.tag-personality{
+	.button-variant(@btn-default-color;
+    @btn-default-bg;
+    @btn-default-border);
+}
+
+.tag-default{
+	
+}
+
+
+
+.or{
+	display: block;
+	text-align: center;
+	position: relative;
+	margin:0 30px ;
+}
+.or-width{width: 40%;}
+.man,.woman{width: 30%;}
+.woman{
+	text-align: right;
+}
+.or::before{
+	content: "";
+    top: 7px;
+    height: 1px;
+    background-color: #a0a0a0;
+}
+.or::before {
+    position: absolute;
+    left: 0;
+    display: block;
+    right: 0;
+}
+.or::after {
+    content: "or";
+    width: 30px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+.or::after{
+    position: absolute;
+    left: 0;
+    display: block;
+    right: 0;
+}
+
+/*第三方登录title*/
+
+.third-party{
+	display: block;
+	text-align: center;
+	position: relative;
+	margin:0 22px ;
+	color: #ddd;
+}
+
+.third-party::before{
+	content: "";
+    top: 11px;
+    height: 1px;
+    background-color: #ddd;
+}
+.third-party::before {
+    position: absolute;
+    left: 0;
+    display: block;
+    right: 0;
+}
+.third-party::after {
+    content: "使用第三方登录";
+    width: 120px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+.third-party::after{
+    position: absolute;
+    left: 0;
+    display: block;
+    right: 0;
+}
+
+.signin,.signup{
+	display: block;
+	overflow: hidden;
+}
+
+.signin-info,.signup-info{
+	margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
