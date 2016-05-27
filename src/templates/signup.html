@@ -1,28 +1,56 @@
-
-<div class="warning-info">
-
-
-</div>
-<div class="wrap">
-	<div class="signup">
-
-		<div class="input-group">
-	          <div class="input-group-item">
-	          	<div class="icon icon-pwd pull-left"></div>
-	          	<input type="text" placeholder="请输入手机号码" class="input-lg-width">
-	          </div>
-	          <div class="input-group-item">
-	          	<div class="icon icon-pwd pull-left"></div>
-	          	<input type="password" placeholder="请输入密码" class="input-lg-width">
-	          </div>
-	          <div class="input-group-item">
-	          	<input type="text" placeholder="请输入验证码" class="input-sm-width">
-
-	          </div>
-		</div>
-		<div class="signup-info">
-              <a href="" class="btn btn-default btn-block btn-width" ng-href="">下一步</a>
+<div class="signup" ng-if="step == 1">
+    <form>
+        <div class="input-group">
+            <div class="input-group-item">
+                <div class="icon icon-pwd pull-left"></div>
+                <input type="text" placeholder="请输入手机号码" class="input-lg-width">
+            </div>
+            <div class="input-group-item">
+                <div class="icon icon-pwd pull-left"></div>
+                <input type="password" placeholder="请输入密码" class="input-lg-width">
+            </div>
+            <div class="input-group-item">
+                <input type="text" placeholder="请输入验证码" class="input-sm-width">
+            </div>
         </div>
-
-	</div>
+        <div class="btn-center">
+            <button href="" class="btn btn-default btn-block btn-width" ng-click="show_step(2)">下一步</button>
+        </div>
+    </form>
+</div>
+<div class="signup" ng-if="step == 2">
+    <div class="signup">
+        <div class="signup-info">
+            <div class="signup-head">
+                <a href="" class="images full-height full-width">
+                    <span class="text-center"><i class="fa fa-camera active text-primary" aria-hidden="true"></i></span>
+                    <label class="text-center">添加头像</label>
+                </a>
+            </div>
+        </div>
+        <div class="signup-or  clearfix">
+            <div class="man pull-left text-primary">
+                <i class="fa fa-venus" aria-hidden="true"></i> 男
+            </div>
+            <div class="or-width pull-left"><span class="or">or</span></div>
+            <div class="woman pull-right">
+                <i class="fa fa-mars" aria-hidden="true"></i> 女
+            </div>
+        </div>
+        <div class="signup-blank  clearfix"></div>
+        <div class="input-group">
+            <div class="input-group-item">
+                <div class="icon icon-pwd pull-left"></div>
+                <input type="text" placeholder="你的昵称" class="input-lg-width">
+            </div>
+            <div class="input-group-item">
+                <div class="icon icon-pwd pull-left"></div>
+                <input type="password" placeholder="你的家乡" class="input-lg-width">
+            </div>
+            <label>注册成功后，性别不可修改</label>
+        </div>
+        <div class="btn-center">
+            <button href="" class="btn btn-default btn-block btn-width" ng-click="show_step(2)">完成</button>
+        </div>
+    </div>
 </div>
