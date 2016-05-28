@@ -1,5 +1,10 @@
 /**重用样式*/
 
+.section {
+    display: block;
+    overflow: hidden;
+}
+
 .input-group {
     margin-bottom: 20px;
     padding-left: 0;
@@ -9,14 +14,14 @@
         padding: 10px 15px;
         background-color: white;
         border-bottom: 1px solid #ddd;
-        color: #555;
         .input-lg-width {
-            width: 85%;
+            width: 70%;
         }
         .input-sm-width {
             width: 65%;
         }
         input {
+            display: inline-block;
             outline: none;
             border: none;
             line-height: 19px;
@@ -24,50 +29,51 @@
         }
         .input-icon-forward {
             position: absolute;
-            top: 0px;
-            right: 0;
+            top: 12px;
+            right: 16px;
         }
+        /**用作标签按钮*/
         span {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+        }
+        label {
             display: inline-block;
+            text-indent: ;
+        }
+        select {
+            border: none;
+            background-color: white;
+            -webkit-appearance: none;
+            outline: none;
+        }
+        .select-lg-width {
+            width: 86%;
         }
     }
-    label {
+    .item-tips {
         display: block;
         padding: 10px 15px;
         background-color: #fff;
         color: #ddd;
         font-weight: normal;
+        b {
+            color: #8140AA;
+        }
     }
     a {
         text-decoration: none;
     }
 }
 
+
+/*按钮的宽度的**/
+
 .btn-width {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
-
-.tag {
-    display: inline-block;
-    margin-bottom: 0; // For input.btn
-    font-weight: @btn-font-weight;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid transparent;
-    white-space: nowrap;
-}
-
-.tag-personality {
-    .button-variant(@btn-default-color;
-    @btn-default-bg;
-    @btn-default-border);
-}
-
-.tag-default {}
 
 .or {
     display: block;
@@ -191,6 +197,9 @@
             display: block;
         }
     }
+    a {
+        text-decoration: none;
+    }
 }
 
 .signup-or {
@@ -211,6 +220,13 @@
 }
 
 
+/**相机顶部距离**/
+
+.camera-top {
+    margin-top: 20px;
+}
+
+
 /*验证*/
 
 .anthen {
@@ -226,50 +242,54 @@
 /**实名验证**/
 
 .id-card {
-
     display: block;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 20px;
     .positive {
         display: block;
         width: 50%;
-        justify-content: space-between;
-        
-        .images {
+        overflow: hidden;
+        span {
             display: block;
-            width: 145px;
-            height: 120px;
-            border: 1px solid #E6E6E6;
+            text-align: center;
+            b {
+                color: red;
+            }
+        }
+        .images-left {
+            display: block;
+            padding: 10px 5px 10px 10px;
+            box-sizing: border-box;
+        }
+        .images-right {
+            display: block;
+            padding: 10px 10px 10px 5px;
+            box-sizing: border-box;
+        }
+        .images-size {
+            display: block;
+            text-align: center;
+            height: 100px;
+            vertical-align: middle;
+            background-position: center center;
             background-color: #E8E8E8;
-            margin:0 15px; 
+            img {
+                margin: 20px auto;
+            }
         }
     }
 }
 
+.min-bg {
+    min-height: 780px;
+    background-color: #F6F6F6;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// /**标签*/
+.btn-second {
+    .button-variant(@brand-primary;
+    #fff;
+    @brand-primary);
+    border-radius: 20px;
+}
