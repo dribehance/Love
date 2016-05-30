@@ -1,5 +1,9 @@
 /**重用样式*/
 
+a:hover {
+    text-decoration: none;
+}
+
 .section {
     display: block;
     overflow: hidden;
@@ -14,6 +18,12 @@
         padding: 10px 15px;
         background-color: white;
         border-bottom: 1px solid #ddd;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        .input-width {
+            width: 88%;
+        }
         .input-lg-width {
             width: 70%;
         }
@@ -26,11 +36,25 @@
             border: none;
             line-height: 19px;
             height: 19px;
+            &::-ms-clear {
+                display: none;
+            }
+            &:valid+.clear {
+                display: inline;
+            }
         }
         .input-icon-forward {
             position: absolute;
             top: 12px;
             right: 16px;
+            z-index: -10;
+        }
+        .clear {
+            display: none;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            margin: 0 0 0 -20px;
         }
         /**用作标签按钮*/
         span {
@@ -40,7 +64,6 @@
         }
         label {
             display: inline-block;
-            text-indent: ;
         }
         select {
             border: none;
@@ -51,6 +74,87 @@
         .select-lg-width {
             width: 86%;
         }
+    }
+    .coach-wrap {
+        display: block;
+        padding: 10px 15px;
+        border-bottom: 1px solid #F3F3F3;
+        .coach-item {
+            display: block;
+            position: relative;
+            padding-left: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            color: #494949;
+            cursor: pointer;
+            .coach-avatar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100px;
+                height: 100px;
+                background-position: center center;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                img {
+                    border: 1px solid #555;
+                    border-radius: 8px;
+                }
+            }
+            .coach-info {
+                display: block;
+                padding-left: 10px;
+                font-weight: 100;
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+                .input-info-title {
+                    p {
+                        display: inline-block;
+                        color: #000;
+                        overflow: hidden;
+                        span {
+                            display: inline-block;
+                        }
+                    }
+                }
+                .coach-info-tip {
+                    display: block;
+                    margin-bottom: 4px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    span {
+                        font-size: 10px;
+                        overflow: hidden;
+                    }
+                }
+                .coach-info-tag {
+                    width: 160px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-bottom: 5px;
+                }
+                .coach-info-height {
+                    margin-bottom: 21px;
+                }
+            }
+            .input-icon-forward {
+                position: absolute;
+                top: 12px;
+                right: 16px;
+            }
+        }
+    }
+    .input-group-list{
+        display: block;
+        padding: 10px 15px;
+        border-bottom: 1px solid #F3F3F3;
+        .input-group-list-
     }
     .item-tips {
         display: block;
@@ -292,4 +396,63 @@
     #fff;
     @brand-primary);
     border-radius: 20px;
+}
+
+.btn-third {
+    .button-variant(@brand-second;
+    @brand-primary;
+    @brand-primary);
+    border-radius: 100px;
+}
+
+.line {
+    position: absolute;
+    top: 41px;
+    left: 45px;
+    width: 1px;
+    height: 100%;
+    border: 1px solid #F5F5F5;
+    border-right: none;
+}
+
+.contact {
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    overflow: hidden;
+    p {
+        position: relative;
+        display: block;
+        margin-left: 40px;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        word-break: break-all;
+        .spot {
+            position: absolute;
+            top: 14px;
+            left: 0;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 30px;
+        }
+        .spot-style1 {
+            border: 1px solid #1ACFC7;
+            background-color: #1ACFC7;
+        }
+        .spot-style2 {
+            border: 1px solid #44D350;
+            background-color: #44D350;
+        }
+        .spot-style3 {
+            border: 1px solid #FFA851;
+            background-color: #FFA851;
+        }
+        label {
+            padding: 0;
+            margin: 0;
+            color: #837FD4;
+        }
+    }
 }
