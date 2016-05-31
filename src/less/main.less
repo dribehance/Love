@@ -2,6 +2,19 @@
 
 a:hover {
     text-decoration: none;
+    color: #000;
+}
+
+label {
+    margin-bottom: 0;
+    font-weight: normal
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
 }
 
 .section {
@@ -16,13 +29,15 @@ a:hover {
         position: relative;
         display: block;
         padding: 10px 15px;
-        background-color: white;
         border-bottom: 1px solid #ddd;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+        .input-hg-width {
+            width: 96%;
+        }
         .input-width {
-            width: 88%;
+            width: 85%;
         }
         .input-lg-width {
             width: 70%;
@@ -30,12 +45,16 @@ a:hover {
         .input-sm-width {
             width: 65%;
         }
+        .input-padding {
+            padding: 0 5px 0 30px;
+        }
         input {
             display: inline-block;
             outline: none;
             border: none;
             line-height: 19px;
             height: 19px;
+            background-color: transparent;
             &::-ms-clear {
                 display: none;
             }
@@ -47,7 +66,7 @@ a:hover {
             position: absolute;
             top: 12px;
             right: 16px;
-            z-index: -10;
+            z-index: -1;
         }
         .clear {
             display: none;
@@ -55,39 +74,63 @@ a:hover {
             width: 16px;
             height: 16px;
             margin: 0 0 0 -20px;
+            z-index: 1;
         }
         /**用作标签按钮*/
-        span {
-            position: absolute;
-            top: 5px;
-            right: 15px;
+        .tag {
+            span {
+                position: absolute;
+                top: 5px;
+                right: 15px;
+            }
+            label {
+                display: inline-block;
+            }
         }
-        label {
+        .date-request {
+            display: block;
+            span {
+                display: block;
+                word-break: normal;
+            }
+            label {
+                display: block;
+                text-align: right;
+            }
+        }
+        .input-select {
             display: inline-block;
-        }
-        select {
-            border: none;
-            background-color: white;
-            -webkit-appearance: none;
-            outline: none;
+            select {
+                border: none;
+                background-color: transparent;
+                -webkit-appearance: none;
+                outline: none;
+            }
         }
         .select-lg-width {
-            width: 86%;
+            width: 80%;
+        }
+        .select-text-right {
+            direction: rtl;
+            text-align: right;
+        }
+        .icon-z-index {
+            z-index: -1;
         }
     }
-    .coach-wrap {
+    .coach-item {
         display: block;
         padding: 10px 15px;
         border-bottom: 1px solid #F3F3F3;
-        .coach-item {
+        .coach-items {
             display: block;
             position: relative;
             padding-left: 100px;
             height: 100px;
             margin-bottom: 15px;
-            overflow: hidden;
             color: #494949;
             cursor: pointer;
+            overflow: hidden;
             .coach-avatar {
                 position: absolute;
                 top: 0;
@@ -135,8 +178,6 @@ a:hover {
                 }
                 .coach-info-tag {
                     width: 160px;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
                     margin-bottom: 5px;
                 }
                 .coach-info-height {
@@ -149,12 +190,76 @@ a:hover {
                 right: 16px;
             }
         }
-    }
-    .input-group-list{
-        display: block;
-        padding: 10px 15px;
-        border-bottom: 1px solid #F3F3F3;
-        .input-group-list-
+        .coach-sm-items {
+            position: relative;
+            display: block;
+            padding-left: 65px;
+            height: 65px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            color: #494949;
+            cursor: pointer;
+            .coach-sm-avatar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 65px;
+                height: 65px;
+                background-position: center center;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                img {
+                    border: 1px solid #555;
+                    border-radius: 8px;
+                }
+            }
+            .coach-info {
+                display: block;
+                padding-left: 10px;
+                font-weight: 100;
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+                .input-info-title {
+                    p {
+                        display: inline-block;
+                        color: #000;
+                        overflow: hidden;
+                        span {
+                            display: inline-block;
+                        }
+                    }
+                }
+                .coach-info-tip {
+                    display: block;
+                    margin-bottom: 4px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    span {
+                        font-size: 10px;
+                        overflow: hidden;
+                    }
+                }
+                .coach-info-tag {
+                    width: 160px;
+                    margin-bottom: 5px;
+                }
+                .coach-info-height {
+                    margin-bottom: 21px;
+                }
+            }
+            .icon-next {
+                position: absolute;
+                display: block;
+                top: 28px;
+                right: 0;
+                z-index: -1;
+            }
+        }
     }
     .item-tips {
         display: block;
@@ -385,11 +490,6 @@ a:hover {
     }
 }
 
-.min-bg {
-    min-height: 780px;
-    background-color: #F6F6F6;
-}
-
 // /**标签*/
 .btn-second {
     .button-variant(@brand-primary;
@@ -414,6 +514,9 @@ a:hover {
     border: 1px solid #F5F5F5;
     border-right: none;
 }
+
+
+/***人工认证**/
 
 .contact {
     position: relative;
@@ -453,6 +556,63 @@ a:hover {
             padding: 0;
             margin: 0;
             color: #837FD4;
+        }
+    }
+}
+
+
+/**服务***/
+
+.service {
+    display: block;
+    padding: 15px;
+    overflow: hidden;
+    .service-content {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        background-color: white;
+        border: 1px solid #F6F6F6;
+        border-radius: 6px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow: hidden;
+        .info-avatar {
+            width: 25%;
+            display: block;
+        }
+        .info-wrap {
+            display: inline-block;
+            width: 75%;
+            height: 70px;
+            vertical-align: middle;
+            overflow: hidden;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            .info-wrap-inner {
+                display: inline-block;
+                float: left;
+                width: 70%;
+                padding: 20px 0;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                span {
+                    display: block;
+                }
+                label {
+                    display: block;
+                    font-size: 10px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+            .tag-wrap {
+                display: inline-block;
+                float: left;
+                width: 30%;
+            }
         }
     }
 }
