@@ -34,6 +34,12 @@ angular.module("Love").constant("config", {
 		"signin",
 		"signup",
 		"single",
+		"search_conditional",
+		"send_messages",
+		"appointment1_refuse",
+		"appointment1_sure",
+		"appointment2_refuse",
+		"appointment2_sure",
 		"ta",
 		"vistors"
 	]

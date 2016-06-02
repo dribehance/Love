@@ -19,7 +19,7 @@ angular.module("Love", [
 				controller: controllername,
 				resolve: {
 					user: function($q, $location, localStorageService) {
-						var resolve_path = ["account"],
+						var resolve_path = [],
 							defer = $q.defer();
 						if (resolve_path.includes(path) && !localStorageService.get("token")) {
 							defer.reject();

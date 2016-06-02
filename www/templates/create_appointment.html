@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" ng-if="step == 1">
     <div class="input-group">
         <a href="" class="input-group-item">
             <input type="text" placeholder="请输入约会主题" class="full-width">
@@ -45,17 +45,22 @@
             <div class="icon icon-jiantou pull-right"></div>
         </a>
         <div href="" class="input-group-item">
-            <div class="date-request">
+            <button class="date-request" ng-click="show_step(2)">
                 <span>哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦</span>
                 <label>
-                   <div class="icon icon-bianji"></div>
+                    <div class="icon icon-bianji"></div>
                 </label>
-            </div>
+            </button>
+        </div>
+    </div>
+    <div class="section">
+        <div class="btn-center">
+            <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step(3)">发布约会</button>
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="btn-center">
-        <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step(3)">发布约会</button>
+<div class="section" ng-if="step == 2">
+    <div class="edit">
+        <textarea rows="8%" cols=""></textarea>
     </div>
 </div>

@@ -17,6 +17,11 @@ ul {
     margin-bottom: 0;
 }
 
+button {
+    margin: 0;
+    padding: 0;
+}
+
 .section {
     display: block;
     overflow: hidden;
@@ -30,6 +35,7 @@ ul {
         display: block;
         padding: 10px 15px;
         border-bottom: 1px solid #ddd;
+        line-height: 30px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -52,8 +58,8 @@ ul {
             display: inline-block;
             outline: none;
             border: none;
-            line-height: 19px;
-            height: 19px;
+            line-height: 30px;
+            height: 30px;
             background-color: transparent;
             &::-ms-clear {
                 display: none;
@@ -89,6 +95,7 @@ ul {
         }
         .date-request {
             display: block;
+            text-align: left;
             span {
                 display: block;
                 word-break: normal;
@@ -127,7 +134,6 @@ ul {
             position: relative;
             padding-left: 100px;
             height: 100px;
-            margin-bottom: 15px;
             color: #494949;
             cursor: pointer;
             overflow: hidden;
@@ -136,14 +142,14 @@ ul {
                 top: 0;
                 left: 0;
                 display: block;
-                width: 100px;
-                height: 100px;
                 background-position: center center;
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
                 img {
-                    border: 1px solid #555;
+                    width: 100px;
+                    height: 100px;
+                    border: 1px solid #fff;
                     border-radius: 8px;
                 }
             }
@@ -167,12 +173,12 @@ ul {
                 }
                 .coach-info-tip {
                     display: block;
-                    margin-bottom: 4px;
+                    margin-bottom: 6px;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow: hidden;
                     span {
-                        font-size: 10px;
+                        font-size: 12px;
                         overflow: hidden;
                     }
                 }
@@ -195,7 +201,6 @@ ul {
             display: block;
             padding-left: 65px;
             height: 65px;
-            margin-bottom: 15px;
             overflow: hidden;
             color: #494949;
             cursor: pointer;
@@ -211,7 +216,7 @@ ul {
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
                 img {
-                    border: 1px solid #555;
+                    border: 1px solid #fff;
                     border-radius: 8px;
                 }
             }
@@ -240,7 +245,7 @@ ul {
                     text-overflow: ellipsis;
                     overflow: hidden;
                     span {
-                        font-size: 10px;
+                        font-size: 12px;
                         overflow: hidden;
                     }
                 }
@@ -259,6 +264,18 @@ ul {
                 right: 0;
                 z-index: -1;
             }
+            .sure-date {
+                position: absolute;
+                display: block;
+                right: 0;
+                font-size: 12px;
+            }
+            .sure-date-position8 {
+                top: 6px
+            }
+            .sure-date-position12 {
+                top: 36px
+            }
         }
     }
     .item-tips {
@@ -273,6 +290,19 @@ ul {
     }
     a {
         text-decoration: none;
+    }
+}
+
+.edit {
+    display: block;
+    padding: 15px;
+    background-color: white;
+    textarea {
+        padding: 10px;
+        width: 100%;
+        height: auto;
+        outline: none;
+        border: 1px solid #DDDDDD;
     }
 }
 
@@ -565,54 +595,220 @@ ul {
 
 .service {
     display: block;
-    padding: 15px;
     overflow: hidden;
-    .service-content {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        background-color: white;
+    .service-padding {
+        padding: 15px;
+    }
+    .service-border-bottom {
+        border-bottom: 1px solid #F6F6F6;
+    }
+    .service-content-border {
         border: 1px solid #F6F6F6;
-        border-radius: 6px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        overflow: hidden;
-        .info-avatar {
-            width: 25%;
+    }
+    .service-group {
+        display: block;
+        margin-bottom: 30px;
+        .service-group-item {
             display: block;
-        }
-        .info-wrap {
-            display: inline-block;
-            width: 75%;
-            height: 70px;
-            vertical-align: middle;
-            overflow: hidden;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: white;
+            border-radius: 6px;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-            .info-wrap-inner {
+            overflow: hidden;
+            .info-icon {
+                width: 20%;
+                display: block;
+            }
+            .pay {
                 display: inline-block;
-                float: left;
-                width: 70%;
-                padding: 20px 0;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+                height: 70px;
+                line-height: 70px;
+            }
+            .info-avatar {
+                width: 27%;
+                display: block;
+                .avatar-size {
+                    padding: 10px 10px 10px 10px;
+                    img {
+                        display: block;
+                        width: 60px;
+                        height: 60px;
+                        border: 1px solid #fff;
+                        border-radius: 6px;
+                    }
+                }
+            }
+            .info-tips {
+                display: block;
+                width: 69%;
+                padding: 10px 0;
+                overflow: hidden;
                 span {
                     display: block;
-                }
-                label {
-                    display: block;
-                    font-size: 10px;
+                    margin-bottom: 5px;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                 }
+                label {
+                    display: block;
+                    font-size: 12px;
+                    margin-bottom: 3px;
+                }
             }
-            .tag-wrap {
+            .info-wrap {
                 display: inline-block;
-                float: left;
-                width: 30%;
+                width: 80%;
+                vertical-align: middle;
+                overflow: hidden;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                .info-wrap-inner {
+                    display: inline-block;
+                    width: 65%;
+                    padding: 20px 0;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    span {
+                        display: block;
+                    }
+                    label {
+                        display: block;
+                        font-size: 12px;
+                    }
+                }
+                .tag-wrap {
+                    display: inline-block;
+                    padding: 20px 15px;
+                    width: 35%;
+                    height: 70px;
+                    line-height: 40px;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                }
+                .tag-border {
+                    border-left: 2px dashed #F6F6F6;
+                }
+                .ticket-wrap {
+                    width: 50%;
+                    overflow: hidden;
+                    .ticket {
+                        width: 100%;
+                        display: inline-block;
+                        padding: 20px 10px;
+                        height: 70px;
+                        line-height: 40px;
+                    }
+                }
+                .price-wrap {
+                    width: 40%;
+                    overflow: hidden;
+                    .price {
+                        display: inline-block;
+                        padding: 15px;
+                        width: 100%;
+                        height: 70px;
+                        overflow: hidden;
+                        span {
+                            display: block;
+                            b {
+                                font-size: 18px;
+                                color: #C987E8;
+                            }
+                        }
+                        label {
+                            display: block;
+                            font-size: 12px;
+                        }
+                    }
+                }
             }
         }
     }
+    .service-total {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        overflow: hidden;
+        span {
+            display: block;
+        }
+    }
 }
+
+// 搜索
+.search-wrap {
+    display: block;
+    overflow: hidden;
+    .tabs {
+        display: block;
+        height: 40px;
+        border-bottom: 2px solid #DDDDDD;
+        .tabs-item {
+            position: relative;
+            display: inline-block;
+            
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+        }
+        span{
+            display: inline-block;
+            width: 1px;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+
+        }
+        .highlight {
+            color: #DFBBE8;
+            border-bottom: 2px solid #DFBBE8;
+        }
+        .tabs-width50{
+            width: 50%;
+        }
+        .tabs-width33{
+            width: 33%;
+        }
+    }
+}
+
+//我的
+.head-tag {
+    display: block;
+    padding: 8px 15px;
+    font-size: 12px;
+    span {
+        color: #C987E8;
+    }
+
+}
+.tag-bg{
+    background-color: #F8F8F8;
+}
+.text-right{
+    text-align: right;
+}
+
+.text-left{
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
