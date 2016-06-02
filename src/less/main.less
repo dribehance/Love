@@ -1,814 +1,828 @@
-/**重用样式*/
-
-a:hover {
-    text-decoration: none;
-    color: #000;
-}
-
-label {
-    margin-bottom: 0;
-    font-weight: normal
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    margin-bottom: 0;
-}
-
-button {
-    margin: 0;
-    padding: 0;
-}
-
-.section {
-    display: block;
-    overflow: hidden;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    padding-left: 0;
-    .input-group-item {
-        position: relative;
-        display: block;
-        padding: 10px 15px;
-        border-bottom: 1px solid #ddd;
-        line-height: 30px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        .input-hg-width {
-            width: 96%;
-        }
-        .input-width {
-            width: 85%;
-        }
-        .input-lg-width {
-            width: 70%;
-        }
-        .input-sm-width {
-            width: 65%;
-        }
-        .input-padding {
-            padding: 0 5px 0 30px;
-        }
-        input {
-            display: inline-block;
-            outline: none;
-            border: none;
-            line-height: 30px;
-            height: 30px;
-            background-color: transparent;
-            &::-ms-clear {
-                display: none;
-            }
-            &:valid+.clear {
-                display: inline;
-            }
-        }
-        .input-icon-forward {
-            position: absolute;
-            top: 12px;
-            right: 16px;
-            z-index: -1;
-        }
-        .clear {
-            display: none;
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            margin: 0 0 0 -20px;
-            z-index: 1;
-        }
-        /**用作标签按钮*/
-        .tag {
-            span {
-                position: absolute;
-                top: 5px;
-                right: 15px;
-            }
-            label {
-                display: inline-block;
-            }
-        }
-        .date-request {
-            display: block;
-            text-align: left;
-            span {
-                display: block;
-                word-break: normal;
-            }
-            label {
-                display: block;
-                text-align: right;
-            }
-        }
-        .input-select {
-            display: inline-block;
-            select {
-                border: none;
-                background-color: transparent;
-                -webkit-appearance: none;
-                outline: none;
-            }
-        }
-        .select-lg-width {
-            width: 80%;
-        }
-        .select-text-right {
-            direction: rtl;
-            text-align: right;
-        }
-        .icon-z-index {
-            z-index: -1;
-        }
+    /**重用样式*/
+    
+    a:hover {
+        text-decoration: none;
+        color: #000;
     }
-    .coach-item {
+    
+    label {
+        margin-bottom: 0;
+        font-weight: normal
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        margin-bottom: 0;
+    }
+    
+    button {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .section {
         display: block;
-        padding: 10px 15px;
-        border-bottom: 1px solid #F3F3F3;
-        .coach-items {
-            display: block;
+        overflow: hidden;
+    }
+    
+    .input-group {
+        margin-bottom: 20px;
+        padding-left: 0;
+        .input-group-item {
             position: relative;
-            padding-left: 100px;
-            height: 100px;
-            color: #494949;
-            cursor: pointer;
-            overflow: hidden;
-            .coach-avatar {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: block;
-                background-position: center center;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-                img {
-                    width: 100px;
-                    height: 100px;
-                    border: 1px solid #fff;
-                    border-radius: 8px;
-                }
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            line-height: 30px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            .input-hg-width {
+                width: 96%;
             }
-            .coach-info {
-                display: block;
-                padding-left: 10px;
-                font-weight: 100;
-                p {
-                    margin: 0;
-                    padding: 0;
+            .input-width {
+                width: 85%;
+            }
+            .input-lg-width {
+                width: 70%;
+            }
+            .input-sm-width {
+                width: 65%;
+            }
+            .input-padding {
+                padding: 0 5px 0 30px;
+            }
+            input {
+                display: inline-block;
+                outline: none;
+                border: none;
+                line-height: 30px;
+                height: 30px;
+                background-color: transparent;
+                &::-ms-clear {
+                    display: none;
                 }
-                .input-info-title {
-                    p {
-                        display: inline-block;
-                        color: #000;
-                        overflow: hidden;
-                        span {
-                            display: inline-block;
-                        }
-                    }
-                }
-                .coach-info-tip {
-                    display: block;
-                    margin-bottom: 6px;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    span {
-                        font-size: 12px;
-                        overflow: hidden;
-                    }
-                }
-                .coach-info-tag {
-                    width: 160px;
-                    margin-bottom: 5px;
-                }
-                .coach-info-height {
-                    margin-bottom: 21px;
+                &:valid+.clear {
+                    display: inline;
                 }
             }
             .input-icon-forward {
                 position: absolute;
                 top: 12px;
                 right: 16px;
-            }
-        }
-        .coach-sm-items {
-            position: relative;
-            display: block;
-            padding-left: 65px;
-            height: 65px;
-            overflow: hidden;
-            color: #494949;
-            cursor: pointer;
-            .coach-sm-avatar {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: block;
-                width: 65px;
-                height: 65px;
-                background-position: center center;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-                img {
-                    border: 1px solid #fff;
-                    border-radius: 8px;
-                }
-            }
-            .coach-info {
-                display: block;
-                padding-left: 10px;
-                font-weight: 100;
-                p {
-                    margin: 0;
-                    padding: 0;
-                }
-                .input-info-title {
-                    p {
-                        display: inline-block;
-                        color: #000;
-                        overflow: hidden;
-                        span {
-                            display: inline-block;
-                        }
-                    }
-                }
-                .coach-info-tip {
-                    display: block;
-                    margin-bottom: 4px;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    span {
-                        font-size: 12px;
-                        overflow: hidden;
-                    }
-                }
-                .coach-info-tag {
-                    width: 160px;
-                    margin-bottom: 5px;
-                }
-                .coach-info-height {
-                    margin-bottom: 21px;
-                }
-            }
-            .icon-next {
-                position: absolute;
-                display: block;
-                top: 28px;
-                right: 0;
                 z-index: -1;
             }
-            .sure-date {
+            .clear {
+                display: none;
                 position: absolute;
-                display: block;
-                right: 0;
-                font-size: 12px;
+                width: 16px;
+                height: 16px;
+                margin: 0 0 0 -20px;
+                z-index: 1;
             }
-            .sure-date-position8 {
-                top: 6px
-            }
-            .sure-date-position12 {
-                top: 36px
-            }
-        }
-    }
-    .item-tips {
-        display: block;
-        padding: 10px 15px;
-        background-color: #fff;
-        color: #ddd;
-        font-weight: normal;
-        b {
-            color: #8140AA;
-        }
-    }
-    a {
-        text-decoration: none;
-    }
-}
-
-.edit {
-    display: block;
-    padding: 15px;
-    background-color: white;
-    textarea {
-        padding: 10px;
-        width: 100%;
-        height: auto;
-        outline: none;
-        border: 1px solid #DDDDDD;
-    }
-}
-
-
-/*按钮的宽度的**/
-
-.btn-width {
-    width: 90%;
-    margin: 0 auto;
-}
-
-.or {
-    display: block;
-    text-align: center;
-    position: relative;
-    margin: 0 30px;
-}
-
-.or-width {
-    width: 40%;
-}
-
-.man,
-.woman {
-    width: 30%;
-}
-
-.woman {
-    text-align: right;
-}
-
-.or::before {
-    content: "";
-    top: 7px;
-    height: 1px;
-    background-color: #a0a0a0;
-}
-
-.or::before {
-    position: absolute;
-    left: 0;
-    display: block;
-    right: 0;
-}
-
-.or::after {
-    content: "or";
-    width: 30px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: #fff;
-}
-
-.or::after {
-    position: absolute;
-    left: 0;
-    display: block;
-    right: 0;
-}
-
-
-/*第三方登录title*/
-
-.third-party {
-    display: block;
-    text-align: center;
-    position: relative;
-    margin: 0 22px;
-    color: #ddd;
-}
-
-.third-party::before {
-    content: "";
-    top: 11px;
-    height: 1px;
-    background-color: #ddd;
-}
-
-.third-party::before {
-    position: absolute;
-    left: 0;
-    display: block;
-    right: 0;
-}
-
-.third-party::after {
-    content: "使用第三方登录";
-    width: 120px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: #fff;
-}
-
-.third-party::after {
-    position: absolute;
-    left: 0;
-    display: block;
-    right: 0;
-}
-
-
-/***登录注册***/
-
-.signin,
-.signup {
-    display: block;
-    overflow: hidden;
-}
-
-.signin-info,
-.btn-center {
-    margin-bottom: 20px;
-}
-
-.signup-head {
-    display: block;
-    padding-top: 10px;
-    .images {
-        display: block;
-        width: 100px;
-        height: 100px;
-        border: 1px solid #eee;
-        margin: auto;
-        span {
-            display: block;
-            margin: 30px 0 10px 0;
-        }
-        label {
-            display: block;
-        }
-    }
-    a {
-        text-decoration: none;
-    }
-}
-
-.signup-or {
-    display: block;
-    padding: 15px;
-    width: 100%;
-    overflow: hidden;
-    border-bottom: 1px solid #C987E8;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.signup-blank {
-    width: 100%;
-    height: 1px;
-    padding: 5px 0
-}
-
-
-/**相机顶部距离**/
-
-.camera-top {
-    margin-top: 20px;
-}
-
-
-/*验证*/
-
-.anthen {
-    .anthen-tips {
-        display: block;
-        padding: 10px 15px;
-        background-color: #F8F8F8;
-        border-bottom: 1px solid #F1F1F1;
-    }
-}
-
-
-/**实名验证**/
-
-.id-card {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    .positive {
-        display: block;
-        width: 50%;
-        overflow: hidden;
-        span {
-            display: block;
-            text-align: center;
-            b {
-                color: red;
-            }
-        }
-        .images-left {
-            display: block;
-            padding: 10px 5px 10px 10px;
-            box-sizing: border-box;
-        }
-        .images-right {
-            display: block;
-            padding: 10px 10px 10px 5px;
-            box-sizing: border-box;
-        }
-        .images-size {
-            display: block;
-            text-align: center;
-            height: 100px;
-            vertical-align: middle;
-            background-position: center center;
-            background-color: #E8E8E8;
-            img {
-                margin: 20px auto;
-            }
-        }
-    }
-}
-
-// /**标签*/
-.btn-second {
-    .button-variant(@brand-primary;
-    #fff;
-    @brand-primary);
-    border-radius: 20px;
-}
-
-.btn-third {
-    .button-variant(@brand-second;
-    @brand-primary;
-    @brand-primary);
-    border-radius: 100px;
-}
-
-.line {
-    position: absolute;
-    top: 41px;
-    left: 45px;
-    width: 1px;
-    height: 100%;
-    border: 1px solid #F5F5F5;
-    border-right: none;
-}
-
-
-/***人工认证**/
-
-.contact {
-    position: relative;
-    display: block;
-    padding-top: 20px;
-    overflow: hidden;
-    p {
-        position: relative;
-        display: block;
-        margin-left: 40px;
-        margin-bottom: 10px;
-        padding: 10px 15px;
-        box-sizing: border-box;
-        word-break: break-all;
-        .spot {
-            position: absolute;
-            top: 14px;
-            left: 0;
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 30px;
-        }
-        .spot-style1 {
-            border: 1px solid #1ACFC7;
-            background-color: #1ACFC7;
-        }
-        .spot-style2 {
-            border: 1px solid #44D350;
-            background-color: #44D350;
-        }
-        .spot-style3 {
-            border: 1px solid #FFA851;
-            background-color: #FFA851;
-        }
-        label {
-            padding: 0;
-            margin: 0;
-            color: #837FD4;
-        }
-    }
-}
-
-
-/**服务***/
-
-.service {
-    display: block;
-    overflow: hidden;
-    .service-padding {
-        padding: 15px;
-    }
-    .service-border-bottom {
-        border-bottom: 1px solid #F6F6F6;
-    }
-    .service-content-border {
-        border: 1px solid #F6F6F6;
-    }
-    .service-group {
-        display: block;
-        margin-bottom: 30px;
-        .service-group-item {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            background-color: white;
-            border-radius: 6px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            overflow: hidden;
-            .info-icon {
-                width: 20%;
-                display: block;
-            }
-            .pay {
-                display: inline-block;
-                height: 70px;
-                line-height: 70px;
-            }
-            .info-avatar {
-                width: 27%;
-                display: block;
-                .avatar-size {
-                    padding: 10px 10px 10px 10px;
-                    img {
-                        display: block;
-                        width: 60px;
-                        height: 60px;
-                        border: 1px solid #fff;
-                        border-radius: 6px;
-                    }
+            /**用作标签按钮*/
+            .tag {
+                span {
+                    position: absolute;
+                    top: 5px;
+                    right: 15px;
+                }
+                label {
+                    display: inline-block;
                 }
             }
-            .info-tips {
+            .date-request {
                 display: block;
-                width: 69%;
-                padding: 10px 0;
-                overflow: hidden;
+                text-align: left;
                 span {
                     display: block;
-                    margin-bottom: 5px;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
+                    word-break: normal;
                 }
                 label {
                     display: block;
-                    font-size: 12px;
-                    margin-bottom: 3px;
+                    text-align: right;
                 }
             }
-            .info-wrap {
+            .input-select {
                 display: inline-block;
+                select {
+                    border: none;
+                    background-color: transparent;
+                    -webkit-appearance: none;
+                    outline: none;
+                }
+            }
+            .select-lg-width {
                 width: 80%;
-                vertical-align: middle;
+            }
+            .select-text-right {
+                direction: rtl;
+                text-align: right;
+            }
+            .icon-z-index {
+                z-index: -1;
+            }
+        }
+        .coach-item {
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #F3F3F3;
+            .coach-items {
+                display: block;
+                position: relative;
+                padding-left: 100px;
+                height: 100px;
+                color: #494949;
+                cursor: pointer;
                 overflow: hidden;
+                .coach-avatar {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    background-position: center center;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        border: 1px solid #fff;
+                        border-radius: 8px;
+                    }
+                }
+                .coach-info {
+                    display: block;
+                    padding-left: 10px;
+                    font-weight: 100;
+                    p {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .input-info-title {
+                        p {
+                            display: inline-block;
+                            color: #000;
+                            overflow: hidden;
+                            span {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    .coach-info-tip {
+                        display: block;
+                        margin-bottom: 6px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        span {
+                            font-size: 12px;
+                            overflow: hidden;
+                        }
+                    }
+                    .coach-info-tag {
+                        width: 160px;
+                        margin-bottom: 5px;
+                    }
+                    .coach-info-height {
+                        margin-bottom: 21px;
+                    }
+                }
+                .input-icon-forward {
+                    position: absolute;
+                    top: 12px;
+                    right: 16px;
+                }
+            }
+            .coach-sm-items {
+                position: relative;
+                display: block;
+                padding-left: 65px;
+                height: 65px;
+                overflow: hidden;
+                color: #494949;
+                cursor: pointer;
+                .coach-sm-avatar {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 65px;
+                    height: 65px;
+                    background-position: center center;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    img {
+                        border: 1px solid #fff;
+                        border-radius: 8px;
+                    }
+                }
+                .coach-info {
+                    display: block;
+                    padding-left: 10px;
+                    font-weight: 100;
+                    p {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .input-info-title {
+                        p {
+                            display: inline-block;
+                            color: #000;
+                            overflow: hidden;
+                            span {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    .coach-info-tip {
+                        display: block;
+                        margin-bottom: 4px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        span {
+                            font-size: 12px;
+                            overflow: hidden;
+                        }
+                    }
+                    .coach-info-tag {
+                        width: 160px;
+                        margin-bottom: 5px;
+                    }
+                    .coach-info-height {
+                        margin-bottom: 21px;
+                    }
+                }
+                .icon-next {
+                    position: absolute;
+                    display: block;
+                    top: 28px;
+                    right: 0;
+                    z-index: -1;
+                }
+                .sure-date {
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    font-size: 12px;
+                }
+                .sure-date-position8 {
+                    top: 6px
+                }
+                .sure-date-position12 {
+                    top: 36px
+                }
+            }
+        }
+        .item-tips {
+            display: block;
+            padding: 10px 15px;
+            background-color: #fff;
+            color: #ddd;
+            font-weight: normal;
+            b {
+                color: #8140AA;
+            }
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+    
+    .edit {
+        display: block;
+        padding: 15px;
+        background-color: white;
+        textarea {
+            padding: 10px;
+            width: 100%;
+            height: auto;
+            outline: none;
+            border: 1px solid #DDDDDD;
+        }
+    }
+    /*按钮的宽度的**/
+    
+    .btn-width {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .or {
+        display: block;
+        text-align: center;
+        position: relative;
+        margin: 0 30px;
+    }
+    
+    .or-width {
+        width: 40%;
+    }
+    
+    .man,
+    .woman {
+        width: 30%;
+    }
+    
+    .woman {
+        text-align: right;
+    }
+    
+    .or::before {
+        content: "";
+        top: 7px;
+        height: 1px;
+        background-color: #a0a0a0;
+    }
+    
+    .or::before {
+        position: absolute;
+        left: 0;
+        display: block;
+        right: 0;
+    }
+    
+    .or::after {
+        content: "or";
+        width: 30px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: #fff;
+    }
+    
+    .or::after {
+        position: absolute;
+        left: 0;
+        display: block;
+        right: 0;
+    }
+    /*第三方登录title*/
+    
+    .third-party {
+        display: block;
+        text-align: center;
+        position: relative;
+        margin: 0 22px;
+        color: #ddd;
+    }
+    
+    .third-party::before {
+        content: "";
+        top: 11px;
+        height: 1px;
+        background-color: #ddd;
+    }
+    
+    .third-party::before {
+        position: absolute;
+        left: 0;
+        display: block;
+        right: 0;
+    }
+    
+    .third-party::after {
+        content: "使用第三方登录";
+        width: 120px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: #fff;
+    }
+    
+    .third-party::after {
+        position: absolute;
+        left: 0;
+        display: block;
+        right: 0;
+    }
+    /***登录注册***/
+    
+    .signin,
+    .signup {
+        display: block;
+        overflow: hidden;
+    }
+    
+    .signin-info,
+    .btn-center {
+        margin-bottom: 20px;
+    }
+    
+    .signup-head {
+        display: block;
+        padding-top: 10px;
+        .images {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #eee;
+            margin: auto;
+            span {
+                display: block;
+                margin: 30px 0 10px 0;
+            }
+            label {
+                display: block;
+            }
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+    
+    .signup-or {
+        display: block;
+        padding: 15px;
+        width: 100%;
+        overflow: hidden;
+        border-bottom: 1px solid #C987E8;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    .signup-blank {
+        width: 100%;
+        height: 1px;
+        padding: 5px 0
+    }
+    /**相机顶部距离**/
+    
+    .camera-top {
+        margin-top: 20px;
+    }
+    /*验证*/
+    
+    .anthen {
+        .anthen-tips {
+            display: block;
+            padding: 10px 15px;
+            background-color: #F8F8F8;
+            border-bottom: 1px solid #F1F1F1;
+        }
+    }
+    /**实名验证**/
+    
+    .id-card {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 20px;
+        .positive {
+            display: block;
+            width: 50%;
+            overflow: hidden;
+            span {
+                display: block;
+                text-align: center;
+                b {
+                    color: red;
+                }
+            }
+            .images-left {
+                display: block;
+                padding: 10px 5px 10px 10px;
+                box-sizing: border-box;
+            }
+            .images-right {
+                display: block;
+                padding: 10px 10px 10px 5px;
+                box-sizing: border-box;
+            }
+            .images-size {
+                display: block;
+                text-align: center;
+                height: 100px;
+                vertical-align: middle;
+                background-position: center center;
+                background-color: #E8E8E8;
+                img {
+                    margin: 20px auto;
+                }
+            }
+        }
+    }
+    
+    // /**标签*/
+    .btn-second {
+        .button-variant(@brand-primary;
+        #fff;
+        @brand-primary);
+        border-radius: 20px;
+    }
+    
+    .btn-third {
+        .button-variant(@brand-second;
+        @brand-primary;
+        @brand-primary);
+        border-radius: 100px;
+    }
+    
+    .line {
+        position: absolute;
+        top: 41px;
+        left: 45px;
+        width: 1px;
+        height: 100%;
+        border: 1px solid #F5F5F5;
+        border-right: none;
+    }
+    /***人工认证**/
+    
+    .contact {
+        position: relative;
+        display: block;
+        padding-top: 20px;
+        overflow: hidden;
+        p {
+            position: relative;
+            display: block;
+            margin-left: 40px;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            word-break: break-all;
+            .spot {
+                position: absolute;
+                top: 14px;
+                left: 0;
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 30px;
+            }
+            .spot-style1 {
+                border: 1px solid #1ACFC7;
+                background-color: #1ACFC7;
+            }
+            .spot-style2 {
+                border: 1px solid #44D350;
+                background-color: #44D350;
+            }
+            .spot-style3 {
+                border: 1px solid #FFA851;
+                background-color: #FFA851;
+            }
+            label {
+                padding: 0;
+                margin: 0;
+                color: #837FD4;
+            }
+        }
+    }
+    /**服务***/
+    
+    .service {
+        display: block;
+        overflow: hidden;
+        .service-padding {
+            padding: 15px;
+        }
+        .service-border-bottom {
+            border-bottom: 1px solid #F6F6F6;
+        }
+        .service-content-border {
+            border: 1px solid #F6F6F6;
+        }
+        .service-group {
+            display: block;
+            margin-bottom: 30px;
+            .service-group-item {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                background-color: white;
+                border-radius: 6px;
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
-                .info-wrap-inner {
+                overflow: hidden;
+                .info-icon {
+                    width: 20%;
+                    display: block;
+                }
+                .pay {
                     display: inline-block;
-                    width: 65%;
-                    padding: 20px 0;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
+                    height: 70px;
+                    line-height: 70px;
+                }
+                .info-avatar {
+                    width: 27%;
+                    display: block;
+                    .avatar-size {
+                        padding: 10px 10px 10px 10px;
+                        img {
+                            display: block;
+                            width: 60px;
+                            height: 60px;
+                            border: 1px solid #fff;
+                            border-radius: 6px;
+                        }
+                    }
+                }
+                .info-tips {
+                    display: block;
+                    width: 69%;
+                    padding: 10px 0;
                     overflow: hidden;
                     span {
                         display: block;
+                        margin-bottom: 5px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
                     }
                     label {
                         display: block;
                         font-size: 12px;
+                        margin-bottom: 3px;
                     }
                 }
-                .tag-wrap {
+                .info-wrap {
                     display: inline-block;
-                    padding: 20px 15px;
-                    width: 35%;
-                    height: 70px;
-                    line-height: 40px;
+                    width: 80%;
+                    vertical-align: middle;
+                    overflow: hidden;
                     -webkit-box-sizing: border-box;
                     -moz-box-sizing: border-box;
                     box-sizing: border-box;
-                }
-                .tag-border {
-                    border-left: 2px dashed #F6F6F6;
-                }
-                .ticket-wrap {
-                    width: 50%;
-                    overflow: hidden;
-                    .ticket {
-                        width: 100%;
+                    .info-wrap-inner {
                         display: inline-block;
-                        padding: 20px 10px;
-                        height: 70px;
-                        line-height: 40px;
-                    }
-                }
-                .price-wrap {
-                    width: 40%;
-                    overflow: hidden;
-                    .price {
-                        display: inline-block;
-                        padding: 15px;
-                        width: 100%;
-                        height: 70px;
+                        width: 65%;
+                        padding: 20px 0;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
                         overflow: hidden;
                         span {
                             display: block;
-                            b {
-                                font-size: 18px;
-                                color: #C987E8;
-                            }
                         }
                         label {
                             display: block;
                             font-size: 12px;
                         }
                     }
+                    .tag-wrap {
+                        display: inline-block;
+                        padding: 20px 15px;
+                        width: 35%;
+                        height: 70px;
+                        line-height: 40px;
+                        -webkit-box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+                    }
+                    .tag-border {
+                        border-left: 2px dashed #F6F6F6;
+                    }
+                    .ticket-wrap {
+                        width: 50%;
+                        overflow: hidden;
+                        .ticket {
+                            width: 100%;
+                            display: inline-block;
+                            padding: 20px 10px;
+                            height: 70px;
+                            line-height: 40px;
+                        }
+                    }
+                    .price-wrap {
+                        width: 40%;
+                        overflow: hidden;
+                        .price {
+                            display: inline-block;
+                            padding: 15px;
+                            width: 100%;
+                            height: 70px;
+                            overflow: hidden;
+                            span {
+                                display: block;
+                                b {
+                                    font-size: 18px;
+                                    color: #C987E8;
+                                }
+                            }
+                            label {
+                                display: block;
+                                font-size: 12px;
+                            }
+                        }
+                    }
                 }
             }
         }
-    }
-    .service-total {
-        display: block;
-        width: 100%;
-        padding: 15px;
-        overflow: hidden;
-        span {
+        .service-total {
             display: block;
+            width: 100%;
+            padding: 15px;
+            overflow: hidden;
+            span {
+                display: block;
+            }
         }
     }
-}
-
-// 搜索
-.search-wrap {
-    display: block;
-    overflow: hidden;
-    .tabs {
+    
+    // 搜索
+    .search-wrap {
         display: block;
-        height: 40px;
-        border-bottom: 2px solid #DDDDDD;
-        .tabs-item {
-            position: relative;
-            display: inline-block;
-            
-            text-align: center;
+        overflow: hidden;
+        .tabs {
+            display: block;
             height: 40px;
-            line-height: 40px;
-        }
-        span{
-            display: inline-block;
-            width: 1px;
-            float: left;
-            height: 40px;
-            line-height: 40px;
-
-        }
-        .highlight {
-            color: #DFBBE8;
-            border-bottom: 2px solid #DFBBE8;
-        }
-        .tabs-width50{
-            width: 50%;
-        }
-        .tabs-width33{
-            width: 33%;
+            border-bottom: 2px solid #DDDDDD;
+            .tabs-item {
+                position: relative;
+                display: inline-block;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+            }
+            span {
+                display: inline-block;
+                width: 1px;
+                float: left;
+                height: 40px;
+                line-height: 40px;
+            }
+            .highlight {
+                color: #DFBBE8;
+                border-bottom: 2px solid #DFBBE8;
+            }
+            .tabs-width50 {
+                width: 50%;
+            }
+            .tabs-width33 {
+                width: 33%;
+            }
         }
     }
-}
-
-//我的
-.head-tag {
-    display: block;
-    padding: 8px 15px;
-    font-size: 12px;
-    span {
-        color: #C987E8;
+    
+    //我的
+    .head-tag {
+        display: block;
+        padding: 8px 15px;
+        font-size: 12px;
+        span {
+            color: #C987E8;
+        }
     }
+    
+    .tag-bg {
+        background-color: #F8F8F8;
+    }
+    
+    .text-right {
+        text-align: right;
+    }
+    
+    .text-left {
+        text-align: left;
+    }
+    
+    //聊天
+    .chat {
+        display: block;
+        padding: 10px;
+        overflow: hidden;
+        .chat-left {
+            display: block;
+            overflow: hidden;
+            img {
+                display: block;
+                width: 70px;
+                height: 70px;
+            }
+            .chat-info {
+                position: relative;
+                overflow: hidden;
+                .org {
+                    position: relative;
+                    display: block;
+                    padding: 5px;
+                    max-width: 80%;
+                    margin-left: 10px;
+                    background-color: #32BC1B;
+                    border: 1px solid #fff;
+                    border-radius: 6px;
+                    .cor {
+                        width: 0;
+                        height: 0;
+                        font-size: 0;
+                        border-width: 6px;
+                        border-style: solid;
+                        border-color:  transparent #32BC1B transparent  transparent;
+                        overflow: hidden;
+                        position: absolute;
+                        left: -12px;
+                        top: 15px;
 
-}
-.tag-bg{
-    background-color: #F8F8F8;
-}
-.text-right{
-    text-align: right;
-}
-
-.text-left{
-    text-align: left;
-}
+                    }
+                }
+            }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+    }
