@@ -28,6 +28,7 @@ angular.module("Love").constant("config", {
 		"member1",
 		"member2",
 		"messages",
+		"message",
 		"mylove",
 		"phone_authen",
 		"realname_authen",
