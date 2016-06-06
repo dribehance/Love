@@ -32,7 +32,7 @@ angular.module("Love", [
 				}
 			})
 		})
-		$routeProvider.otherwise("/index");
+		$routeProvider.otherwise("/ta");
 		$httpProvider.defaults.useXDomain = true;
 		$httpProvider.defaults.withCredentials = true;
 		delete $httpProvider.defaults.headers.common["X-Requested-With"];
