@@ -8,7 +8,9 @@ angular.module("Love").constant("config", {
 	response: {
 		"SUCCESS": 1
 	},
-	common_params: {},
+	common_params: {
+		invoke: "h5"
+	},
 	interceptor: [
 		"account",
 		"appointment",
@@ -45,6 +47,6 @@ angular.module("Love").constant("config", {
 		"charge",
 		"me",
 		"ta",
-		"vistors"
+		"visitors"
 	]
 });
