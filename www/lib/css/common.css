@@ -1,0 +1,42 @@
+/*头部*/
+.header{
+	display: block;
+	padding: 0.2rem;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+	color: white;
+	text-align: center;
+	background-color: #2D2C2A;
+}
+
+.header .fa{
+	margin-right: 5px;
+}
+/*登录*/
+.login ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.login input{
+	outline: none;
+	border: none;
+	color: #D1D1D1;
+	line-height: 14px;
+}
+.login li
+{
+	position: relative;
+	display: block;
+	padding: 10px 10px  10px 35px;
+	border-bottom: 1px solid #F8F8F8;
+}
+
+.login .fa{
+	position: absolute;
+	top: 12px;
+	left:10px;
+}

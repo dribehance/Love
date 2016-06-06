@@ -1,3 +1,66 @@
-<div class="wrap">
-	发布约会
+<div class="section" ng-if="step == 1">
+    <div class="input-group">
+        <a href="" class="input-group-item">
+            <input type="text" placeholder="请输入约会主题" class="full-width">
+        </a>
+        <a href="" class="input-group-item">
+            <div class="input-select input-hg-width">
+                <select class="full-width">
+                    <option>请输入约会类型</option>
+                    <option>官方活动</option>
+                    <option>私人约会</option>
+                </select>
+            </div>
+            <div class="icon icon-jiantou pull-right"></div>
+        </a>
+        <a href="" class="input-group-item">
+            <input type="text" placeholder="请输入约会内容" class="input-hg-width">
+            <div class="icon icon-bianji pull-right"></div>
+        </a>
+        <a href="" class="input-group-item">
+            <input type="text" placeholder="请输入约会地点" class="full-width">
+        </a>
+        <a href="" class="input-group-item">
+            <div class="input-select input-hg-width">
+                <select class="full-width">
+                    <option>请输入约会人数</option>
+                    <option>一对一</option>
+                    <option>其他</option>
+                </select>
+            </div>
+            <div class="icon icon-jiantou pull-right"></div>
+        </a>
+        <a href="" class="input-group-item">
+            <input type="text" placeholder="请输入约会费用" class="input-hg-width">
+        </a>
+        <a href="" class="input-group-item">
+            <div class="input-select input-hg-width">
+                <select class="full-width">
+                    <option>费用承担方式</option>
+                    <option>我负担</option>
+                    <option>你负担</option>
+                    <option>AA制度</option>
+                </select>
+            </div>
+            <div class="icon icon-jiantou pull-right"></div>
+        </a>
+        <div href="" class="input-group-item">
+            <button class="date-request" ng-click="show_step(2)">
+                <span>哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦</span>
+                <label>
+                    <div class="icon icon-bianji"></div>
+                </label>
+            </button>
+        </div>
+    </div>
+    <div class="section">
+        <div class="btn-center">
+            <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step(3)">发布约会</button>
+        </div>
+    </div>
+</div>
+<div class="section" ng-if="step == 2">
+    <div class="edit">
+        <textarea rows="8%" cols=""></textarea>
+    </div>
 </div>

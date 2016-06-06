@@ -1,65 +1,999 @@
 .icon {
-	display: inline-block;
-	vertical-align: middle;
-	text-align: center;
-	&.icon-home {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		// background-image: url("../images/tab_1.png");
-		background-repeat: no-repeat;
-		background-size: 80%;
-		background-position: center center;
-		&.active {
-			// background-image: url("../images/tab_1_active.png");
-		}
-	}
-	&.icon-search {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		// background-image: url("../images/tab_2.png");
-		background-repeat: no-repeat;
-		background-size: 80%;
-		background-position: center center;
-		&.active {
-			// background-image: url("../images/tab_2_active.png");
-		}
-	}
-	&.icon-message {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		// background-image: url("../images/tab_2.png");
-		background-repeat: no-repeat;
-		background-size: 80%;
-		background-position: center center;
-		&.active {
-			// background-image: url("../images/tab_2_active.png");
-		}
-	}
-	&.icon-service {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		// background-image: url("../images/tab_2.png");
-		background-repeat: no-repeat;
-		background-size: 80%;
-		background-position: center center;
-		&.active {
-			// background-image: url("../images/tab_2_active.png");
-		}
-	}
-	&.icon-user {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		// background-image: url("../images/tab_2.png");
-		background-repeat: no-repeat;
-		background-size: 80%;
-		background-position: center center;
-		&.active {
-			// background-image: url("../images/tab_2_active.png");
-		}
-	}
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    &.icon-home {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: -2px;
+        background-image: url("../images/icon_yueren.png");
+        background-repeat: no-repeat;
+        background-size: 55%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_yueren_h.png");
+        }
+    }
+    &.icon-search {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: -2px;
+        background-image: url("../images/icon_sousuo.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_sousuo_h.png");
+        }
+    }
+    &.icon-message {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: -2px;
+        background-image: url("../images/icon_xiaoxi.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_xiaoxi_h.png");
+        }
+    }
+    &.icon-service {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: -2px;
+        background-image: url("../images/icon_fuwu.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_fuwu_h.png");
+        }
+    }
+    &.icon-user {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: -2px;
+        background-image: url("../images/icon_center.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_center_h.png");
+        }
+    }
+    &.icon-shouji {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_shouji.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        z-index: 1;
+        &.active {
+            background-image: url("../images/icon_shouji_h.png");
+        }
+    }
+    &.icon-pwd {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -2px;
+        left: -5px;
+        background-image: url("../images/icon_mima.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-weixin {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -5px;
+        left: -5px;
+        background-image: url("../images/icon_weixin.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-xiangji {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_xiangce.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            //background-image: url("../images/icon_xiangji.png");
+        }
+    }
+    &.icon-nicheng {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -5px;
+        background-image: url("../images/icon_nicheng.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-dingwei {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_dingwei.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-dingwei2 {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        left: -5px;
+        position: relative;
+        background-image: url("../images/icon_dingwei.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-shengao {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_shengao.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-xueli {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_xueli.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-hunyin {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_hunyin.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-shouru {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_shouru.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-jiantou {
+        display: inline-block;
+        width: 8px;
+        height: 17px;
+        position: relative;
+        top: 5px;
+        right: 0;
+        background-image: url("../images/icon_jiantou.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-jiantou2 {
+        display: inline-block;
+        width: 8px;
+        height: 17px;
+        position: relative;
+        top: -3px;
+        right: 0;
+        background-image: url("../images/icon_jiantou.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-jiantou3 {
+        display: inline-block;
+        width: 8px;
+        height: 17px;
+        position: relative;
+        top: 0;
+        right: 0;
+        background-image: url("../images/icon_jiantou.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-rz-sm {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/rz_sm.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-rz-rg {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/rz_rg.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-rz-sj {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/rz_sj.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-yh-yhwd {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/yh_yhwd.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-yh-wyhd {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/yh_wyhd.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-nv {
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        top: -1px;
+        left: -5px;
+        background-image: url("../images/icon_nv_1.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-nv-2 {
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        top: -2px;
+        background-image: url("../images/icon_nv_2.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-nan-2 {
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        top: -2px;
+        left: -5px;
+        background-image: url("../images/icon_nan_2.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-nan-3 {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -5px;
+        left: -5px;
+        background-image: url("../images/icon_nan_2.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-cart {
+        display: inline-block;
+        width: 14px;
+        height: 20px;
+        position: relative;
+        background-image: url("../images/icon_cart.png");
+        background-repeat: no-repeat;
+        background-size: 120%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-hotel {
+        display: inline-block;
+        width: 14px;
+        height: 20px;
+        position: relative;
+        background-image: url("../images/icon_hotel.png");
+        background-repeat: no-repeat;
+        background-size: 120%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-people {
+        display: inline-block;
+        width: 14px;
+        height: 20px;
+        position: relative;
+        background-image: url("../images/icon_people.png");
+        background-repeat: no-repeat;
+        background-size: 120%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-bianji {
+        display: inline-block;
+        width: 11px;
+        height: 20px;
+        position: relative;
+        top: 5px;
+        background-image: url("../images/icon_bianji.png");
+        background-repeat: no-repeat;
+        background-size: 90%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-xinpiao {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_xinpiao.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-xinpiao2 {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        background-image: url("../images/icon_xinpiao.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-xinpiao3 {
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_xinpiao.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-baozhengjin {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_baozhengjin.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-baozhengjin2 {
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_baozhengjin.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-yuehuifei {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_yuehuifei.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-yuehuifei2 {
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_yuehuifei.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-gdlh {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_gdhl.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-gdlh2 {
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_gdhl.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-weixin1 {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_weixin1.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-xuanzhong {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_xuanzhong.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-weixuanzhong {
+        display: inline-block;
+        width: 60px;
+        height: 70px;
+        position: relative;
+        background-image: url("../images/icon_weixuanzhong.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/tab_2_active.png");
+        }
+    }
+    &.icon-paixu {
+        display: inline-block;
+        width: 25px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_paixu.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_paixu_h.png");
+        }
+    }
+    &.icon-xiala {
+        display: inline-block;
+        width: 25px;
+        height: 30px;
+        position: relative;
+        background-image: url("../images/icon_xiala.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-suozhu {
+        display: inline-block;
+        width: 25px;
+        height: 30px;
+        position: relative;
+        top: -5px;
+        background-image: url("../images/icon_suozhu.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-plane {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: -5px;
+        background-image: url("../images/plane.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-w-follow {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_w_follow.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-w-aixin {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_w_aixin.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-w-yuehui {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_w_yuehui.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-w-xihuan {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_w_xihuan.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-w-rz {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: -5px;
+        background-image: url("../images/icon_w_rz.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-xihuan {
+        display: inline-block;
+        width: 15px;
+        height: 20px;
+        position: relative;
+        top: 1px;
+        left: -2px;
+        background-image: url("../images/icon_xihuan.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-db {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_db.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-rz {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_rz.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-caiyi {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/caiyi.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-aihao {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_aihao.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-zl {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_zl.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-zo {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_zo.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-dangan {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/dangan.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-jygz {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_jygz.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-td {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_td.png");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-aiqing {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/aiqing.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-yj {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/tr_yj.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-tr-shq {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        left: -15px;
+        background-image: url("../images/icon_dingwei.png");
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-authen_1 {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-image: url("../images/authen_2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-authen_2 {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-image: url("../images/authen_1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-heart-ta {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-image: url("../images/heart_ta.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
+    &.icon-heart-ta_1 {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-image: url("../images/heart_ta_1.png");
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center center;
+        &.active {
+            // background-image: url("../images/icon_xiala_h.png");
+        }
+    }
 }
