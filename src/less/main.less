@@ -17,6 +17,10 @@
         margin-bottom: 0;
     }
     
+    p {
+        margin: 0;
+    }
+    
     button {
         margin: 0;
         padding: 0;
@@ -25,6 +29,35 @@
     .section {
         display: block;
         overflow: hidden;
+    }
+    
+    .btn-margin {
+        margin-bottom: 5px;
+    }
+    
+    .btn-box {
+        display: block;
+        padding: 10px 0;
+        width: 25%;
+    }
+    
+    .col-xm-4 {
+        width: 25%;
+    }
+    
+    select {
+        border: none;
+        background-color: transparent;
+        -webkit-appearance: none;
+        outline: none;
+    }
+    
+    .select-lg-width {
+        width: 80%;
+    }
+    
+    .select-lg-width {
+        width: 50%;
     }
     
     .input-group {
@@ -36,9 +69,7 @@
             padding: 10px 15px;
             border-bottom: 1px solid #ddd;
             line-height: 30px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
+            .box-sizing(border-box);
             .input-hg-width {
                 width: 96%;
             }
@@ -64,8 +95,9 @@
                 &::-ms-clear {
                     display: none;
                 }
-                &:valid+.clear {
+                &:invalid+.clear {
                     display: inline;
+                    color: red;
                 }
             }
             .input-icon-forward {
@@ -107,15 +139,6 @@
             }
             .input-select {
                 display: inline-block;
-                select {
-                    border: none;
-                    background-color: transparent;
-                    -webkit-appearance: none;
-                    outline: none;
-                }
-            }
-            .select-lg-width {
-                width: 80%;
             }
             .select-text-right {
                 direction: rtl;
@@ -127,7 +150,7 @@
         }
         .coach-item {
             display: block;
-            padding: 10px 15px;
+            padding: 10px;
             border-bottom: 1px solid #F3F3F3;
             .coach-items {
                 display: block;
@@ -497,6 +520,7 @@
             .images-size {
                 display: block;
                 text-align: center;
+                width: 145px;
                 height: 100px;
                 vertical-align: middle;
                 background-position: center center;
@@ -618,7 +642,6 @@
                         padding: 10px 10px 10px 10px;
                         img {
                             display: block;
-                            width: 60px;
                             height: 60px;
                             border: 1px solid #fff;
                             border-radius: 6px;
@@ -767,6 +790,7 @@
         font-size: 12px;
         span {
             color: #C987E8;
+            font-size: 12px;
         }
     }
     
@@ -787,23 +811,27 @@
         display: block;
         padding: 10px;
         overflow: hidden;
-        .chat-left {
+        .chat-box {
             display: block;
             overflow: hidden;
+            margin-bottom: 10px;
             img {
                 display: block;
-                width: 70px;
-                height: 70px;
+                width: 50px;
+                height: 50px;
+                border-radius: 6px;
             }
             .chat-info {
                 position: relative;
                 overflow: hidden;
+                p {
+                    color: #000;
+                }
                 .org {
                     position: relative;
                     display: block;
-                    padding: 5px;
+                    padding: 10px;
                     max-width: 80%;
-                    margin-left: 10px;
                     background-color: #32BC1B;
                     border: 1px solid #fff;
                     border-radius: 6px;
@@ -813,16 +841,264 @@
                         font-size: 0;
                         border-width: 6px;
                         border-style: solid;
-                        border-color:  transparent #32BC1B transparent  transparent;
+                        border-color: transparent #32BC1B transparent transparent;
                         overflow: hidden;
                         position: absolute;
                         left: -12px;
-                        top: 15px;
-
+                        top: 10px;
+                    }
+                    .col {
+                        width: 0;
+                        height: 0;
+                        font-size: 0;
+                        border-width: 6px;
+                        border-style: solid;
+                        border-color: transparent transparent transparent #32BC1B;
+                        overflow: hidden;
+                        position: absolute;
+                        right: -12px;
+                        top: 10px;
+                    }
+                }
+                .org-left {
+                    margin-left: 10px;
+                }
+                .org-right {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    
+    .chat-input {
+        position: fixed;
+        bottom: 0;
+        padding: 10px 75px 15px 15px;
+        width: 100%;
+        textarea {
+            padding: 7px 5px;
+            width: 100%;
+            background-color: #F4F4F4;
+            border-radius: 6px;
+            resize: none;
+            border: none;
+            outline: none;
+        }
+        .btn-positon {
+            position: absolute;
+            top: 5;
+            right: 15px;
+        }
+    }
+    
+    //我的
+    .ta {
+        position: relative;
+        display: block;
+        .ta-adv {
+            position: relative;
+            display: block;
+            img {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 250px;
+            }
+            .plane {
+                position: absolute;
+                top: 0;
+                right: 3px;
+            }
+            span {
+                display: block;
+            }
+            .left-camera {
+                position: absolute;
+                left: 15px;
+                top: 200px;
+                border: 1px solid #fff;
+                background-color: #fff;
+                border-radius: 20px;
+                padding-right: 5px;
+                opacity: 0.2;
+                color: #000;
+                span {
+                    display: inline-block;
+                    margin-left: -5px;
+                    margin-right: 5px;
+                }
+            }
+            .right-baseinfo {
+                position: absolute;
+                right: 15px;
+                top: 200px;
+                border: 1px solid #fff;
+                background-color: #fff;
+                border-radius: 20px;
+                padding-right: 5px;
+                opacity: 0.2;
+                color: #000;
+            }
+        }
+        .ta-banner {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            margin-left: -3px;
+            border-bottom: 1px solid #EEEEEE;
+            .banner-img {
+                display: block;
+                margin: 0 0 6px 6px;
+                img {
+                    display: block;
+                    width: 100%;
+                    border-radius: 6px;
+                }
+            }
+        }
+        .ta-title {
+            display: block;
+            padding: 10px 15px;
+            line-height: 14px;
+            span {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                vertical-align: middle;
+            }
+        }
+        .ta-second {
+            display: block;
+            padding: 0 15px;
+            margin-bottom: 5px;
+            span {
+                display: inline-block;
+                margin-left: -6px;
+            }
+        }
+        .ta-interval {
+            width: 100%;
+            height: 1px;
+            padding-top: 10px;
+            background-color: #EEEEEE;
+        }
+        .ta-subnav {
+            position: relative;
+            display: block;
+            padding: 5px 0;
+            border-top: 1px solid #eee;
+            .ta-subnav-list {
+                display: block;
+                border-right: 1px solid #eee;
+                span {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 5px;
+                    font-size: 12px;
+                }
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    
+    // .input-group {
+    //     .input-group-item {
+    //         &.addon {
+    //             po  
+    //         }
+    //         &.text-field {
+    //         }
+    //     }
+    // }
+    .items {
+        display: block;
+        margin-bottom: 10px;
+        .item {
+            position: relative;
+            display: block;
+            margin: 0 0 0 25px;
+            padding: 0 0 5px 0;
+            border-left: 1px solid #eee;
+            .item-title {
+                display: inline-block;
+                text-align: left;
+                margin-left: -17px;
+            }
+            .item-content {
+                display: block;
+                padding: 5px 30px 10px 0;
+                margin-left: 15px;
+                border-bottom: 1px solid #eee;
+                &:last-child {
+                    border-bottom: none;
+                }
+                .ta-content-rz {
+                    display: block;
+                    span {
+                        display: block;
+                        text-align: center;
+                        margin-bottom: 5px;
+                        font-size: 12px;
+                    }
+                    &:last-child {
+                        border-right: none;
                     }
                 }
             }
-
-
+            .edit-list {
+                display: block;
+                font-size: 12px;
+                li {
+                    position: relative;
+                    padding: 10px 15px 10px 17px;
+                }
+                span {
+                    float: right;
+                    display: inline-block;
+                    text-align: left;
+                    width: 52%;
+                }
+            }
+        }
+    }
+    
+    .bg-color {
+        background-color: white;
+    }
+    
+    .edit-margin-right {
+        margin: 3px 15px;
+    }
+    
+    .tag-bottom {
+        margin-bottom: 5px;
+    }
+    
+    //详情页
+    .btn-fixed {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        border-top: 1px solid #eee;
+        .btn-wrap {
+            width: 50%;
+            .btn-content {
+                padding: 10px 15px;
+            }
+        }
+        .btn-fixed-note {
+            padding: 10px 15px;
+        }
+    }
+    
+    .model {
+        position: fixed;
+        .model-content {
+            position: absolute;
+            top: 45%;
+            .model-body {}
         }
     }

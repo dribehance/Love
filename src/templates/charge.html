@@ -1,0 +1,62 @@
+<div class="section" ng-if="step == 1">
+    <div class="service">
+        <div class="service-group">
+            <div class="service-group-item service-border-bottom">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-xuanzhong"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left">
+                        <div class="ticket"><span>2400张票</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span><b>128</b>元</span>
+                            <label>0.05/张
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-group-item service-border-bottom">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-weixuanzhong"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left">
+                        <div class="ticket"><span>2400张票</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span><b>128</b>元</span>
+                            <label>0.05/张
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="btn-center">
+                <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step(2)">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" ng-if="step == 2">
+    <div class="service">
+        <div class="service-group">
+            <div class="service-group-item service-border-bottom">
+                <div class="service-total ">
+                    <span>当前选择：2400张约会票</span>
+                    <span>金额：128</span>
+                </div>
+            </div>
+            <div class="service-group-item service-border-bottom">
+                <div class="icon icon-weixin1 pull-left"></div>
+                <div class="pay pull-left">微信支付</div>
+                <div class="icon icon-weixuanzhong pull-right"></div>
+            </div>
+        </div>
+    </div>
+</div>

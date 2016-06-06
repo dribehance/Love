@@ -40,6 +40,9 @@ angular.module("Love").constant("config", {
 		"appointment1_sure",
 		"appointment2_refuse",
 		"appointment2_sure",
+		"detail",
+		"charge",
+		"me",
 		"ta",
 		"vistors"
 	]
