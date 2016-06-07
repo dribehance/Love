@@ -237,8 +237,8 @@
         <div class="btn-fixed">
             <div class="btn-wrap pull-left">
                 <div class="btn-content">
-                    <button href="" class="btn btn-primary btn-block btn-width" ng-click="">
-                        <div class="icon icon-heart-ta"></div>
+                    <button href="" class="btn btn-primary btn-block btn-width" ng-click="open_modal()">
+                        <div class="icon icon-heart-ta" ></div>
                         约会TA
                     </button>
                 </div>
@@ -252,5 +252,18 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal-overlay" ng-if="modal.status == '1'">
+    <div class="madal-body">
+        <div class="madal-body-content">
+            约会心仪TA需要消耗一张约会票哦~~
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").controller("phoneAuthenController", function($scope, errorServices, toastServices, localStorageService, config) {
 	$scope.modal = {
-		status:0;
+		status:0
 	};
 	$scope.open_modal = function() {
 		$scope.modal.status =1;

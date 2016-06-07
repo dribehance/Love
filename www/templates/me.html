@@ -11,7 +11,7 @@
         </div>
         <div class="ta-banner clearfix">
             <div class="col-xm-4 pull-left">
-                <div class="banner-img">
+                <div class="banner-img" ng-click="open_modal()">
                     <img src="../images/im.png">
                 </div>
             </div>
@@ -131,4 +131,15 @@
         </div>
     </div>
     <dribehance-footer active="'me'"></dribehance-footer>
+</div>
+
+<div class="modal-overlay" ng-if="modal.status == '1'">
+    <div class="madal-body">
+        <img src="../images/banner.png" class="full-width full-height">
+        <div class="madal-body-info">
+            缴纳约会保证金，同意和少帅毛毛共同约会
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+    </div>
 </div>
