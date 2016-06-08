@@ -21,8 +21,8 @@
                     <img src="../images/banner.png" class="full-width full-height">
                 </div>
                 <div class="btn-box pull-right">
-                    <span class="btn btn-second btn-xs btn-margin  pull-right"><b>确定赴约</b></span>
-                    <span class="btn btn-second btn-xs pull-right"><b>约会投诉</b></span>
+                    <span class="btn btn-second btn-xs btn-margin  pull-right" ng-click="open_modal()"><b>确定赴约</b></span>
+                    <span class="btn btn-second btn-xs pull-right" ng-click="open_overlay()"><b>约会投诉</b></span>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
@@ -53,7 +53,7 @@
                     <img src="../images/banner.png" class="full-width full-height">
                 </div>
                 <div class="btn-box pull-right">
-                    <span class="btn btn-second btn-xs btn-margin  pull-right"><b>确定赴约</b></span>
+                    <span class="btn btn-second btn-xs btn-margin  pull-right" ng-click="open_modal()"><b>确定赴约</b></span>
                     <span class="btn btn-second btn-xs pull-right"><b>约会投诉</b></span>
                 </div>
                 <div class="coach-info">
@@ -77,13 +77,16 @@
                         <span>深圳</span>
                     </div>
                 </div>
-               
             </div>
         </a>
     </div>
 </div>
-
-
-
-
-
+<div class="modal-overlay" ng-if="modal.status == '1'">
+    <div class="madal-body">
+        <div class="madal-body-content">
+            {{info}}
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+    </div>
+</div>
