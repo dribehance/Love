@@ -31,7 +31,7 @@
                         <span class="text-primary">对你发起了约会邀请</span>
                     </div>
                 </div>
-                <span class="btn btn-second btn-xs sure-date sure-date-position8"><b>同意</b></span>
+                <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal()"><b>同意</b></span>
                 <span class="btn btn-second btn-xs sure-date sure-date-position12"><b>拒绝</b></span>
             </div>
         </a>
@@ -51,9 +51,22 @@
                         <span class="text-primary">对你发起了约会邀请</span>
                     </div>
                 </div>
-                <span class="btn btn-second btn-xs sure-date sure-date-position8"><b>同意</b></span>
+                <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal()"><b>同意</b></span>
                 <span class="btn btn-second btn-xs sure-date sure-date-position12"><b>拒绝</b></span>
             </div>
         </a>
+    </div>
+</div>
+
+
+
+
+<div class="modal-overlay" ng-if="modal.status == '1'">
+    <div class="madal-body">
+        <div class="madal-body-content">
+            {{info}}
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
     </div>
 </div>
