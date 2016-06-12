@@ -9,4 +9,7 @@ angular.module("Love").controller("meController", function($scope, errorServices
     $scope.cancel_modal = function() {
         $scope.modal.status = 0;
     }
+    $scope.confirm_modal = function() {
+        $scope.modal.status = 0;
+    }
 })

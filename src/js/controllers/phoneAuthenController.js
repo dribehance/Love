@@ -4,9 +4,12 @@ angular.module("Love").controller("phoneAuthenController", function($scope, erro
 		status:0
 	};
 	$scope.open_modal = function() {
-		$scope.modal.status =1;
-	}
-	$scope.cancel_modal = function() {
-        $scope.modal.status =0;
-	}
+        $scope.modal.status = 1;
+    }
+    $scope.cancel_modal = function() {
+        $scope.modal.status = 0;
+    }
+    $scope.confirm_modal = function() {
+        $scope.modal.status = 0;
+    }
 })
