@@ -1,16 +1,16 @@
 <div class="section">
     <div class="search-wrap">
         <div class="tabs">
-            <a class="tabs-item tabs-width33 pull-left" ng-href="#/appointment1">
-                已确定的约会
+            <a class="tabs-item tabs-width33 pull-left  highlight" ng-href="#/appointment1_sure">
+                约会我的
             </a>
             <span>|</span>
-            <a class="tabs-item tabs-width33 pull-left highlight" ng-href="#/appointment1_sure">
-                待确定的约会
+            <a class="tabs-item tabs-width33 pull-left" ng-href="#/appointment2_sure">
+                我约会的
             </a>
             <span>|</span>
-            <a class="tabs-item tabs-width33 pull-left" ng-href="#/appointment1_refuse">
-                已拒绝的约会
+            <a class="tabs-item tabs-width33 pull-left" ng-href="#/appointment2_refuse">
+                成功约会
             </a>
         </div>
     </div>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="btn-box pull-right">
                     <span class="btn btn-second btn-xs btn-margin  pull-right" ng-click="open_modal()"><b>确定赴约</b></span>
-                    <span class="btn btn-second btn-xs pull-right" ng-click="open_overlay()"><b>约会投诉</b></span>
+                    <span class="btn btn-second btn-xs pull-right" ng-click="open_show()"><b>约会投诉</b></span>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
@@ -32,8 +32,6 @@
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
-                        <div class="icon icon-hotel"></div>
-                        <div class="icon icon-cart"></div>
                         <span>硕士</span>
                         <span>月薪</span>
                         <span>10000-20000</span>
@@ -54,7 +52,7 @@
                 </div>
                 <div class="btn-box pull-right">
                     <span class="btn btn-second btn-xs btn-margin  pull-right" ng-click="open_modal()"><b>确定赴约</b></span>
-                    <span class="btn btn-second btn-xs pull-right"><b>约会投诉</b></span>
+                    <span class="btn btn-second btn-xs pull-right" ng-click="open_show()"><b>约会投诉</b></span>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
@@ -64,8 +62,6 @@
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
-                        <div class="icon icon-hotel"></div>
-                        <div class="icon icon-cart"></div>
                         <span>硕士</span>
                         <span>月薪</span>
                         <span>10000-20000</span>
@@ -85,6 +81,19 @@
     <div class="madal-body">
         <div class="madal-body-content">
             {{info}}
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+    </div>
+</div>
+<div class="modal-show" ng-if="modal.status == '2'">
+    <div class="madal-body">
+        <div class="madal-body-content">
+            <span>{{complaint}}</span>
+            <span>电话号码:18954684582</span>
+            <span>投诉信箱:www.love@gmail.com</span>
+            <span>QQ:894475116</span>
+
         </div>
         <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
         <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>

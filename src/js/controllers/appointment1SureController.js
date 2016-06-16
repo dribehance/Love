@@ -9,6 +9,9 @@ angular.module("Love").controller("appointment1SureController", function($scope,
     $scope.open_overlay = function() {
         $scope.modal.status = 1;
     }
+    $scope.open_show = function() {
+        $scope.modal.status = 2;
+    }
     $scope.open_modal = function() {
         $scope.modal.status = 1;
     }

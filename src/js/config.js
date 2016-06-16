@@ -47,7 +47,8 @@ angular.module("Love").constant("config", {
 		"charge",
 		"me",
 		"ta",
-		
+		"withdrawals",
+		"recommendation",
 		"visitors"
 	]
 });
