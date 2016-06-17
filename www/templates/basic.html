@@ -1,7 +1,7 @@
 <div class="section">
     <div class="">
-        <div class="ta">
-            <div class="ta-adv">
+        <div class="my">
+            <div class="my-adv">
                 <img src="../images/im.png">
                 <div class="left-camera">
                     <div class="icon icon-xiangji"></div>
@@ -11,7 +11,7 @@
                     <div class="icon icon-xihuan"></div>
                 </div>
             </div>
-            <div class="ta-banner clearfix">
+            <div class="my-banner clearfix">
                 <div class="col-xm-4 pull-left">
                     <div class="banner-img">
                         <img src="../images/im.png">
@@ -48,23 +48,24 @@
                     </div>
                 </div>
             </div>
-            <div class="ta-title">
-                <div class="icon icon-nan_3 pull-left"></div>
+            <div class="my-id">
+                <span>ID:&nbsp;&nbsp;111111</span>
+            </div>
+            <div class="my-title">
+
+                <div class="icon icon-nan-3 pull-left"></div>
                 <span>咚起大起 24岁</span>
-                <div class="icon icon-hotel"></div>
-                <div class="icon icon-cart"></div>
-                <div class="icon icon-people"></div>
             </div>
-            <div class="ta-second">
+            <div class="my-second">
                 <div class="icon icon-dingwei2"></div>
-                <span>广东</span> 深圳
+                <span>广东  深圳</span>
             </div>
         </div>
         <div class="items">
             <div class="item">
                 <i class="icon icon-tr-db bg-color"></i>
                 <div class="item-title">个人独白</div>
-                <div class="item-content">
+                <div class="item-content" ng-href="">
                     我的键是好地方时间段发生水电费水电费就好搞烧烤框架和史蒂夫花果山我的键是好地方 时间段发生水电费水电费就好搞烧烤框架和史蒂夫花果山
                 </div>
             </div>
@@ -72,12 +73,12 @@
                 <i class="icon icon-tr-rz bg-color"></i>
                 <div class="item-title">认证</div>
                 <div class="item-content">
-                    <div class="ta-subnav clearfix">
-                        <div class="ta-content-rz  col-xm-4 pull-left">
+                    <div class="my-subnav clearfix">
+                        <div class="content-rz  col-xm-4 pull-left">
                             <span><div class="icon icon-authen_1"></div></span>
                             <span>实名认证</span>
                         </div>
-                        <div class="ta-content-rz  col-xm-4 pull-left">
+                        <div class="content-rz  col-xm-4 pull-left">
                             <span><div class="icon icon-authen_2"></div></span>
                             <span>手机认证</span>
                         </div>
@@ -131,15 +132,21 @@
                                 <option>175-185CM</option>
                                 <option>185-190CM</option>
                                 <option>190-195CM</option>
-                                <option>2.00CM以上</option>
+                                <option>200CM以上</option>
                             </select>
                         </li>
                         <li>
                             收入
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
+                                <option>5000元以下</option>
+                                <option>5000-8000元</option>
+                                <option>8000-10000元</option>
                                 <option>10000-20000元</option>
                                 <option>20000-30000元</option>
+                                <option>30000-40000元</option>
+                                <option>40000-50000元</option>
+                                <option>50000元以上</option>
                             </select>
                         </li>
                         <li>居住地
@@ -148,18 +155,25 @@
                                 <select class="select pull-left">
                                     <option>广东</option>
                                     <option>福建</option>
+                                    <option>乌鲁木齐</option>
                                 </select>
-                                <select class="select pull-left">
+                                <select class="select-margin pull-left">
                                     <option>深圳</option>
                                     <option>广州</option>
+                                    <option>乌鲁木齐</option>
                                 </select>
                             </div>
                         </li>
                         <li>学历
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>本科</option>
-                                <option>硕士</option>
+                                <option>初中以上</option>
+                                <option>高中以上</option>
+                                <option>中专以上</option>
+                                <option>大专以上</option>
+                                <option>本科以上</option>
+                                <option>硕士以上</option>
+                                <option>博士以上</option>
                             </select>
                         </li>
                         <li>婚姻状况
@@ -167,37 +181,43 @@
                             <select class="select select-lg-width pull-right">
                                 <option>未婚</option>
                                 <option>已婚</option>
+                                <option>离异</option>
+                                <option>丧偶</option>
                             </select>
                         </li>
                         <li>有无子女
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>无</option>
-                                <option>有</option>
+                                <option>没有</option>
+                                <option>有,和我住一起</option>
+                                <option>有,不和我住一起</option>
+                                <option>有,有时和我住一起</option>
                             </select>
                         </li>
                         <li>购房情况
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>已购放（有房贷）</option>
-                                <option>无</option>
+                                <option>以后再告诉你</option>
+                                <option>已购房(有房贷)</option>
+                                <option>与父母同住</option>
+                                <option>租房</option>
+                                <option>已购房(无房贷)</option>
+                                <option>住单位房</option>
+                                <option>住亲朋家</option>
+                                <option>需要时购置</option>
                             </select>
                         </li>
                         <li>购车情况
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>以后再告诉你</option>
-                                <option>无</option>
+                                <option>已购车</option>
+                                <option>未购车</option>
+                                <option>单位用车</option>
+                                <option>需要时购置</option>
                             </select>
                         </li>
                         <li>职业情况
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>证券</option>
-                                <option>金融</option>
-                                <option>投资</option>
-                                <option>银行</option>
-                            </select>
+                            <input class="pull-right">
                         </li>
                     </ul>
                 </div>
@@ -210,22 +230,65 @@
                         <li>年龄
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>23-24岁</option>
-                                <option>25-26岁</option>
+                                <option>20岁以下</option>
+                                <option>20-22岁</option>
+                                <option>22-24岁</option>
+                                <option>24-26岁</option>
+                                <option>26-28岁</option>
+                                <option>28-30岁</option>
+                                <option>30-32岁</option>
+                                <option>32-34岁</option>
+                                <option>34-36岁</option>
+                                <option>36-38岁</option>
+                                <option>38-40岁</option>
+                                <option>40-42岁</option>
+                                <option>42-44岁</option>
+                                <option>44-46岁</option>
+                                <option>46-48岁</option>
+                                <option>48-50岁</option>
+                                <option>50-52岁</option>
+                                <option>52-54岁</option>
+                                <option>54-56岁</option>
+                                <option>56-58岁</option>
+                                <option>58-60岁</option>
+                                <option>60-62岁</option>
+                                <option>62-64岁</option>
+                                <option>64-66岁</option>
+                                <option>66-68岁</option>
+                                <option>68-70岁</option>
+                                <option>70-72岁</option>
+                                <option>72-74岁</option>
+                                <option>74-76岁</option>
+                                <option>76-78岁</option>
+                                <option>78-80岁</option>
+                                <option>80岁以上</option>
                             </select>
                         </li>
                         <li>身高
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
+                                <option>155CM以下</option>
+                                <option>155-160CM</option>
+                                <option>160-165CM</option>
+                                <option>165-170CM</option>
                                 <option>165-175CM</option>
                                 <option>175-185CM</option>
+                                <option>185-190CM</option>
+                                <option>190-195CM</option>
+                                <option>200CM以上</option>
                             </select>
                         </li>
                         <li>收入
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
+                                <option>5000元以下</option>
+                                <option>5000-8000元</option>
+                                <option>8000-10000元</option>
                                 <option>10000-20000元</option>
                                 <option>20000-30000元</option>
+                                <option>30000-40000元</option>
+                                <option>40000-50000元</option>
+                                <option>50000元以上</option>
                             </select>
                         </li>
                         <li>居住地
@@ -250,7 +313,7 @@
                                 <option>大专以上</option>
                                 <option>本科以上</option>
                                 <option>硕士以上</option>
-                                <option>博士以上</option>
+                                <option>博士</option>
                             </select>
                         </li>
                         <li>婚姻状况
@@ -258,18 +321,22 @@
                             <select class="select select-lg-width pull-right">
                                 <option>未婚</option>
                                 <option>已婚</option>
+                                <option>离异</option>
+                                <option>丧偶</option>
                             </select>
                         </li>
                         <li>有无子女
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>有</option>
-                                <option>无</option>
+                                <option>没有</option>
+                                <option>有,和我住一起</option>
+                                <option>有,不和我住一起</option>
+                                <option>有,有时和我住一起</option>
                             </select>
                         </li>
                         <li>购房情况
                             <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
+                            <select class="select-lg-width pull-right">
                                 <option>不限</option>
                                 <option></option>
                             </select>
@@ -285,11 +352,11 @@
                         <li>家乡
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <div class="select-lg-width pull-right">
-                                <select class="select pull-left">
+                                <select class="pull-left">
                                     <option>广东</option>
                                     <option>福建</option>
                                 </select>
-                                <select class="select select-margin pull-left">
+                                <select class="select-margin pull-left">
                                     <option>深圳</option>
                                     <option>广州</option>
                                 </select>
@@ -314,10 +381,10 @@
                         <li>血型
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>A</option>
-                                <option>B</option>
-                                <option>AB</option>
-                                <option>O</option>
+                                <option>A型</option>
+                                <option>B型</option>
+                                <option>AB型</option>
+                                <option>O型</option>
                                 <option>其他</option>
                             </select>
                         </li>
@@ -425,7 +492,7 @@
                 <div class="item-title">教育及工作单位</div>
                 <div class="edit-list">
                     <ul>
-                        <li>毕业院校<span>中国地质大学</span></li>
+                        <li>毕业院校<span><input></span></li>
                         <li>所学专业
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
@@ -492,7 +559,7 @@
                         </li>
                         <li>公司性质
                             <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
+                            <select class="select-lg-width pull-right">
                                 <option>政府机关</option>
                                 <option>事业单位</option>
                                 <option>外企企业</option>
@@ -505,7 +572,7 @@
                         </li>
                         <li>公司行业
                             <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
+                            <select class="select-lg-width pull-right">
                                 <option>计算机/网络</option>
                                 <option>科研/教育</option>
                                 <option>公关/广告</option>
@@ -518,7 +585,7 @@
                         </li>
                         <li>工作状态
                             <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
+                            <select class="select-lg-width pull-right">
                                 <option>轻松稳定</option>
                                 <option>朝九晚五</option>
                                 <option>偶尔加班</option>
@@ -552,9 +619,9 @@
                 <div class="item-title">我有态度</div>
                 <div class="edit-list">
                     <ul>
-                        <li>金钱观<span>享受第一</span></li>
-                        <li>性观念<span>享受身体</span></li>
-                        <li>事业与爱情<span>有事业就有爱情</span></li>
+                        <li>金钱观<span><input></span></li>
+                        <li>性观念<span><input></span></li>
+                        <li>事业与爱情<span><input></span></li>
                     </ul>
                 </div>
             </div>
@@ -564,23 +631,16 @@
                 <div class="edit-list">
                     <ul>
                         <li>结婚计划
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
+                            
                         </li>
                         <li>家务分工
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right">
-                                <option>男主外，女主内</option>
-                                <option>男主外，女主外</option>
-                                
-                                <option>其他</option>
+                                <option>任劳任怨</option>
+                                <option>希望对方承担家务</option>
+                                <option>一起分工合作</option>
+                                <option>看各自闲忙，协商分担</option>
                             </select>
                         </li>
                         <li>是否想要孩子
@@ -590,7 +650,6 @@
                                 <option>不想</option>
                                 <option>还没想好</option>
                                 <option>视情况而定</option>
-                                
                                 <option>其他</option>
                             </select>
                         </li>
@@ -601,22 +660,14 @@
                                 <option>不愿意</option>
                                 <option>视情况而定</option>
                                 
-                                <option>其他</option>
                             </select>
                         </li>
                         <li>夫妻模式
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>以男人事业为主</option>
-                                <option>其他</option>
-                            </select>
+                            
+                            <span><input></span>
                         </li>
                         <li>相处模式
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>相敬如宾</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                     </ul>
                 </div>
@@ -628,39 +679,19 @@
                     <ul>
                         <li>
                             最向往的事
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>一起唱歌</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>最喜欢的书
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>活着</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>最喜欢的电影
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>西雅图遇上北京</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>最关注的话题
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>钓鱼岛</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>最骄傲的事
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>你猜</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>厨艺状况
                             <div class="icon icon-jiantou3 pull-right"></div>
@@ -672,15 +703,7 @@
                             </select>
                         </li>
                         <li>到过的地方
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>广州</option>
-                                <option>北京</option>
-                                <option>上海</option>
-                                <option>三亚</option>
-                                <option>桂林</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                     </ul>
                 </div>
@@ -691,60 +714,21 @@
                 <div class="edit-list">
                     <ul>
                         <li>工作地点
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>深圳南山</option>
-                                <option>深圳宝安</option>
-                                <option>广州天河</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>生活地点
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>海岸城</option>
-                                <option>玫瑰海岸</option>
-                                <option>欢乐海岸</option>
-                                <option>深圳湾体育馆</option>
-                                <option>红树林</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>常出没地
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>桃源村</option>
-                                <option>南岭村</option>
-                                <option>上围新村</option>
-                                <option>宝体</option>
-                                <option>西乡</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                         <li>工作单位
-                            <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right">
-                                <option>科技园</option>
-                                <option>世贸大厦</option>
-                                <option>财富港</option>
-                                <option>京基</option>
-                                <option>地王</option>
-                                <option>其他</option>
-                            </select>
+                            <span><input></span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- <div class="section">
-            <div class="btn-fixed">
-                <div class="btn-wrap  pull-left">
-                    <button href="" class="btn btn-primary btn-block btn-width" ng-click="">
-                        <div class="icon icon-heart-ta"></div>
-                        约会TA
-                    </button>
-                </div>
-            </div>
-        </div> -->
+        
     </div>
 </div>

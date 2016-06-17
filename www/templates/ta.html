@@ -9,7 +9,7 @@
                     <div class="coach-info-tip">
                         <p>
                             咚起大起
-                            <span class="icon icon-nv_2"></span>
+                            <span class="icon icon-nan-2"></span>
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
@@ -35,14 +35,14 @@
         </a>
         <a class="coach-item" ng-href="#/detail">
             <div class="coach-items">
-                <div class="coach-avatar">
+                <div class="coach-avatar" ng-click="open_modal">
                     <img src="../images/banner.png" class="full-width full-height">
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
                         <p>
                             咚起大起
-                            <span class="icon icon-nv_2"></span>
+                            <span class="icon icon-nv-2"></span>
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
@@ -67,6 +67,18 @@
             </div>
         </a>
     </div>
-</div>
-<!-- footer tab bar -->
+
+    <!-- footer tab bar -->
 <dribehance-footer active="'index'"></dribehance-footer>
+</div>
+
+<div class="modal-overlay" ng-if="modal.status == '1'">
+    <div class="madal-body">
+        <img src="../images/banner.png" class="full-width full-height">
+        <div class="madal-body-info">
+            缴纳约会保证金，同意和少帅毛毛共同约会
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+    </div>
+</div>
