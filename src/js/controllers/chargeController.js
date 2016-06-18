@@ -25,7 +25,18 @@ angular.module("Love").controller("chargeController", function($scope, errorServ
     $scope.select = function(charge) {
         charge.select = !charge.select;
     }
-    
+
     $scope.number = "2400";
-    
+    $scope.wechat_pays = [{
+        select: false
+    }];
+    $scope.select = function(wechat_pay) {
+        wechat_pay.select = !wechat_pay.select;
+    }
+    $scope.pays = [{
+        select: false
+    }];
+    $scope.select = function(pay) {
+        pay.select = !pay.select;
+    }
 })

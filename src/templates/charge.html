@@ -33,14 +33,14 @@
                     <span>金额：128</span>
                 </div>
             </div>
-            <div class="service-group-item service-border-bottom" ng-click="select(charge)" ng-model="charges">
+            <div class="service-group-item service-border-bottom" ng-click="select(wechat_pay)" ng-repeat="wechat_pay in wechat_pays">
                 <div class="icon icon-weixin1 pull-left"></div>
                 <div class="pay pull-left">微信支付</div>
-                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':charge.select}"></div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':wechat_pay.select}"></div>
             </div>
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="select(pay)" ng-repeat="pay in pays">
                 <div class="pay sub-field">使用押金</div>
-                <div class="icon icon-weixuanzhong pull-right"></div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':pay.select}"></div>
             </div>
         </div>
         <div class="btn-center">
