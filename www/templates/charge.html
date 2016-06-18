@@ -16,9 +16,6 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
         </div>
         <div class="section">
             <div class="btn-center">
@@ -30,17 +27,16 @@
 <div class="section" ng-if="step == 2">
     <div class="service">
         <div class="service-group">
-            <div class="service-group-item service-border-bottom text-field" ng-app="">
+            <div class="service-group-item service-border-bottom text-field">
                 <div class="text-field">
                     <span>当前选择：{{number}}张约会票</span>
                     <span>金额：128</span>
                 </div>
             </div>
-            
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="select(charge)" ng-model="charges">
                 <div class="icon icon-weixin1 pull-left"></div>
                 <div class="pay pull-left">微信支付</div>
-                <div class="icon icon-weixuanzhong pull-right"></div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':charge.select}"></div>
             </div>
             <div class="service-group-item service-border-bottom">
                 <div class="pay sub-field">使用押金</div>

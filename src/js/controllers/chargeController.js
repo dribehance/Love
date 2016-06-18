@@ -25,6 +25,7 @@ angular.module("Love").controller("chargeController", function($scope, errorServ
     $scope.select = function(charge) {
         charge.select = !charge.select;
     }
+    
     $scope.number = "2400";
     
 })
