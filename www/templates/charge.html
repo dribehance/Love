@@ -1,0 +1,54 @@
+<div class="section" ng-if="step == 1">
+    <div class="service">
+        <div class="service-group">
+            <div class="service-group-item service-border-bottom" ng-click="select(charge)" ng-repeat="charge in charges">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':charge.select}"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left">
+                        <div class="ticket"><span>{{charge.name}}</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span>{{charge.money}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        <div class="section">
+            <div class="btn-center">
+                <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step(2)">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" ng-if="step == 2">
+    <div class="service">
+        <div class="service-group">
+            <div class="service-group-item service-border-bottom text-field">
+                <div class="text-field">
+                    <span>当前选择：2400张约会票</span>
+                    <span>金额：128</span>
+                </div>
+            </div>
+            
+            <div class="service-group-item service-border-bottom">
+                <div class="icon icon-weixin1 pull-left"></div>
+                <div class="pay pull-left">微信支付</div>
+                <div class="icon icon-weixuanzhong pull-right"></div>
+            </div>
+            <div class="service-group-item service-border-bottom">
+                <div class="pay sub-field">使用押金</div>
+                <div class="icon icon-weixuanzhong pull-right"></div>
+            </div>
+        </div>
+        <div class="btn-center">
+            <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step()">确认购买</button>
+        </div>
+    </div>
+</div>

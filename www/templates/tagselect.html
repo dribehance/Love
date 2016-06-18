@@ -1,0 +1,6 @@
+<div class="input-group">
+	<div class="input-group-item" ng-click="select(tag)" ng-repeat="tag in tags">
+		{{tag.name}}
+		<i class="fa fa-check pull-right" ng-class="{'text-primary':tag.select}" aria-hidden="true"></i>
+	</div>
+</div>

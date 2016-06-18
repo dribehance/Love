@@ -1,0 +1,169 @@
+<div class="signup" ng-if="step == 1">
+    <form>
+        <div class="input-group">
+            <div class="input-group-item addon">
+                <div class="icon icon-shouji"></div>
+                <input type="text" placeholder="请输入手机号码" class="full-width">
+            </div>
+            <div class="input-group-item addon">
+                <div class="icon icon-pwd"></div>
+                <input type="password" placeholder="请输入密码" class="full-width" required="required">
+            </div>
+            <div class="input-group-item addon">
+                <div class="icon icon-nicheng"></div>
+                <input type="text" placeholder="推荐人" class="full-width">
+            </div>
+            <div class="input-group-item">
+                <input type="text" placeholder="请输入验证码" class="input-lg-width">
+                <a class="btn btn-second btn-sm" ng-click="open_modal()"><b>获取验证码</b></a>
+            </div>
+            
+        </div>
+        <div class="btn-center">
+            <button href="" class="btn btn-default btn-block btn-width" ng-click="show_step(2)">下一步</button>
+        </div>
+    </form>
+</div>
+<div class="signup" ng-if="step == 2">
+    <div class="signup">
+        <div class="section">
+            <div class="signup-head">
+                <a href="" class="images full-height full-width">
+                    <div class="text-center camera-top">
+                        <div class="icon icon-xiangji"></div>
+                    </div>
+                    <div class="text-center">添加头像</div>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <div class="signup-or clearfix">
+                <div class="man pull-left text-primary">
+                    <i class="icon icon-nan active"></i> 男
+                </div>
+                <div class="or-width pull-left"><span class="or">or</span></div>
+                <div class="woman pull-right">
+                    <i class="icon icon-nv"></i> 女
+                </div>
+            </div>
+        </div>
+        <div class="signup-blank"></div>
+        <div class="section">
+            <div class="input-group">
+                <div class="input-group-item addon">
+                    <div class="icon icon-nicheng"></div>
+                    <input type="text" placeholder="我的昵称" class="full-width">
+                </div>
+                <div class="input-group-item">
+                    <div class="icon icon-dingwei pull-left"></div>
+                    <div class="input-select ">
+                        <select>
+                            <option>广东</option>
+                            <option>江西</option>
+                            <option>四川</option>
+                            <option>乌鲁木齐</option>
+                        </select>
+                        <select>
+                            <option>深圳</option>
+                            <option>广州</option>
+                            <option>东莞</option>
+                            <option>乌鲁木齐</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item-tips">
+                    <label>注册成功后，性别不可修改</label>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="btn-center">
+                <button href="" class="btn btn-default btn-block btn-width" ng-click="show_step(3)">下一步</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="signup" ng-if="step == 3">
+    <div class="section">
+        <div class="input-group">
+            <div class="input-group-item">
+                <div class="icon icon-shengao"></div>
+                <div class="sm-select">
+                    <select class="full-width">
+                        <option>我的身高</option>
+                        <option>155CM以下</option>
+                        <option>155-165CM</option>
+                        <option>165-170CM</option>
+                        <option>170-175CM</option>
+                        <option>175-180CM</option>
+                        <option>180-185CM</option>
+                        <option>185-190CM</option>
+                        <option>190-195CM</option>
+                        <option>195-200CM</option>
+                        <option>200CM以上</option>
+                    </select>
+                </div>
+                <div class="icon icon-jiantou"></div>
+            </div>
+            <div class="input-group-item">
+                <div class="icon icon-xueli"></div>
+                <div class="sm-select">
+                    <select class="full-width">
+                        <option>我的学历</option>
+                        <option>初中以上</option>
+                        <option>高中以上</option>
+                        <option>中专以上</option>
+                        <option>大专以上</option>
+                        <option>本科以上</option>
+                        <option>硕士以上</option>
+                        <option>博士</option>
+                    </select>
+                </div>
+                <div class="icon icon-jiantou"></div>
+            </div>
+            <div class="input-group-item">
+                <div class="icon icon-hunyin"></div>
+                <div class="sm-select">
+                    <select class="full-width">
+                        <option>婚姻状况</option>
+                        <option>未婚</option>
+                        <option>已婚</option>
+                        <option>离异</option>
+                        <option>丧偶</option>
+                    </select>
+                </div>
+                <div class="icon icon-jiantou"></div>
+            </div>
+            <div class="input-group-item">
+                <div class="icon icon-shouru"></div>
+                <div class="sm-select">
+                    <select class="full-width">
+                        <option>我的收入</option>
+                        <option>5000元以下</option>
+                        <option>5000-8000元</option>
+                        <option>8000-10000元</option>
+                        <option>10000-20000元</option>
+                        <option>20000-30000元</option>
+                        <option>30000-40000元</option>
+                        <option>40000-50000元</option>
+                        <option>50000元以上</option>
+                    </select>
+                </div>
+                <div class="icon icon-jiantou"></div>
+            </div>
+            <div class="item-tips">
+                <label>注册即同意因爱网<b>服务条款</b>和<b>隐私政策</b></span>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="btn-center">
+            <button href="" class="btn btn-default btn-block btn-width" ng-click="show_step(3)">确认注册</button>
+        </div>
+    </div>
+</div>
+<div class="model-signup" ng-if="modal.status == '1'" ng-click="cancel_modal()">
+    <div class="model-signup-body">
+        <p>你的手机号已经被注册</p>
+    </div>
+</div>

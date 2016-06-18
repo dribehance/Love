@@ -1,0 +1,32 @@
+<div class="section">
+    <div class="input-group">
+        <div class="input-group-item">
+            <input type="text" placeholder="请输入手机号" class="full-width">
+        </div>
+        <div class="input-group-item">
+            <input type="text" placeholder="请输入验证码" class="input-lg-width">
+            <a class="btn btn-second btn-sm" ng-click="open_modal()"><b>获取验证码</b></a>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="btn-center">
+        <button href="" class="btn btn-default btn-block btn-width">完成</button>
+    </div>
+</div>
+<div class="model-phone-authen" ng-if="modal.status == '1'" ng-click="cancel_modal()">
+    <div class="model-phone-authen-body">
+        <p>该手机号码已被认证过</p>
+        <label>该手机号已被其他账户认证，是否解绑并关联到本账户？</label>
+    </div>
+</div>
+<div class="modal-overlay" ng-if="modal.status == '3'">
+    <div class="madal-body">
+        <div class="model-phone-authen">
+            <p>该手机号码已被认证过</p>
+            <label>该手机号已被其他账户认证，是否解绑并关联到本账户？</label>
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+    </div>
+</div>
