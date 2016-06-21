@@ -7,29 +7,19 @@ angular.module("Love").controller("chargeController", function($scope, errorServ
     }
 
     $scope.vips = [{
-        name: [
-            "1个月VIP",
-            "3个月VIP",
-            "4个月VIP",
-            "12个月VIP",
-        ]
+        name: "1个月VIP",
         money: "X元",
-        month: [
-            "1",
-            "3",
-            "4",
-            "12"
-        ]
-    }, {
+        month: "1"
+    },{
         name: "3个月VIP",
         money: "X元",
         month: "3"
-    }, {
+    },{
         name: "4个月VIP",
         money: "X元",
         month: "4"
-
-    }, {
+        
+    },{
         name: "12个月VIP",
         money: "X元",
         month: "12"
