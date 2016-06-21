@@ -1,4 +1,4 @@
-angular.module("Love").controller("chargeController", function($scope, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("chargeController", function($scope, $routeParams, errorServices, toastServices, localStorageService, config) {
     console.log("dd")
 
     $scope.step = 1;
@@ -6,39 +6,22 @@ angular.module("Love").controller("chargeController", function($scope, errorServ
         $scope.step = step;
     }
 
-    $scope.vips = [{
-        name: "1个月VIP",
-        money: "X元",
-        month: "1"
-    },{
-        name: "3个月VIP",
-        money: "X元",
-        month: "3"
-    },{
-        name: "4个月VIP",
-        money: "X元",
-        month: "4"
-        
-    },{
-        name: "12个月VIP",
-        money: "X元",
-        month: "12"
-    }];
-    $scope.select = function(vip) {
-        vips.month = vip.month;
-    }
+    $scope.change_vips = function(vip){
+        $scope.vips.vip=vip;
+    }    
+    $scope.vips = {
+        vip:'1个月VIP'
+    };
 
-    $scope.number = "2400";
-    $scope.wechat_pays = [{
-        select: false
-    }];
-    $scope.select = function(wechat_pay) {
-        wechat_pay.select = !wechat_pay.select;
-    }
-    $scope.pays = [{
-        select: false
-    }];
-    $scope.select = function(pay) {
-        pay.select = !pay.select;
-    }
+    $scope.change_pays = function(pay){
+        $scope.pays.pay=pay;
+    }    
+    $scope.pays = {
+        pay:'微信支付'
+    };
+
+
+
+
+    
 })

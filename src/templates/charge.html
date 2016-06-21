@@ -1,21 +1,67 @@
 <div class="section" ng-if="step == 1">
     <div class="service">
         <div class="service-group">
-            <div class="service-group-item service-border-bottom" ng-repeat="vip in vips" ng-value="vip.select">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('1个月VIP')">
                 <div class="info-icon pull-right">
-                    <div class="icon icon-weixuanzhong" ng-class="{'active':vip.select==vip.month}"></div>
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='1个月VIP'}"></div>
                 </div>
                 <div class="info-wrap pull-left">
                     <div class="ticket-wrap pull-left">
-                        <div class="ticket"><span>{{vip.name}}</span></div>
+                        <div class="ticket"><span>1个月VIP</span></div>
                     </div>
                     <div class="price-wrap">
                         <div class="price pull-left">
-                            <span>{{vip.money}}</span>
+                            <span>X元</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('3个月VIP')">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='3个月VIP'}"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left">
+                        <div class="ticket"><span>3个月VIP</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span>X元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('4个月VIP')">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='4个月VIP'}"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left">
+                        <div class="ticket"><span>4个月VIP</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span>X元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('12个月VIP')">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='12个月VIP'}"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left">
+                        <div class="ticket"><span>12个月VIP</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span>X元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
 
         </div>
         <div class="section">
@@ -34,17 +80,18 @@
                     <span>金额：128</span>
                 </div>
             </div>
-            <div class="service-group-item service-border-bottom" ng-click="select(wechat_pay)" ng-repeat="wechat_pay in wechat_pays">
+            <div class="service-group-item service-border-bottom" ng-click="change_pays('微信支付')">
                 <div class="icon icon-weixin1 pull-left"></div>
                 <div class="pay pull-left">微信支付</div>
-                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':wechat_pay.select}"></div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':pays.pay=='微信支付'}"></div>
             </div>
-            <div class="service-group-item service-border-bottom" ng-click="select(pay)" ng-repeat="pay in pays">
-                <div class="pay sub-field">使用押金</div>
+            <div class="service-group-item service-border-bottom" ng-click="change_pays('押金支付')">
+                <div class="pay sub-field">押金支付</div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':pays.pay=='押金支付'}"></div>
             </div>
         </div>
         <div class="btn-center">
-            <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step()">确认购买</button>
+            <button href="" class="btn btn-primary btn-block btn-width">确认购买</button>
         </div>
     </div>
 </div>
