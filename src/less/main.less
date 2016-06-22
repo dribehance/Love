@@ -6,7 +6,17 @@ a:hover {
 }
 
 * {
+     -webkit-touch-callout: none;
+    /* iOS Safari */
     -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
 }
 
 label {
@@ -134,6 +144,10 @@ select {
         .input-padding {
             padding: 0 5px 0 30px;
         }
+        .fa{
+            position: relative;
+            top: 8px;
+        }
         input {
             display: inline-block;
             padding-right: 10px;
@@ -143,15 +157,13 @@ select {
             }
             &:invalid+.clear {
                 display: inline;
-                color: red;
             }
         }
         .clear {
             display: none;
             position: absolute;
-            width: 16px;
-            height: 16px;
-            margin: 0 0 0 -20px;
+            top: 20px;
+            right: 20px;
             z-index: 1;
         }
         /**用作标签按钮*/
@@ -672,8 +684,8 @@ select {
                     display: block;
                 }
             }
-            &.sub-field {
-                padding: 25px 15px;
+            .sub-field {
+                padding-left: 15px;
             }
             .info-icon {
                 width: 18%;
@@ -1139,7 +1151,6 @@ select {
     /* 背景半透明 */
     /* 模态框样式 */
 }
-
 
 .madal-body {
     position: relative;

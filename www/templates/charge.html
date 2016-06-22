@@ -1,9 +1,9 @@
 <div class="section" ng-if="step == 1">
     <div class="service">
         <div class="service-group">
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('1个月VIP')">
                 <div class="info-icon pull-right">
-                    <div class="icon icon-xuanzhong"></div>
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='1个月VIP'}"></div>
                 </div>
                 <div class="info-wrap pull-left">
                     <div class="ticket-wrap pull-left">
@@ -16,9 +16,9 @@
                     </div>
                 </div>
             </div>
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('3个月VIP')">
                 <div class="info-icon pull-right">
-                    <div class="icon icon-weixuanzhong"></div>
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='3个月VIP'}"></div>
                 </div>
                 <div class="info-wrap pull-left">
                     <div class="ticket-wrap pull-left">
@@ -31,9 +31,9 @@
                     </div>
                 </div>
             </div>
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('4个月VIP')">
                 <div class="info-icon pull-right">
-                    <div class="icon icon-weixuanzhong"></div>
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='4个月VIP'}"></div>
                 </div>
                 <div class="info-wrap pull-left">
                     <div class="ticket-wrap pull-left">
@@ -46,9 +46,9 @@
                     </div>
                 </div>
             </div>
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips('12个月VIP')">
                 <div class="info-icon pull-right">
-                    <div class="icon icon-weixuanzhong"></div>
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip=='12个月VIP'}"></div>
                 </div>
                 <div class="info-wrap pull-left">
                     <div class="ticket-wrap pull-left">
@@ -61,6 +61,8 @@
                     </div>
                 </div>
             </div>
+           
+
         </div>
         <div class="section">
             <div class="btn-center">
@@ -74,22 +76,22 @@
         <div class="service-group">
             <div class="service-group-item service-border-bottom text-field">
                 <div class="text-field">
-                    <span>当前选择：2400张约会票</span>
+                    <span>当前选择：{{number}}张约会票</span>
                     <span>金额：128</span>
                 </div>
             </div>
-            
-            <div class="service-group-item service-border-bottom">
+            <div class="service-group-item service-border-bottom" ng-click="change_pays('微信支付')">
                 <div class="icon icon-weixin1 pull-left"></div>
                 <div class="pay pull-left">微信支付</div>
-                <div class="icon icon-weixuanzhong pull-right"></div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':pays.pay=='微信支付'}"></div>
             </div>
-            <div class="service-group-item service-border-bottom sub-field">
-                <div class="">使用押金</div>
+            <div class="service-group-item service-border-bottom" ng-click="change_pays('押金支付')">
+                <div class="pay sub-field">押金支付</div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':pays.pay=='押金支付'}"></div>
             </div>
         </div>
         <div class="btn-center">
-            <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step()">确认购买</button>
+            <button href="" class="btn btn-primary btn-block btn-width">确认购买</button>
         </div>
     </div>
 </div>
