@@ -1,17 +1,17 @@
 <div class="signup" ng-if="step == 1">
-    <form>
+    <form name="signup" ng-submit="signup_action()">
         <div class="input-group">
             <div class="input-group-item addon">
                 <div class="icon icon-shouji"></div>
-                <input type="text" placeholder="请输入手机号码" class="full-width">
+                <input type="text" placeholder="请输入手机号码" class="full-width" ng-model="input.signup_telephone" required>
             </div>
             <div class="input-group-item addon">
                 <div class="icon icon-pwd"></div>
-                <input type="password" placeholder="请输入密码" class="full-width" required="required">
+                <input type="password" placeholder="请输入密码" class="full-width" ng-model="input.signup_password" required>
             </div>
             <div class="input-group-item addon">
                 <div class="icon icon-nicheng"></div>
-                <input type="text" placeholder="推荐人" class="full-width">
+                <input type="text" placeholder="推荐人" class="full-width" ng-model="signup_code">
             </div>
             <div class="input-group-item">
                 <input type="text" placeholder="请输入验证码" class="input-lg-width">

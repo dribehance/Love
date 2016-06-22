@@ -6,22 +6,22 @@ angular.module("Love").controller("chargeController", function($scope, $routePar
         $scope.step = step;
     }
 
-    $scope.change_vips = function(vip){
-        $scope.vips.vip=vip;
-    }    
+    $scope.change_vips = function(vip) {
+        $scope.vips.vip = vip;
+    }
     $scope.vips = {
-        vip:'1个月VIP'
+        vip: '1个月VIP'
     };
 
-    $scope.change_pays = function(pay){
-        $scope.pays.pay=pay;
-    }    
+    $scope.change_pays = function(pay) {
+        $scope.pays.pay = pay;
+    }
     $scope.pays = {
-        pay:'微信支付'
+        pay: '微信支付'
     };
 
 
 
 
-    
+
 })
