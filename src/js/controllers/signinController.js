@@ -1,19 +1,37 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("signinController", function($scope,userServices, errorServices, toastServices, localStorageService, config) {
-	$scope.input = {
-		signin_telephone:"",
-		signin_password:"",
-		signin_code:"",
-		signup_telephone:"",
-		signup_password:"",
-		signup_code:"",
-		signup_referee:"",
-	};
-	userServices.signin({
-		telephone:$scope.input.signin_telephone,
-		password:$scope.input.signin_password,
-		code:$scope.input.signin_code
-	}).then(function(data){
-		console.log(data);
-	})
+angular.module("Love").controller("signinController", function($scope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
+    $scope.input = {
+        telephone: "",
+        password: ""
+    };
+    $scope.clear = function() {
+        $scope.input.password = "";
+    }
+    $scope.ajaxForm = function() {
+        toastServices.show();
+        userServices.rsa_key().then(function(data) {
+            var crypt = new JSEncrypt(),
+                private_key = data;
+            crypt.setPrivateKey(private_key);
+            var crypted_str = crypt.encrypt($scope.input.password);
+            $scope.input.password = crypted_str;
+        }).then(function(data) {
+            userServices.signin({
+                telephone: $scope.input.telephone,
+                password: $scope.input.password
+            }).then(function(data) {
+                toastServices.hide();
+                if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+                    errorServices.autoHide(data.message);
+                    $scope.input.password = "";
+                    localStorageService.set("token",data.token);
+                    $timeout(function() {
+                        // $location.path('ta').replace()
+                    }, 2000)
+                } else {
+                    errorServices.autoHide(data.message)
+                }
+            })
+        })
+    }
 })

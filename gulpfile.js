@@ -170,6 +170,16 @@ gulp.task('lib', function() {
     gulp.src(['src/lib/**/*'])
         .pipe(gulp.dest(config.dest + "/lib"));
 });
+gulp.task('city', function() {
+    var inject = [];
+    gulp.src(['src/city/**/*'])
+        .pipe(gulp.dest(config.dest + "/city"));
+});
+gulp.task('key', function() {
+    var inject = [];
+    gulp.src(['src/key/**/*'])
+        .pipe(gulp.dest(config.dest + "/key"));
+});
 /*======================================================================
 =            Compile, minify, mobilize less                            =
 ======================================================================*/
@@ -247,6 +257,8 @@ gulp.task('watch', function() {
     gulp.watch(['./src/js/**/*'], ['js']);
     gulp.watch(['./src/templates/**/*'], ['templates']);
     gulp.watch(['./src/lib/**/*'], ['lib']);
+    gulp.watch(['./src/city/**/*'], ['city']);
+    gulp.watch(['./src/key/**/*'], ['key']);
     gulp.watch(['./src/images/**/*'], ['images']);
 });
 
@@ -256,7 +268,7 @@ gulp.task('watch', function() {
 ======================================*/
 
 gulp.task('build', function(done) {
-    var tasks = ['html', 'templates', 'lib', 'fonts', 'images', 'less', 'js'];
+    var tasks = ['html', 'templates', 'lib', 'city','key','fonts', 'images', 'less', 'js'];
     seq('clean', tasks, done);
 });
 

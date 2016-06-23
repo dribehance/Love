@@ -1,23 +1,19 @@
 <div class="signin">
-    <form name="signinForm" method="" action="" onsubmit="" ng-submit="signin_action()">
+    <form name="signinForm" ng-submit="ajaxForm()">
         <div class="input-group">
             <div class="input-group-item addon">
                 <div class="icon icon-shouji"></div>
-                <input type="text" class="full-width" ng-model="input.signin_telephone" required placeholder="请输入手机号码">
+                <input type="text" class="full-width" name="telephone" ng-model="input.telephone" required placeholder="请输入手机号码">
             </div>
             <div class="input-group-item addon">
                 <div class="icon icon-pwd"></div>
-                <input type="password" class="full-width" ng-model="input.signin_password" required placeholder="请输入密码">
-                <!-- <div href="" class="clear"><i class="fa fa-times" aria-hidden="true"></i></div> -->
-                <i class="fa fa-times-circle-o clear" aria-hidden="true"></i>
+                <input type="password" class="full-width" name="password" ng-model="input.password" required placeholder="请输入密码">
+                <i class="fa fa-times-circle-o clear" aria-hidden="true" ng-if="signinForm.password.$valid" ng-click="clear()"></i>
             </div>
-            <div class="input-group-item clearfix">
-                <input type="text" placeholder="请输入验证码" ng-model="input.signin_code" required  class="input-sm-width" >
-                <a class="btn btn-second btn-sm pull-right"><b>获取验证码</b></a>
-            </div>
+            
         </div>
         <div class="btn-center">
-            <button href="" type="submit" class="btn btn-default btn-block btn-width" ng-click="signup()">登录</button>
+            <button type="submit" class="btn btn-block btn-width" ng-class="{'btn-default':signinForm.$invalid,'btn-primary':signinForm.$valid}" ng-disabled="signinForm.$invalid">登录</button>
         </div>
         <div class="signin-info">
             <div class="third-party">使用第三方登录</div>

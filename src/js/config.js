@@ -1,6 +1,6 @@
 angular.module("Love").constant("config", {
-	url: "http://",
-	imageUrl: "http://",
+	url: "http://121.40.201.53",
+	imageUrl: "http://121.40.201.53/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -9,7 +9,8 @@ angular.module("Love").constant("config", {
 		"SUCCESS": 1
 	},
 	common_params: {
-		invoke: "h5"
+		invoke: "h5",
+		app_sign: "123456"
 	},
 	interceptor: [
 		"account",
