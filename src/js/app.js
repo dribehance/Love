@@ -4,7 +4,7 @@ angular.module("Love", [
 		// "mobile-angular-ui",
 		// "mobile-angular-ui.core",
 		"LocalStorageModule",
-		// "flow",
+		"flow",
 		// "timer"
 	])
 	.config(function($routeProvider, $httpProvider, $locationProvider, localStorageServiceProvider, config) {
