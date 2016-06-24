@@ -3,13 +3,13 @@
         <a class="coach-item clearfix" ng-href="#/detail" ng-repeat="love in loves">
             <div class="coach-items">
                 <div class="coach-avatar">
-                    <img ng-src="{{love.image_01}}" class="full-width full-height">
+                    <img ng-src="{{love.image_01 }}" class="full-width full-height" alt="" err-src="../images/banner.png">
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
                         <p>
                             {{love.nickname}}
-                            <span class="icon"  ng-if="'icon-nan-2':love.sex=='1'" ng-class=""></span>
+                            <span name="sex" class="icon" ng-class="{'icon-nan-2':love.sex=='1','icon-nv-2':love.sex=='0'}"></span>
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
