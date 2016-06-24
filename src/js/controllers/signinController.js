@@ -26,7 +26,7 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
                     $scope.input.password = "";
                     localStorageService.set("token",data.token);
                     $timeout(function() {
-                        // $location.path('ta').replace()
+                         $location.path('ta').replace()
                     }, 2000)
                 } else {
                     errorServices.autoHide(data.message)

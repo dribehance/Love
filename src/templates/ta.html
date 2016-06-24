@@ -1,23 +1,23 @@
 <div class="section">
     <div href="" class="input-group">
-        <a class="coach-item" ng-href="#/detail" ng-repeat="love in loves">
+        <a class="coach-item clearfix" ng-href="#/detail" ng-repeat="love in loves">
             <div class="coach-items">
                 <div class="coach-avatar">
-                    <img src="../images/banner.png" class="full-width full-height">
+                    <img ng-src="{{love.image_01}}" class="full-width full-height">
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
                         <p>
-                            咚起大起
-                            <span class="icon icon-nan-2"></span>
+                            {{love.nickname}}
+                            <span class="icon"  ng-if="'icon-nan-2':love.sex=='1'" ng-class=""></span>
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
                         <div class="icon icon-hotel"></div>
                         <div class="icon icon-cart"></div>
-                        <span>硕士</span>
+                        <span>{{love.edu}}</span>
                         <span>月薪</span>
-                        <span>10000-20000</span>
+                        <span>{{love.income}}</span>
                     </div>
                     <div class="coach-info-tag text-ellipsis clearfix">
                         <span class="btn btn-second btn-xs"><b>看电影</b></span>
@@ -25,15 +25,15 @@
                         <span class="btn btn-second btn-xs"><b>唱歌</b></span>
                     </div>
                     <div class="coach-info-tip clearfix">
-                        <span>24岁</span>
-                        <span>165cm</span>
+                        <span>{{love.age}}岁</span>
+                        <span>{{love.height}}</span>
                         <span>{{love.province}}</span>
                         <span>{{love.city}}</span>
                     </div>
                 </div>
             </div>
         </a>
-        <div ng-click="loadMore()">{{page.message}}</div>
+        <div class="btn btn-primary btn-block btn-width" ng-click="loadMore()">{{page.message}}</div>
     </div>
 
     <!-- footer tab bar -->
