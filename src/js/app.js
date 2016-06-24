@@ -41,5 +41,5 @@ angular.module("Love", [
 
 	}).run(function(appServices) {
 		// init event such as routechangestart...
-		// appServices.init();
+		appServices.init();
 	});
