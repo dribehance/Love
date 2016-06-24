@@ -1,6 +1,6 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("signupController", function($scope,$rootScope,$location,$timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
-        $scope.step = 1;
+angular.module("Love").controller("signupController", function($scope, $rootScope, $location, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
+        $scope.step = 2;
         $scope.input = {};
         $scope.show_step = function(step) {
             $scope.step = step;
@@ -12,9 +12,9 @@ angular.module("Love").controller("signupController", function($scope,$rootScope
             $scope.modal.status = 1;
         }
         $scope.cancel_modal = function() {
-            $scope.modal.status = 0;
-        }
-        //获取验证码
+                $scope.modal.status = 0;
+            }
+            //获取验证码
         $scope.get_smscode = function() {
             toastServices.show();
             userServices.get_smscode({
@@ -32,12 +32,13 @@ angular.module("Love").controller("signupController", function($scope,$rootScope
         $scope.$on("upload_success", function(event, args) {
             $scope.input.filename = args.message;
         });
+
         // gender
         $scope.input.gender = 1;
         $scope.select_gender = function(gender) {
                 $scope.input.gender = gender;
             }
-            // 获取身份列表
+            // 获取省份列表
         loveServices.query_province().then(function(data) {
             $scope.provinces = data.province;
             $scope.input.province = $scope.provinces[0];
@@ -65,6 +66,7 @@ angular.module("Love").controller("signupController", function($scope,$rootScope
         $scope.heights = heights;
         $scope.input.height = $scope.heights[0];
         // 学历
+        $scope.input.ages = "20-22岁";
         $scope.input.degree = "初中以上";
         $scope.input.marry = "未婚";
         $scope.input.income = "5000元以下";
@@ -93,11 +95,11 @@ angular.module("Love").controller("signupController", function($scope,$rootScope
                     recommend_code: $scope.input.referee,
                 }).then(function(data) {
                     toastServices.hide();
-                    if (data.code == config.request.SUCCESS &&  data.status == config.response.SUCCESS) {
+                    if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                         errorServices.autoHide(data.message);
-                        $timeout(function(){
+                        $timeout(function() {
                             $location.path('signin').replace()
-                        },2000)
+                        }, 2000)
                     } else {
                         errorServices.autoHide(data.message)
                     }
@@ -106,6 +108,7 @@ angular.module("Love").controller("signupController", function($scope,$rootScope
         }
     })
     // by dribehance <dribehance.kksdapp.com>
+    //上传头像
 angular.module("Love").controller("uploadController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
     var filename, extension;
     $scope.$on("flow::filesSubmitted", function(event, flow) {

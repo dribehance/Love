@@ -49,6 +49,17 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
                 return data.data;
             });
         },
+        // 我的喜欢
+        mylove: function(input){
+            return $http({
+                // by dribehance <dribehance.kksdapp.com>
+                url: config.url + "/app/LoveManage/loveEachOtherList",
+                method: "GET",
+                params: angular.extend({}, config.common_params, input)
+            }).then(function(data) {
+                return data.data;
+            });
+        },
         // reset password
         reset: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "api_url",
@@ -111,11 +122,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "api_url",
             token: localStorageService.get("token")
         })),
-        // 我的喜欢
-        query_mylovers: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "api_url",
-            token: localStorageService.get("token")
-        })),
+        
         // 确认赴约
         confirm_adate: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "api_url",

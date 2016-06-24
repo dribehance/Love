@@ -20,9 +20,7 @@
                         <span>{{love.income}}</span>
                     </div>
                     <div class="coach-info-tag text-ellipsis clearfix">
-                        <span class="btn btn-second btn-xs"><b>看电影</b></span>
-                        <span class="btn btn-second btn-xs"><b>听歌</b></span>
-                        <span class="btn btn-second btn-xs"><b>唱歌</b></span>
+                        <span class="btn btn-second btn-xs" ng-repeat="tag in get_tag(love.taste)"><b>{{tag}}</b></span>
                     </div>
                     <div class="coach-info-tip clearfix">
                         <span>{{love.age}}岁</span>

@@ -9,6 +9,10 @@ angular.module("Love").controller("taController", function($scope,loveServices, 
     $scope.cancel_modal = function() {
         $scope.modal.status = 0;
     }
+    //获取标签
+    $scope.get_tag = function(tag) {
+		return tag.split("#");
+	}
    	$scope.loves = [];
 	$scope.page = {
 		pn: 1,
