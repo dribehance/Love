@@ -17,8 +17,8 @@ angular.module("Love").controller("myloveController", function($scope, userServi
 			$scope.page.message = "点击加载更多";
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				console.log(data);
-				$scope.mylove = $scope.mylove.concat(data.Result.Users.list);
-				$scope.no_more = $scope.mylove.length == data.Result.Users.totalRow ? true : false;
+				$scope.mylove = $scope.mylove.concat(data.Result.LoveEachOthers.list);
+				$scope.no_more = $scope.mylove.length == data.Result.LoveEachOthers.totalRow ? true : false;
 			} else {
 				errorServices.autoHide("服务器错误");
 			}
