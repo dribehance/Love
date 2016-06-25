@@ -3,7 +3,7 @@ angular.module("Love").factory("apiServices", function($http) {
 	return {
 		_get: function(request) {
 			return function(input) {
-				$http({
+				return $http({
 					// by dribehance <dribehance.kksdapp.com>
 					url: request.url,
 					method: "GET",
@@ -15,7 +15,7 @@ angular.module("Love").factory("apiServices", function($http) {
 		},
 		_post: function(request) {
 			return function(input) {
-				$http({
+				return $http({
 					// by dribehance <dribehance.kksdapp.com>
 					url: request.url,
 					method: "POST",

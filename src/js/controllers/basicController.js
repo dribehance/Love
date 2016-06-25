@@ -8,6 +8,10 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 		toastServices.hide()
 		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 			$scope.user = data.Result.UserInfo;
+			$scope.input.covers = $scope.user.image_other.split("#").filter(function(i) {
+				return i != "";
+			});
+			$scope.input.avatar = $scope.user.image_01;
 			$scope.input.heart = $scope.user.heart;
 			$scope.input.gender = $scope.genders[$scope.user.sex];
 			$scope.input.height = $scope.user.height;
@@ -73,9 +77,24 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			errorServices.autoHide(data.message);
 		}
 	});
+	// 封面
+	// mock {id:"",url:""}
+	$scope.input.covers = [];
+	$scope.$on("upload_cover_success", function(event, args) {
+		$scope.input.covers.push(args.message);
+	});
+	// 移除封面
+	$scope.remove_cover = function(cover) {
+		$scope.input.covers = $scope.input.covers.filter(function(c) {
+			return cover != c;
+		})
+	};
+	$scope.$on("upload_avatar_success", function(event, args) {
+		$scope.input.avatar = args.message
+	});
 	$scope.get_images = function(images) {
 		if (!images) {
-			return;
+			return [];
 		}
 		return images.split("#");
 	}
@@ -264,4 +283,78 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	$scope.input.offen_go = "";
 	// 工作单位
 	$scope.input.company = "";
+	// -------------------------------------------------------action
+	$scope.like = function() {
+		toastServices.show();
+		userServices.like().then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	}
+});
+// uploadCoversController
+angular.module("Love").controller("uploadCoversController", function($scope, errorServices, toastServices, localStorageService, config) {
+	var filename, extension;
+	$scope.$on("flow::filesSubmitted", function(event, flow) {
+		flow.files[0].name.replace(/.png|.jpg|.jpeg|.gif/g, function(ext) {
+			extension = ext;
+			return ext;
+		})
+		filename = new Date().getTime() + extension;
+		flow.opts.target = config.url + "/app/UserCenter/updatePic";
+		flow.opts.testChunks = false;
+		flow.opts.fileParameterName = "image_01";
+		flow.opts.query = {
+			"invoke": "h5",
+			"token": localStorageService.get("token"),
+			"filename": filename
+		};
+		toastServices.show();
+		flow.upload();
+	});
+	$scope.$on('flow::fileAdded', function(file, message, chunk) {
+		// $scope.cover.url = "";
+	});
+	$scope.$on('flow::fileSuccess', function(file, message, chunk) {
+		$scope.$flow.files = [];
+		$scope.$emit("upload_cover_success", {
+			message: filename
+		});
+		toastServices.hide();
+	});
+});
+// uploadCoversController
+angular.module("Love").controller("uploadAvatarController", function($scope, errorServices, toastServices, localStorageService, config) {
+	var filename, extension;
+	$scope.$on("flow::filesSubmitted", function(event, flow) {
+		flow.files[0].name.replace(/.png|.jpg|.jpeg|.gif/g, function(ext) {
+			extension = ext;
+			return ext;
+		})
+		filename = new Date().getTime() + extension;
+		flow.opts.target = config.url + "/app/UserCenter/updatePic";
+		flow.opts.testChunks = false;
+		flow.opts.fileParameterName = "image_01";
+		flow.opts.query = {
+			"invoke": "h5",
+			"token": localStorageService.get("token"),
+			"filename": filename
+		};
+		toastServices.show();
+		flow.upload();
+	});
+	$scope.$on('flow::fileAdded', function(file, message, chunk) {
+		// $scope.cover.url = "";
+	});
+	$scope.$on('flow::fileSuccess', function(file, message, chunk) {
+		$scope.$flow.files = [];
+		$scope.$emit("upload_avatar_success", {
+			message: filename
+		});
+		toastServices.hide();
+	});
 })

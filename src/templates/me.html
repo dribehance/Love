@@ -1,11 +1,13 @@
 <div class="section">
     <div class="my">
         <div class="my-adv">
-            <img ng-src="{{staticImageUrl + user.image_01}}" err-src="../images/banner.png">
+            <div data-rate="1">
+                <img ng-src="{{staticImageUrl + user.image_01}}" show-on-loaded err-src="../images/banner.png">
+            </div>
             <div class="icon icon-plane plane"></div>
             <div class="left-camera">
                 <div class="icon icon-xiangji"></div>
-                <span>{{images.length}}/8</span>
+                <span>{{get_images(image.other).length}}/8</span>
             </div>
             <a class="right-baseinfo btn-sm" ng-href="#/basic">基本资料</a>
         </div>
@@ -18,14 +20,14 @@
         </div>
         <div class="my-title">
             <div class="icon icon-nan-3 pull-left"></div>
-            <span>{{user.nickname}} {{user.age}}岁</span> 
+            <span>{{user.nickname}} {{user.age}}岁</span>
             <div class="icon icon-hotel"></div>
             <div class="icon icon-cart"></div>
             <div class="icon icon-people"></div>
         </div>
         <div class="my-second">
             <div class="icon icon-dingwei2"></div>
-            <span>{{user.province}} {{user.city}}</span> 
+            <span>{{user.province}} {{user.city}}</span>
         </div>
         <div class="interval"></div>
         <a class="my-titlebar" ng-href="#/services">
@@ -33,7 +35,6 @@
             <div class="icon icon-jiantou4 pull-right"></div>
         </a>
         <div class="my-subnav clearfix">
-            
             <div class="my-subnav-list col-xm-4 pull-left">
                 <span><div class="icon icon-baozhengjin2"></div></span>
                 <span>押金</span>
@@ -44,7 +45,6 @@
                 <span>VIP会员费</span>
                 <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>去充值</b></a></span>
             </div>
-            
         </div>
         <div class="interval"></div>
         <a class="my-titlebar" ng-href="#/account">
@@ -52,7 +52,6 @@
             <div class="icon icon-jiantou4 pull-right"></div>
         </a>
         <div class="my-subnav clearfix">
-            
             <div class="my-subnav-list col-xm-4 pull-left">
                 <span><div class="icon icon-baozhengjin2"></div></span>
                 <span>剩余{{user.deposit}}元</span>
@@ -63,7 +62,6 @@
                 <span>剩余{{user.vip_money}}元</span>
                 <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>续费</b></a></span>
             </div>
-            
         </div>
         <div class="interval"></div>
         <div class="input-group">
@@ -92,7 +90,6 @@
     </div>
     <dribehance-footer active="'me'"></dribehance-footer>
 </div>
-
 <div class="modal-overlay" ng-if="modal.status == '1'">
     <div class="madal-body">
         <img src="../images/banner.png" class="full-width full-height">

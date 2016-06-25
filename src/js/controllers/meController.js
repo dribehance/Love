@@ -23,7 +23,7 @@ angular.module("Love").controller("meController", function($scope, userServices,
     });
     $scope.get_images = function(images) {
         if (!images) {
-            return;
+            return [];
         }
         return images.split("#");
     }

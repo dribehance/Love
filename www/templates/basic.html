@@ -2,19 +2,30 @@
     <div class="">
         <div class="my">
             <div class="my-adv">
-                <img ng-src="{{staticImageUrl + user.image_01}}" err-src="../images/banner.png">
+                <div flow-init="{singleFile:true}" ng-controller="uploadAvatarController" flow-btn>
+                    <div data-rate="1">
+                        <img ng-src="{{staticImageUrl + user.image_01}}" flow-img="$flow.files[0]" show-on-loaded err-src="../images/banner.png">
+                    </div>
+                </div>
                 <div class="left-camera">
                     <div class="icon icon-xiangji"></div>
-                    <span>1/8</span>
+                    <span>{{get_images(image.other).length}}/8</span>
                 </div>
-                <div class="right-baseinfo btn-sm">
+                <div class="right-baseinfo btn-sm" ng-click="like()">
                     <div class="icon icon-xihuan"></div>
                 </div>
             </div>
             <div class="my-banner clearfix">
-                <div class="col-xm-4 pull-left" ng-repeat="image in get_images(user.image_other)">
+                <div class="col-xm-4 pull-left" style="position:relative" ng-repeat="image in input.covers">
                     <div class="banner-img">
                         <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png">
+                    </div>
+                    <input type="hidden" name="cover" ng-model="cover" required>
+                    <a ng-click="remove_cover(image)" class="remove text-white" style="position:absolute;right:5px;top:0;"><i class="fa fa-times"></i></a>
+                </div>
+                <div class="col-xm-4 pull-left" flow-init="{singleFile:true}" ng-controller="uploadCoversController" flow-btn>
+                    <div class="banner-img">
+                        <img ng-src="{{staticImageUrl + image}}" err-src="../images/button_tianjia.png">
                     </div>
                 </div>
             </div>
@@ -45,31 +56,33 @@
                     <div class="my-subnav clearfix">
                         <div class="content-rz  col-xm-4 pull-left">
                             <span><div class="icon icon-authen_1"></div></span>
-                            <span>实名认证</span>
+                            <span ng-if="user.is_real_name">实名认证</span>
+                            <span ng-if="!user.is_real_name">未认证</span>
                         </div>
-                        <div class="content-rz  col-xm-4 pull-left">
+                        <div class="content-rz  col-xm-4 pull-left" ng-if="user.is_phone_auth">
                             <span><div class="icon icon-authen_2"></div></span>
-                            <span>手机认证</span>
+                            <span ng-if="user.is_phone_auth">手机认证</span>
+                            <span ng-if="!user.is_phone_auth">未认证</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item">
+            <a class="item" ng-href="#/tags?type=1">
                 <i class="icon icon-tr-aihao bg-color"></i>
                 <div class="item-title">兴趣爱好</div>
                 <div class="item-content">
                     <div class="btn btn-second btn-xs tag-bottom" ng-repeat="tag in get_tags(user.taste)">{{tag}}</div>
                     <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.taste).length==0">暂无填写</div>
                 </div>
-            </div>
-            <div class="item">
+            </a>
+            <a class="item" ng-href="#/tags?type=2">
                 <i class="icon icon-tr-caiyi bg-color"></i>
                 <div class="item-title">才艺</div>
                 <div class="item-content">
                     <div class="btn btn-second btn-xs tag-bottom" ng-repeat="talent in get_tags(user.talent_skill)">{{talent}}</div>
                     <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.talent_skill).length==0">暂无填写</div>
                 </div>
-            </div>
+            </a>
             <div class="item">
                 <i class="icon icon-tr-zl bg-color"></i>
                 <div class="item-title">基本资料</div>
@@ -430,6 +443,6 @@
 <div class="footer justified">
     <a class="footer-item">
         <i class="icon icon-save" ng-class="{'active':active=='search'}"></i>
-        <span class="block"  ng-class="{'text-primary':active=='search'}">保存</span>
+        <span class="block" ng-class="{'text-primary':active=='search'}">保存</span>
     </a>
 </div>

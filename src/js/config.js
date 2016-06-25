@@ -51,6 +51,7 @@ angular.module("Love").constant("config", {
 		"tags",
 		"withdrawals",
 		"recommendation",
-		"visitors"
+		"visitors",
+		"show",
 	]
 });

@@ -20,12 +20,10 @@ angular.module("Love").controller("searchController", function($scope, $routePar
         }
         toastServices.show();
         $scope.page.message = "正在加载...";
-        console.log($scope.page)
         loveServices.query_loves($scope.page).then(function(data) {
             toastServices.hide();
             $scope.page.message = "点击加载更多";
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-                console.log(data);
                 $scope.loves = $scope.loves.concat(data.Result.Users.list);
                 $scope.no_more = $scope.loves.length == data.Result.Users.totalRow ? true : false;
             } else {
