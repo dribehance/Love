@@ -22,8 +22,8 @@
                             </p>
                         </div>
                         <div class="coach-info-tip clearfix">
-                            <div class="icon icon-hotel"></div>
-                            <div class="icon icon-cart"></div>
+                            <div class="icon icon-hotel" ng-if="user.is_buy_house"></div>
+                            <div class="icon icon-cart" ng-if="user.is_buy_car"></div>
                             <span>{{love.edu}} </span>
                             <span>月薪</span>
                             <span>{{love.income}}</span>

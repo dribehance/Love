@@ -1,48 +1,50 @@
 <div class="">
-    <div class="anthen">
+    <form class="anthen" name="realnameForm" ng-submit="ajaxForm()">
         <div class="section">
             <div class="anthen-tips">请填写身份信息，以完成实名认证</div>
         </div>
         <div class="section">
             <div class="input-group">
-                <div href="" class="input-group-item clearfix" ng-href="">
+                <div class="input-group-item clearfix">
                     真实姓名
-                    <input type="text" placeholder="请输入真实姓名" class="input-sm-width pull-right">
+                    <input type="text" placeholder="请输入真实姓名" name="realname" ng-model="input.realname" required class="input-sm-width pull-right">
                 </div>
-                <div href="" class="input-group-item" ng-href="">
+                <div class="input-group-item">
                     证件类型
                     <label class="input-sm-width pull-right">身份证</label>
                 </div>
-                <div href="" class="input-group-item" ng-href="">
+                <div class="input-group-item">
                     证件号
-                    <input type="text" placeholder="请输入证件号码" class="input-sm-width pull-right">
+                    <input type="text" placeholder="请输入证件号码" name="id" ng-model="input.id" required class="input-sm-width pull-right">
                 </div>
             </div>
         </div>
         <div class="section">
             <div class="id-card">
-                <div class="positive pull-left">
+                <div class="positive pull-left" flow-init="{singleFile:true}" ng-controller="uploadFrontController" flow-btn>
                     <span><b>*</b>身份证正面</span>
                     <div class="images-left">
-                        <a href="" class="images-size full-width full-height">
-                            <img src="../images/button_tianjia.png" class="">
+                        <a class="images-size full-width full-height">
+                            <img src="../images/button_tianjia.png" flow-img="$flow.files[0]" class="">
                         </a>
                     </div>
+                    <input type="hidden" name="back" ng-model="input.back" required>
                 </div>
-                <div class="positive pull-left">
+                <div class="positive pull-left" flow-init="{singleFile:true}" ng-controller="uploadBackController" flow-btn>
                     <span><b>*</b>身份证反面</span>
                     <div class="images-right">
-                        <a href="" class="images-size full-width full-height">
-                            <img src="../images/button_tianjia.png" class="">
+                        <a class="images-size full-width full-height">
+                            <img src="../images/button_tianjia.png" flow-img="$flow.files[0]" class="">
                         </a>
                     </div>
+                    <input type="hidden" name="back" ng-model="input.back" required>
                 </div>
             </div>
         </div>
         <div class="section">
             <div class="btn-center">
-                <button href="" class="btn btn-primary btn-block btn-width">下一步</button>
+                <button type="submit" class="btn btn-primary btn-block btn-width" ng-disabled="realnameForm.$invalid">认证</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>

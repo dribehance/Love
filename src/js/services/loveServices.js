@@ -24,5 +24,9 @@ angular.module("Love").factory("loveServices", function($http, apiServices, loca
         query_tags: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/app/UserCenter/interestTalentInfo"
         })),
+        // 查询vip
+        query_vips: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/Pays/vipPrices"
+        })),
     }
 });

@@ -4,7 +4,7 @@
             <div data-rate="1">
                 <img ng-src="{{staticImageUrl + user.image_01}}" show-on-loaded err-src="../images/banner.png">
             </div>
-            <div class="icon icon-plane plane"></div>
+            <!-- <div class="icon icon-plane plane"></div> -->
             <div class="left-camera">
                 <div class="icon icon-xiangji"></div>
                 <span>{{get_images(image.other).length}}/8</span>
@@ -21,9 +21,9 @@
         <div class="my-title">
             <div class="icon icon-nan-3 pull-left"></div>
             <span>{{user.nickname}} {{user.age}}岁</span>
-            <div class="icon icon-hotel"></div>
-            <div class="icon icon-cart"></div>
-            <div class="icon icon-people"></div>
+            <div class="icon icon-hotel" ng-if="user.is_buy_house"></div>
+            <div class="icon icon-cart" ng-if="user.is_buy_car"></div>
+            <div class="icon icon-people" ng-if="user.is_real_name"></div>
         </div>
         <div class="my-second">
             <div class="icon icon-dingwei2"></div>
@@ -83,8 +83,12 @@
             <a class="input-group-item" ng-href="#/authen">
                 <div class="icon icon-w-rz"></div>诚信认证
             </a>
-            <a class="input-group-item" ng-href="#/recommendation">
+            <!-- <a class="input-group-item" ng-href="#/recommendation">
                 <div class="icon icon-jian"></div>我的推荐码
+            </a> -->
+            <a class="input-group-item">
+                <div class="icon icon-jian"></div>我的推荐码
+                <span class="pull-right">{{user.recommend_code}}</span>
             </a>
         </div>
     </div>

@@ -42,12 +42,12 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // 实名认证
         realname_authen: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/UserCenter/updateRealNameAuth",
             token: localStorageService.get("token")
         })),
         // 手机认证
         phone_authen: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/UserCenter/updateTelephoneAuth",
             token: localStorageService.get("token")
         })),
         // favourite 收藏
@@ -67,17 +67,25 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // 消息列表
         query_messages: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/ChatManage/chatMessageList",
             token: localStorageService.get("token")
         })),
-        // 消息详情
+        query_send_messages: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/ChatManage/sendOutList",
+            token: localStorageService.get("token")
+        })),
+        // 消息详情 聊天列表 chat
         query_message_by_id: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/ChatManage/chatMessageList",
+            token: localStorageService.get("token")
+        })),
+        send: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/ChatManage/sendContent",
             token: localStorageService.get("token")
         })),
         // 屏蔽消息
         block: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/ChatManage/setShield",
             token: localStorageService.get("token")
         })),
         // 充值
