@@ -52,12 +52,17 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // favourite 收藏
         like: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/Home/addLove",
             token: localStorageService.get("token")
         })),
         // 取消收藏
         unlike: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/Home/deleteLove",
+            token: localStorageService.get("token")
+        })),
+        // 约TA
+        yue: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/TrystManage/addTryst",
             token: localStorageService.get("token")
         })),
         // 我的喜欢
