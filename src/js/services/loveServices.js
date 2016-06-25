@@ -17,9 +17,7 @@ angular.module("Love").factory("loveServices", function($http, apiServices, loca
 			url: config.url + "api_url"
 		})),
 		// 条件搜索
-		search: apiServices._get(angular.extend({}, config.common_params, {
-			url: config.url + "api_url"
-		})),
+	
 		// 城市列表-省份
 		query_province:function(input){
 			return $http({
