@@ -1,15 +1,15 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("taController", function($scope,loveServices, errorServices, toastServices, localStorageService, config) {
-    $scope.modal = {
-        status: 0
-    };
-    $scope.open_modal = function() {
-        $scope.modal.status = 1;
-    }
-    $scope.cancel_modal = function() {
-        $scope.modal.status = 0;
-    }
-   	$scope.loves = [];
+angular.module("Love").controller("taController", function($scope, loveServices, errorServices, toastServices, localStorageService, config) {
+	$scope.modal = {
+		status: 0
+	};
+	$scope.open_modal = function() {
+		$scope.modal.status = 1;
+	}
+	$scope.cancel_modal = function() {
+		$scope.modal.status = 0;
+	}
+	$scope.loves = [];
 	$scope.page = {
 		pn: 1,
 		page_size: 5,
@@ -25,7 +25,6 @@ angular.module("Love").controller("taController", function($scope,loveServices, 
 			toastServices.hide();
 			$scope.page.message = "点击加载更多";
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				console.log(data);
 				$scope.loves = $scope.loves.concat(data.Result.Users.list);
 				$scope.no_more = $scope.loves.length == data.Result.Users.totalRow ? true : false;
 			} else {
@@ -39,4 +38,7 @@ angular.module("Love").controller("taController", function($scope,loveServices, 
 
 	}
 	$scope.loadMore();
+	$scope.get_tag = function(tag) {
+		return tag.split("#");
+	}
 })

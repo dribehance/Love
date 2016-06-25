@@ -24,10 +24,10 @@ angular.module("Love").factory("tokenInterceptor", function($location, $q, local
 				return response;
 			}
 			// server response
-			if (response.data.respcode == config.request.TOKEN_INVALID) {
+			if (response.data.code == config.request.TOKEN_INVALID) {
 				console.log("TOKEN_INVALID")
 				localStorageService.remove("token");
-				$location.path("/signIn").replace();
+				$location.path("/signin").replace();
 				return defer.promise;
 			} else {
 				return response;

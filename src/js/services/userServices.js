@@ -13,7 +13,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             });
         },
         // signin
-        signin: function(input){
+        signin: function(input) {
             return $http({
                 // by dribehance <dribehance.kksdapp.com>
                 url: config.url + "/app/UserCenter/Login",
@@ -24,7 +24,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             });
         },
         // signup
-        signup: function(input){
+        signup: function(input) {
             return $http({
                 // by dribehance <dribehance.kksdapp.com>
                 url: config.url + "/app/UserCenter/RegistTel",
@@ -53,11 +53,32 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         reset: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "api_url",
         })),
-        // query user basic information
-        query_basicinfo: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "api_url",
-            token: localStorageService.get("token")
-        })),
+        // query basic information
+        query_basicinfo: function(input) {
+            return $http({
+                // by dribehance <dribehance.kksdapp.com>
+                url: config.url + "/app/UserCenter/baseInfo",
+                method: "GET",
+                params: angular.extend({}, config.common_params, {
+                    token: localStorageService.get("token")
+                }, input)
+            }).then(function(data) {
+                return data.data;
+            });
+        },
+        // query user information
+        query_userinfo: function(input) {
+            return $http({
+                // by dribehance <dribehance.kksdapp.com>
+                url: config.url + "/app/UserCenter/userInfo",
+                method: "GET",
+                params: angular.extend({}, config.common_params, {
+                    token: localStorageService.get("token")
+                }, input)
+            }).then(function(data) {
+                return data.data;
+            });
+        },
         realname_authen: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "api_url",
             token: localStorageService.get("token")
