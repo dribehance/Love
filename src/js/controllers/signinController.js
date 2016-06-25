@@ -24,11 +24,12 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
                 if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                     errorServices.autoHide(data.message);
                     $scope.input.password = "";
-                    localStorageService.set("token",data.token);
+                    localStorageService.set("token", data.token);
                     $timeout(function() {
-                         $location.path('ta').replace()
+                        $location.path('ta').replace()
                     }, 2000)
                 } else {
+                    $scope.input.password = "";
                     errorServices.autoHide(data.message)
                 }
             })

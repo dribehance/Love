@@ -1,58 +1,32 @@
 <div class="section">
     <div class="input-group">
-        <a href="" class="coach-item" ng-href="#/detail">
+        <div class="coach-item clearfix" ng-click="local_go(love,$event)" ng-repeat="love in loves">
             <div class="coach-sm-items">
                 <div class="coach-sm-avatar">
-                    <img src="../images/banner.png" class="full-width full-height">
+                    <imageview src="staticImageUrl + love.User.image_01" data-rate="1"></imageview>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
                         <p>
-                            {{mylove.nickname}}
-                            <span class="icon icon-nan-2"></span>
+                            {{love.User.nickname}}
+                            <span name="sex" class="icon" ng-class="{'icon-nan-2':love.User.sex=='1','icon-nv-2':love.User.sex=='0'}"></span>
                         </p>
                     </div>
+                    <!-- <i class="fa fa-trash text-primary pull-right" ng-if="page.love_type != 2" ng-click="unlike(love,$event)"></i> -->
                     <div class="coach-info-tip clearfix">
-                        <span>硕士</span>
+                        <span>{{love.User.edu}} </span>
                         <span>月薪</span>
-                        <span>10000-20000</span>
+                        <span>{{love.User.income}}</span>
                     </div>
                     <div class="coach-info-tip clearfix">
-                        <span>24岁</span>
-                        <span>165cm</span>
-                        <span>广东</span>
-                        <span>深圳</span>
+                        <span>{{love.User.age}}岁</span>
+                        <span>{{love.User.height}}</span>
+                        <span>{{love.User.province}}</span>
+                        <span>{{love.User.city}}</span>
                     </div>
                 </div>
-                <i class="fa fa-angle-right icon-next pull-right"></i>
             </div>
-        </a>
-        <a href="" class="coach-item" ng-href="#/detail">
-            <div class="coach-sm-items">
-                <div class="coach-sm-avatar">
-                    <img src="../images/banner.png" class="full-width full-height">
-                </div>
-                <div class="coach-info">
-                    <div class="coach-info-tip">
-                        <p>
-                            咚起大起
-                            <span class="icon icon-nv-2"></span>
-                        </p>
-                    </div>
-                    <div class="coach-info-tip clearfix">
-                        <span>硕士</span>
-                        <span>月薪</span>
-                        <span>10000-20000</span>
-                    </div>
-                    <div class="coach-info-tip clearfix">
-                        <span>24岁</span>
-                        <span>165cm</span>
-                        <span>广东</span>
-                        <span>深圳</span>
-                    </div>
-                </div>
-                <i class="fa fa-angle-right icon-next pull-right"></i>
-            </div>
-        </a>
+        </div>
     </div>
+    <div class="btn btn-primary btn-block btn-width" ng-click="loadMore()">{{page.message}}</div>
 </div>

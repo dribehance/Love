@@ -8,7 +8,7 @@
             <a class="tabs-item tabs-width50 pull-left" ng-href="#/search_conditional">条件搜索<i class="icon icon-xiala"></i></a>
         </div>
         <div class="input-group">
-            <a class="coach-item clearfix" ng-href="#/detail" ng-repeat="love in loves">
+            <a class="coach-item clearfix" ng-href="#/detail?id={{love.user_id}}" ng-repeat="love in loves">
                 <div class="coach-items">
                     <div class="coach-avatar">
                         <!-- <img ng-src="{{staticImageUrl + love.image_01 }}" class="full-width full-height" alt="" err-src="../images/banner.png"> -->

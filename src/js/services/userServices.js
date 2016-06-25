@@ -65,10 +65,6 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/TrystManage/addTryst",
             token: localStorageService.get("token")
         })),
-        // 我的喜欢
-        mylove: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/app/LoveManage/loveEachOtherList",
-        })),
         // 消息列表
         query_messages: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/api_url",
@@ -94,13 +90,13 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/api_url",
             token: localStorageService.get("token")
         })),
-        // 谁喜欢我
+        // 我喜欢的 喜欢我的 相互喜欢
         query_lovers: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/LoveManage/loveEachOtherList",
             token: localStorageService.get("token")
         })),
-        // 我的约会
-        query_mydate: apiServices._get(angular.extend({}, config.common_params, {
+        // 约会我的 我约会的 成功赴约
+        query_metting: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/api_url",
             token: localStorageService.get("token")
         })),
