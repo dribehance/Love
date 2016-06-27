@@ -2,10 +2,10 @@
     <div class="chat clearfix">
         <div class="chat-box" ng-repeat="chat in chats">
         	<img ng-src="{{staticImageUrl+chat.receive_image_01}}" ng-if="chat.is_me_send == '0'" err-src="../images/banner.png" class="full-width full-height pull-left">
-            <img ng-src="{{staticImageUrl+chat.current_image_01}}" ng-if="chat.is_me_send=='1'" err-src="../images/banner.png" class="full-width full-height pull-left">
+            <img ng-src="{{staticImageUrl+chat.current_image_01}}" ng-if="chat.is_me_send=='1'" err-src="../images/banner.png" class="full-width full-height pull-right">
         	<div class="chat-info">
         		<p class="org" ng-class="{'org-left':chat.is_me_send == '0','org-right':chat.is_me_send=='1','pull-right':chat.is_me_send=='1'}">{{chat.content}}
-        			<span class="cor"></span>
+        			<span ng-class="{'col':chat.is_me_send=='1','cor':chat.is_me_send=='0'}"></span>
         		</p>
 
         	</div>

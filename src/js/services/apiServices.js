@@ -3,7 +3,7 @@ angular.module("Love").factory("apiServices", function($http, localStorageServic
 	return {
 		_get: function(request) {
 			return function(input) {
-				if (request.token === null) {
+				if (request.token !== undefined) {
 					request.token = localStorageService.get("token")
 				}
 				return $http({
@@ -18,7 +18,7 @@ angular.module("Love").factory("apiServices", function($http, localStorageServic
 		},
 		_post: function(request) {
 			return function(input) {
-				if (request.token === null) {
+				if (request.token !== undefined) {
 					request.token = localStorageService.get("token")
 				}
 				return $http({
