@@ -1,8 +1,11 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").factory("apiServices", function($http) {
+angular.module("Love").factory("apiServices", function($http, localStorageService) {
 	return {
 		_get: function(request) {
 			return function(input) {
+				if (request.token === null) {
+					request.token = localStorageService.get("token")
+				}
 				return $http({
 					// by dribehance <dribehance.kksdapp.com>
 					url: request.url,
@@ -15,6 +18,9 @@ angular.module("Love").factory("apiServices", function($http) {
 		},
 		_post: function(request) {
 			return function(input) {
+				if (request.token === null) {
+					request.token = localStorageService.get("token")
+				}
 				return $http({
 					// by dribehance <dribehance.kksdapp.com>
 					url: request.url,
