@@ -71,7 +71,7 @@
                 <i class="icon icon-tr-aihao bg-color"></i>
                 <div class="item-title">兴趣爱好</div>
                 <div class="item-content">
-                    <div class="btn btn-second btn-xs tag-bottom" ng-repeat="tag in get_tags(user.taste)">{{tag}}</div>
+                    <div class="btn btn-second btn-xs tag-bottom" ng-repeat="tag in get_tags(user.taste) track by $index">{{tag}}</div>
                     <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.taste).length==0">暂无填写</div>
                 </div>
             </a>
@@ -79,7 +79,7 @@
                 <i class="icon icon-tr-caiyi bg-color"></i>
                 <div class="item-title">才艺</div>
                 <div class="item-content">
-                    <div class="btn btn-second btn-xs tag-bottom" ng-repeat="talent in get_tags(user.talent_skill)">{{talent}}</div>
+                    <div class="btn btn-second btn-xs tag-bottom" ng-repeat="talent in get_tags(user.talent_skill) track by $index">{{talent}}</div>
                     <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.talent_skill).length==0">暂无填写</div>
                 </div>
             </a>

@@ -100,7 +100,7 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	}
 	$scope.get_tags = function(tags) {
 		if (!tags) {
-			return;
+			return [];
 		}
 		return tags.split("#")
 	}

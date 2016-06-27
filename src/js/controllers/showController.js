@@ -12,8 +12,8 @@ angular.module("Love").controller("showController", function($scope, $rootScope,
 	})
 	$scope.ajaxForm = function() {
 		toastServices.show();
-		userServices.save_inner_word({
-			content: $scope.input.user_show
+		userServices.save_userinfo_1({
+			heart: $scope.input.user_show
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {

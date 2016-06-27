@@ -35,9 +35,13 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/UserCenter/userInfo",
             token: localStorageService.get("token")
         })),
-        // 保存独白
-        save_inner_word: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/app/UserCenter/userInfo",
+        // 保存
+        save_userinfo_1: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserModifyManage/updateInfo01",
+            token: localStorageService.get("token")
+        })),
+        save_userinfo_2: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserModifyManage/updateInfo02",
             token: localStorageService.get("token")
         })),
         // 实名认证

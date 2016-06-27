@@ -1,4 +1,4 @@
-angular.module("Love").controller("tagsController", function($scope, $rootScope, $routeParams, $timeout, loveServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("tagsController", function($scope, $rootScope, $routeParams, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
 	$scope.select = function(tag) {
 		tag.select = !tag.select;
 	}
@@ -23,13 +23,23 @@ angular.module("Love").controller("tagsController", function($scope, $rootScope,
 		}
 	});
 	$scope.save = function() {
+		var info = {},
+			params = $scope.tags.filter(function(t) {
+				return t.select
+			}).map(function(tag) {
+				return tag.name
+			}).join("#")
+		if ($routeParams.type == '1') {
+			info.taste = params;
+		}
+		if ($routeParams.type == '2') {
+			info.talent_skill = params;
+		}
 		toastServices.show();
-		loveServices.save_tags({
-
-		}).then(function(data) {
-			toastServices.hide()
+		userServices.save_userinfo_1(info).then(function(data) {
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				$timeout(function() {
+					toastServices.hide()
 					$rootScope.back();
 				}, 2000)
 			} else {
