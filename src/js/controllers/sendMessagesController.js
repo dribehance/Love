@@ -18,10 +18,10 @@ angular.module("Love").controller("sendMessagesController", function($scope, use
 				$scope.messages = $scope.messages.concat(data.Result.ChatUsers.list);
 				$scope.no_more = $scope.messages.length == data.Result.ChatUsers.totalRow ? true : false;
 			} else {
-				$scope.page.message = "加载完成，共加载" + $scope.messages.length + "条记录";
+				errorServices.autoHide("服务器错误");
 			}
 			if ($scope.no_more) {
-				$scope.page.message = "没有了";
+				$scope.page.message = "加载完成，共加载" + $scope.messages.length + "条记录";
 			}
 			$scope.page.pn++;
 		})

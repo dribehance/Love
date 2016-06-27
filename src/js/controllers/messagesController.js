@@ -19,10 +19,10 @@ angular.module("Love").controller("messagesController", function($scope, $locati
                 $scope.news = $scope.news.concat(data.Result.CollectUsers.list);
                 $scope.no_more = $scope.news.length == data.Result.CollectUsers.totalRow ? true : false;
             } else {
-                $scope.page.message = "加载完成，共加载" + $scope.news.length + "条记录";
+                errorServices.autoHide("服务器错误");
             }
             if ($scope.no_more) {
-                $scope.page.message = "没有了";
+                $scope.page.message = "加载完成，共加载" + $scope.news.length + "条记录";
             }
             $scope.page.pn++;
         })
@@ -54,7 +54,7 @@ angular.module("Love").controller("messagesController", function($scope, $locati
 
     $scope.confirm_modal = function() {
         $location.path("charge").search({
-            
+
         })
     }
 })
