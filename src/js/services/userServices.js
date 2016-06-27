@@ -104,18 +104,33 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             token: localStorageService.get("token")
         })),
         // 约会我的 我约会的 成功赴约
-        query_metting: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+        query_meetting: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/TrystManage/trystMeList",
             token: localStorageService.get("token")
         })),
         // 确认赴约
-        confirm_adate: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+        // confirm_adate: apiServices._get(angular.extend({}, config.common_params, {
+        //     url: config.url + "/api_url",
+        //     token: localStorageService.get("token")
+        // })),
+        // 约会投诉信息
+        query_report_info: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/TrystManage/constant",
             token: localStorageService.get("token")
         })),
         // 约会投诉
         report: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/TrystManage/complaintTryst",
+            token: localStorageService.get("token")
+        })),
+        // 同意约会
+        agree_meetting: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/TrystManage/agreeTryst",
+            token: localStorageService.get("token")
+        })),
+        // 拒绝约会
+        reject_meetting: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/TrystManage/refuseTryst",
             token: localStorageService.get("token")
         })),
     }

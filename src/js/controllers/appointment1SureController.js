@@ -1,9 +1,10 @@
 angular.module("Love").controller("appointment1SureController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
-    $scope.mettings = [];
+    $scope.meettings = [];
     $scope.page = {
         pn: 1,
-        page_size: 1,
+        page_size: 5,
         message: "点击加载更多",
+        yuehui_type: "1"
     }
     $scope.loadMore = function() {
         if ($scope.no_more) {
@@ -11,17 +12,17 @@ angular.module("Love").controller("appointment1SureController", function($scope,
         }
         toastServices.show();
         $scope.page.message = "正在加载...";
-        userServices.query_metting($scope.page).then(function(data) {
+        userServices.query_meetting($scope.page).then(function(data) {
             toastServices.hide();
             $scope.page.message = "点击加载更多";
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-                $scope.mettings = $scope.mettings.concat(data.result.list);
-                $scope.no_more = $scope.mettings.length == data.result.total_result.totalRow ? true : false;
+                $scope.meettings = $scope.meettings.concat(data.Result.Trysts.list);
+                $scope.no_more = $scope.meettings.length == data.Result.Trysts.totalRow ? true : false;
             } else {
                 errorServices.autoHide("服务器错误");
             }
             if ($scope.no_more) {
-                $scope.page.message = "没有了";
+                $scope.page.message = "加载完成，共加载" + $scope.meettings.length + "条记录";
             }
             $scope.page.pn++;
         })
@@ -29,27 +30,42 @@ angular.module("Love").controller("appointment1SureController", function($scope,
     }
     $scope.loadMore();
 
+    // 投诉信息
+    toastServices.show();
+    userServices.query_report_info().then(function(data) {
+        toastServices.hide()
+        if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+            $scope.report_info = data.Result.Constant;
+        } else {
+            errorServices.autoHide(data.message);
+        }
+    })
 
     $scope.modal = {
         status: 0
     };
-
-    $scope.info = "双方确认赴约后，保证金将退回";
     $scope.complaint = "请联系官方客服，进行投诉维权";
-
-    $scope.open_overlay = function() {
-        $scope.modal.status = 1;
-    }
-    $scope.open_show = function() {
-        $scope.modal.status = 2;
-    }
-    $scope.open_modal = function() {
+    $scope.open_modal = function(report_meetting) {
+        $scope.report_meetting = report_meetting;
         $scope.modal.status = 1;
     }
     $scope.cancel_modal = function() {
         $scope.modal.status = 0;
     }
     $scope.confirm_modal = function() {
-        $scope.modal.status = 0;
+        toastServices.show();
+        userServices.report({
+            tryst_id: $scope.report_meetting.tryst_id,
+            complainted_user_id: $scope.report_meetting.trysted_user_id
+        }).then(function(data) {
+            toastServices.hide()
+            if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+                $scope.modal.status = 0;
+                $scope.report_meetting = "";
+                errorServices.autoHide(data.message);
+            } else {
+                errorServices.autoHide(data.message);
+            }
+        })
     }
 })
