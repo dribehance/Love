@@ -1,0 +1,23 @@
+<div class="section">
+    <div class="service">
+        <div class="service-group">
+            <div class="service-group-item service-border-bottom text-field">
+                <div class="text-field">
+                    <span>金额：{{input.money|currency:"￥"}}</span>
+                </div>
+            </div>
+            <div class="service-group-item service-border-bottom" ng-click="active('2')">
+                <div class="icon icon-weixin1 pull-left"></div>
+                <div class="pay pull-left">微信支付</div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':input.pay_type=='2'}"></div>
+            </div>
+            <div class="service-group-item service-border-bottom" ng-click="active('1')">
+                <div class="pay sub-field">押金支付</div>
+                <div class="icon icon-weixuanzhong pull-right" ng-class="{'active':input.pay_type == '1'}"></div>
+            </div>
+        </div>
+        <div class="btn-center">
+            <button href="" class="btn btn-primary btn-block btn-width" ng-click="pay()">确认购买</button>
+        </div>
+    </div>
+</div>

@@ -231,9 +231,9 @@
 <div class="modal-overlay" ng-if="modal.status == '1'">
     <div class="madal-body">
         <div class="madal-body-content">
-            约会心仪TA需要消耗一张约会票哦~~
+            约会心仪TA需要{{report_info.bond_money|currency:"￥"}}人民币哟~~
         </div>
         <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
-        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">约TA</div>
     </div>
 </div>

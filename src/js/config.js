@@ -12,6 +12,19 @@ angular.module("Love").constant("config", {
 		invoke: "h5",
 		app_sign: "123456"
 	},
+	weixin: {
+		"base_url": "https://open.weixin.qq.com/connect/oauth2/authorize",
+		"access_token_url": "https://api.weixin.qq.com/sns/oauth2/access_token",
+		"userinfo_url": "https://api.weixin.qq.com/sns/userinfo",
+		"appid": "wx24cc097bb3db1ce3",
+		"secret": "1428c0468f80f233c7f17d887582f2f6",
+		"redirect_uri": "http://www.uelives.com/oauth",
+		"payment_redirect_uri": "http://www.uelives.com/h5/#/payment",
+		"response_type": "code",
+		"scope": "snsapi_userinfo",
+		"state": "weixin",
+		"wechat_redirect": "#wechat_redirect",
+	},
 	interceptor: [
 		"account",
 		"appointment",
@@ -33,6 +46,7 @@ angular.module("Love").constant("config", {
 		"mylove",
 		"phone_authen",
 		"realname_authen",
+		"payment",
 		"search",
 		"services",
 		"signin",

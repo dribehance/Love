@@ -73,7 +73,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             token: localStorageService.get("token")
         })),
         // 约TA
-        yue: apiServices._get(angular.extend({}, config.common_params, {
+        yue_ta: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/app/TrystManage/addTryst",
             token: localStorageService.get("token")
         })),
@@ -102,7 +102,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // 充值
         charge: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/Pays/payVip",
             token: localStorageService.get("token")
         })),
         // 谁看过我

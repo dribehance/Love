@@ -77,6 +77,16 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			errorServices.autoHide(data.message);
 		}
 	});
+	// 投诉信息
+	toastServices.show();
+	userServices.query_report_info().then(function(data) {
+		toastServices.hide()
+		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+			$scope.report_info = data.Result.Constant;
+		} else {
+			errorServices.autoHide(data.message);
+		}
+	});
 	$scope.get_images = function(images) {
 		if (!images) {
 			return [];
@@ -108,23 +118,22 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 		status: 0
 	};
 	$scope.open_modal = function() {
-		$scope.modal.status = 1;
+		if ($scope.user.is_chat == '1') {
+			$location.path("chat").search(id, $scope.user.user_id);
+			return;
+		}
+		if ($scope.user.is_chat != '1') {
+			$scope.modal.status = 1;
+		}
 	}
 	$scope.cancel_modal = function() {
 		$scope.modal.status = 0;
 	}
 	$scope.confirm_modal = function() {
 		$scope.modal.status = 0;
-		toastServices.show();
-		userServices.yue({
-			ta_user_id: $routeParams.id
-		}).then(function(data) {
-			toastServices.hide()
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				$location.path("message").search();
-			} else {
-				errorServices.autoHide(data.message);
-			}
+		$location.path("payment").search({
+			id: $routeParams.id,
+			money: $scope.report_info.bond_money
 		})
 	}
 })
