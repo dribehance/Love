@@ -288,17 +288,17 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	// 工作单位
 	$scope.input.company = "";
 	// -------------------------------------------------------action
-	$scope.like = function() {
-		toastServices.show();
-		userServices.like().then(function(data) {
-			toastServices.hide()
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				errorServices.autoHide(data.message);
-			} else {
-				errorServices.autoHide(data.message);
-			}
-		})
-	}
+	// $scope.like = function() {
+	// 	toastServices.show();
+	// 	userServices.like().then(function(data) {
+	// 		toastServices.hide()
+	// 		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+	// 			errorServices.autoHide(data.message);
+	// 		} else {
+	// 			errorServices.autoHide(data.message);
+	// 		}
+	// 	})
+	// }
 	$scope.save = function() {
 		toastServices.show();
 		userServices.save_userinfo_1({
