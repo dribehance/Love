@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("basicController", function($scope, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("basicController", function($scope, $filter, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	toastServices.show();
 	userServices.query_userinfo({
@@ -8,6 +8,11 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 		toastServices.hide()
 		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 			$scope.user = data.Result.UserInfo;
+			if (!$scope.user.birthday) {
+				$scope.input.birthday = new Date();
+			} else {
+				$scope.input.birthday = new Date($scope.user.birthday);
+			}
 			$scope.input.covers = $scope.user.image_other.split("#").filter(function(i) {
 				return i != "";
 			});
@@ -24,13 +29,14 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			}, 2000);
 			$scope.input.degree = $scope.user.edu;
 			$scope.input.marry = $scope.user.marry;
-			$scope.input.child = $scope.user.child;
+			$scope.input.child = $scope.user.is_has_child;
 			$scope.input.is_buy_house = $scope.user.is_buy_house;
 			$scope.input.house = $scope.user.buy_house;
+			$scope.input.car = $scope.user.buy_car;
 			$scope.input.is_buy_car = $scope.user.is_buy_car;
 			$scope.input.job = $scope.user.job;
 			$scope.input.age_1 = $scope.user.UserOther.choose_mate_age;
-			$scope.input.height_1 = $scope.user.UserOther.choose_mate_height;
+			$scope.input.height_1 = $scope.user.UserOther.choose_mate_heart;
 			$scope.input.income_1 = $scope.user.UserOther.choose_mate_income;
 			$scope.input.province_1 = $scope.user.UserOther.choose_mate_province;
 			// $scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
@@ -163,7 +169,7 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	// 婚姻状况
 	$scope.marrys = ["未婚", "已婚", "离异", "丧偶"];
 	// 有无子女
-	$scope.children = ["没有", "有,和我住一起", "有,不和我住一起", "有,有时和我住一起"];
+	$scope.children = ["没有", "有，和我住一起", "有，不和我住一起", "有，有时和我住一起"];
 	// 购房情况
 	$scope.houses = ["以后再告诉你", "已购房(有房贷)", "与父母同住", "租房", "已购房(无房贷)", "住单位房", "住亲朋家", "需要时购置"];
 	// 购车情况
@@ -303,7 +309,7 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 		toastServices.show();
 		userServices.save_userinfo_1({
 			"sex": $scope.input.gender == '男' ? '1' : '0',
-			"birthday": $scope.input.birthday,
+			"birthday": $filter("date")($scope.input.birthday, "yyyy-MM-dd"),
 			"province": $scope.input.province,
 			"city": $scope.input.city,
 			"height": $scope.input.height,
@@ -332,7 +338,7 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			"dossier_xuexing": $scope.input.blood,
 			"dossier_tixing": $scope.input.body,
 			"dossier_tizhong": $scope.input.weight,
-			// "dossier_tizhong": $scope.input.score,
+			"dossier_xiangmao_zp": $scope.input.score,
 			"dossier_xiangmao_religion": $scope.input.region,
 			"dossier_smoke": $scope.input.smoke,
 			"dossier_drink": $scope.input.drink,
@@ -379,8 +385,8 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 		userServices.save_userinfo_3({
 			"user_other_data_id": $scope.user.UserOther.user_other_data_id,
 			"choose_mate_age": $scope.input.age_1,
-			"choose_mate_height": $scope.input.height_1,
-			"choose_mate_heart": $scope.input.heart,
+			"choose_mate_heart": $scope.input.height_1,
+			// "choose_mate_heart": $scope.input.heart,
 			"choose_mate_province": $scope.input.province_1,
 			"choose_mate_city": $scope.input.city_1,
 			"choose_mate_marry": $scope.input.marry,

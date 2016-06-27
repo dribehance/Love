@@ -96,7 +96,7 @@
                                 <option value="">请选择</option>
                             </select>
                         </li>
-                        <li>出生年月<span>{{user.birthday}}</span></li>
+                        <li>出生年月<span><input type="date" ng-model="input.birthday"></span></li>
                         <li>身高
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select select-lg-width pull-right" name="height" ng-model="input.height" ng-options="height for height in heights">
