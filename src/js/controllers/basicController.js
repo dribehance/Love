@@ -19,6 +19,8 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			$scope.input.province = $scope.user.province;
 			$timeout(function() {
 				$scope.input.city = $scope.user.city;
+				$scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
+				$scope.input.city_2 = $scope.user.UserOther.dossier_hometown_city;
 			}, 2000);
 			$scope.input.degree = $scope.user.edu;
 			$scope.input.marry = $scope.user.marry;
@@ -31,14 +33,14 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			$scope.input.height_1 = $scope.user.UserOther.choose_mate_height;
 			$scope.input.income_1 = $scope.user.UserOther.choose_mate_income;
 			$scope.input.province_1 = $scope.user.UserOther.choose_mate_province;
-			$scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
+			// $scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
 			$scope.input.degree_1 = $scope.user.UserOther.choose_mate_edu;
 			$scope.input.marry_1 = $scope.user.UserOther.choose_mate_marry;
 			$scope.input.child_1 = $scope.user.UserOther.choose_mate_has_child;
 			$scope.input.house_1 = $scope.user.UserOther.choose_mate_has_house;
 			$scope.input.car_1 = $scope.user.UserOther.choose_mate_has_car;
-			$scope.input.province_2 = $scope.user.UserOther.dossier_province;
-			$scope.input.city_2 = $scope.user.UserOther.dossier_city;
+			$scope.input.province_2 = $scope.user.UserOther.dossier_hometown_province;
+			// $scope.input.city_2 = $scope.user.UserOther.dossier_city;
 			$scope.input.nation = $scope.user.UserOther.dossier_nation;
 			$scope.input.shuxiang = $scope.user.UserOther.dossier_shuxiang;
 			$scope.input.xinzuo = $scope.user.UserOther.dossier_xinzuo;
@@ -46,13 +48,14 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			$scope.input.body = $scope.user.UserOther.dossier_tixing;
 			$scope.input.weight = $scope.user.UserOther.dossier_tizhong;
 			$scope.input.score = $scope.user.UserOther.dossier_xiangmao_zp;
-			$scope.input.region = $scope.user.UserOther.dossier_region;
+			$scope.input.region = $scope.user.UserOther.dossier_xiangmao_religion;
 			$scope.input.smoke = $scope.user.UserOther.dossier_smoke;
 			$scope.input.drink = $scope.user.UserOther.dossier_drink;
 			$scope.input.school = $scope.user.UserOther.edu_job_school;
 			$scope.input.major = $scope.user.UserOther.edu_job_profession;
-			$scope.input.position = $scope.user.UserOther.edu_job_zhiwu;
+			$scope.input.position = $scope.user.UserOther.edu_job_zhiye_zhiwu;
 			$scope.input.company_nature = $scope.user.UserOther.edu_job_nature_company;
+			$scope.input.industry = $scope.user.UserOther.edu_job_company_hangye;
 			$scope.input.work_status = $scope.user.UserOther.edu_job_work_status;
 			$scope.input.language = $scope.user.UserOther.edu_job_master_language;
 			$scope.input.about_money = $scope.user.UserOther.attitude_money;
@@ -60,13 +63,14 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 			$scope.input.about_sex = $scope.user.UserOther.attitude_sex;
 			$scope.input.marry_plan = $scope.user.UserOther.love_marry_plan;
 			$scope.input.housework = $scope.user.UserOther.love_home_work;
-			$scope.input.babys = $scope.user.UserOther.love_want_child;
+			$scope.input.baby = $scope.user.UserOther.love_want_child;
 			$scope.input.live_with_parent = $scope.user.UserOther.love_want_fw_zhu;
 			$scope.input.couple = $scope.user.UserOther.love_spouse_pattern;
 			$scope.input.alone_with = $scope.user.UserOther.love_live_pattern;
 			$scope.input.yearing = $scope.user.UserOther.life_xiangwang_thing;
 			$scope.input.like_book = $scope.user.UserOther.life_love_book;
 			$scope.input.like_film = $scope.user.UserOther.life_love_movie;
+			$scope.input.like_music = $scope.user.UserOther.life_love_music;
 			$scope.input.focus_topic = $scope.user.UserOther.life_guanzhu_theme;
 			$scope.input.proud = $scope.user.UserOther.life_proud_thing;
 			$scope.input.cooking = $scope.user.UserOther.life_cooking;
@@ -138,8 +142,8 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	});
 	$scope.query_city_1 = function(province) {
 		loveServices.query_city().then(function(data) {
-			$scope.cities = data[province];
-			$scope.input.city = $scope.cities[0];
+			$scope.cities_1 = data[province];
+			$scope.input.city_1 = $scope.cities[0];
 		});
 	};
 	$scope.$watch('input.province_2', function(n, o) {
@@ -150,8 +154,8 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	});
 	$scope.query_city_2 = function(province) {
 		loveServices.query_city().then(function(data) {
-			$scope.cities = data[province];
-			$scope.input.city = $scope.cities[0];
+			$scope.cities_2 = data[province];
+			$scope.input.city_2 = $scope.cities[0];
 		});
 	};
 	// 学历
@@ -211,7 +215,7 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	weights.push("40以下");
 	for (var i = 0; i < 60; i = i + 2) {
 		var to = weight + 2;
-		weights.push(weight + "-" + to + "岁")
+		weights.push(weight + "-" + to + "公斤")
 		weight = to;
 	}
 	weights.push("100公斤以上");
@@ -221,7 +225,7 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 	// 宗教信仰
 	$scope.regions = ["无神论", "佛教", "道教", "基督教", "天主教", "儒教", "犹太教", "回教", "伊斯兰教", "其他"];
 	// 是否吸烟
-	$scope.smokes = ["不吸,很反感", "不吸,但不反感", "社交时偶尔吸烟", "烟不离手"];
+	$scope.smokes = ["不吸，很反感", "不吸，但不反感", "社交时偶尔吸烟", "烟不离手"];
 	// 是否饮酒
 	$scope.drinks = ["不喝酒", "社交需要喝", "兴致时小酌", "酒不离口"];
 	// ----------------教育及工作单位
@@ -288,6 +292,104 @@ angular.module("Love").controller("basicController", function($scope, $timeout, 
 		toastServices.show();
 		userServices.like().then(function(data) {
 			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	}
+	$scope.save = function() {
+		toastServices.show();
+		userServices.save_userinfo_1({
+			"sex": $scope.input.gender == '男' ? '1' : '0',
+			"birthday": $scope.input.birthday,
+			"province": $scope.input.province,
+			"city": $scope.input.city,
+			"height": $scope.input.height,
+			// "income": $scope.input.income,
+			"edu": $scope.input.degree,
+			"marry": $scope.input.marry,
+			"is_has_child": $scope.input.child,
+			"buy_house": $scope.input.house,
+			"buy_car": $scope.input.car,
+			"job": $scope.input.job,
+		}).then(function(data) {
+			toastServices.hide();
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+		userServices.save_userinfo_2({
+			"user_other_data_id": $scope.user.UserOther.user_other_data_id,
+			"dossier_hometown_province": $scope.input.province_2,
+			"dossier_hometown_city": $scope.input.city_2,
+			"dossier_nation": $scope.input.nation,
+			"dossier_shuxiang": $scope.input.shuxiang,
+			"dossier_xingzuo": $scope.input.xinzuo,
+			"dossier_xuexing": $scope.input.blood,
+			"dossier_tixing": $scope.input.body,
+			"dossier_tizhong": $scope.input.weight,
+			// "dossier_tizhong": $scope.input.score,
+			"dossier_xiangmao_religion": $scope.input.region,
+			"dossier_smoke": $scope.input.smoke,
+			"dossier_drink": $scope.input.drink,
+			"edu_job_school": $scope.input.school,
+			"edu_job_profession": $scope.input.major,
+			"edu_job_zhiye_zhiwu": $scope.input.position,
+			"edu_job_nature_company": $scope.input.company_nature,
+			"edu_job_company_hangye": $scope.input.industry,
+			"edu_job_work_status": $scope.input.work_status,
+			"edu_job_master_language": $scope.input.language,
+			"attitude_money": $scope.input.about_money,
+			"attitude_sex": $scope.input.about_sex,
+			"attitude_shiye_love": $scope.input.about_love,
+			"love_marry_plan": $scope.input.marry_plan,
+			"love_home_work": $scope.input.housework,
+			"love_want_child": $scope.input.baby,
+			"love_want_fw_zhu": $scope.input.live_with_parent,
+			"love_spouse_pattern": $scope.input.couple,
+			"love_live_pattern": $scope.input.alone_with,
+			"life_xiangwang_thing": $scope.input.yearing,
+			"life_love_book": $scope.input.like_book,
+			"life_love_movie": $scope.input.like_film,
+			"life_love_music": $scope.input.like_music,
+			"life_guanzhu_theme": $scope.input.focus_topic,
+			"life_proud_thing": $scope.input.proud,
+			"life_cooking": $scope.input.cooking,
+			"life_go_space": $scope.input.had_been,
+			"life_circle_work_place": $scope.input.work_place,
+			"life_circle_life_place": $scope.input.life_place,
+			// "family_ranking": "【家庭状况】家庭排行",
+			// "family_fumu_condition": "【家庭状况】父母情况",
+			// "family_father_work": "【家庭状况】父亲工作",
+			// "family_mother_work": "【家庭状况】母亲工作",
+			// "family_fumu_economy": "【家庭状况】父母经济",
+			// "family_fumu_yibao": "【家庭状况】父母医保",
+		}).then(function(data) {
+			toastServices.hide();
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+		userServices.save_userinfo_3({
+			"user_other_data_id": $scope.user.UserOther.user_other_data_id,
+			"choose_mate_age": $scope.input.age_1,
+			"choose_mate_height": $scope.input.height_1,
+			"choose_mate_heart": $scope.input.heart,
+			"choose_mate_province": $scope.input.province_1,
+			"choose_mate_city": $scope.input.city_1,
+			"choose_mate_marry": $scope.input.marry,
+			"choose_mate_edu": $scope.input.degree_1,
+			"choose_mate_income": $scope.input.income_1,
+			"choose_mate_has_child": $scope.input.child_1,
+			"choose_mate_has_house": $scope.input.house_1,
+		}).then(function(data) {
+			toastServices.hide();
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
 			} else {

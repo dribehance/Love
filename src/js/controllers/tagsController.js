@@ -37,9 +37,10 @@ angular.module("Love").controller("tagsController", function($scope, $rootScope,
 		}
 		toastServices.show();
 		userServices.save_userinfo_1(info).then(function(data) {
+			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
 				$timeout(function() {
-					toastServices.hide()
 					$rootScope.back();
 				}, 2000)
 			} else {

@@ -183,10 +183,10 @@
                         <li>居住地
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <div class="select-lg-width pull-right">
-                                <select class="select pull-left" name="province_1" ng-model="input.province1" ng-options="province for province in provinces">
+                                <select class="select pull-left" name="province_1" ng-model="input.province_1" ng-options="province for province in provinces">
                                     <option value="">请选择</option>
                                 </select>
-                                <select class="select pull-left" name="city_1" ng-model="input.city_1" ng-options="city for city in cities">
+                                <select class="select pull-left" name="city_1" ng-model="input.city_1" ng-options="city for city in cities_1">
                                     <option value="">请选择</option>
                                 </select>
                             </div>
@@ -205,7 +205,7 @@
                         </li>
                         <li>有无子女
                             <div class="icon icon-jiantou3 pull-right"></div>
-                            <select class="select select-lg-width pull-right" name="children_1" ng-model="input.children_1" ng-options="children for children in childrens">
+                            <select class="select select-lg-width pull-right" name="child_1" ng-model="input.child_1" ng-options="child for child in children">
                                 <option value="">请选择</option>
                             </select>
                         </li>
@@ -215,12 +215,12 @@
                                 <option value="">请选择</option>
                             </select>
                         </li>
-                        <li>购房情况
+                        <!-- <li>购房情况
                             <div class="icon icon-jiantou3 pull-right"></div>
                             <select class="select-lg-width pull-right" name="car_1" ng-model="input.car_1" ng-options="car for car in cars">
                                 <option value="">请选择</option>
                             </select>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -235,7 +235,7 @@
                                 <select class="pull-left" name="province_2" ng-model="input.province_2" ng-options="province for province in provinces">
                                     <option value="">请选择</option>
                                 </select>
-                                <select class="select-margin pull-left" name="city_2" ng-model="input.city_2" ng-options="city for city in cities">
+                                <select class="select-margin pull-left" name="city_2" ng-model="input.city_2" ng-options="city for city in cities_2">
                                     <option value="">请选择</option>
                                 </select>
                             </div>
@@ -399,6 +399,9 @@
                         <li>最喜欢的电影
                             <span><input name="like_film" ng-model="input.like_film" placeholder="最喜欢的电影"></span>
                         </li>
+                        <li>最喜欢的电影
+                            <span><input name="like_film" ng-model="input.like_music" placeholder="最喜欢的音乐"></span>
+                        </li>
                         <li>最关注的话题
                             <span><input name="focus_topic" ng-model="input.focus_topic" placeholder="最关注的话题"></span>
                         </li>
@@ -441,7 +444,7 @@
     </div>
 </div>
 <div class="footer justified">
-    <a class="footer-item">
+    <a class="footer-item" ng-click="save()">
         <i class="icon icon-save" ng-class="{'active':active=='search'}"></i>
         <span class="block" ng-class="{'text-primary':active=='search'}">保存</span>
     </a>

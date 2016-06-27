@@ -44,6 +44,10 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/UserModifyManage/updateInfo02",
             token: localStorageService.get("token")
         })),
+        save_userinfo_3: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserCenter/updateChooseMate",
+            token: localStorageService.get("token")
+        })),
         // 实名认证
         realname_authen: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/app/UserCenter/updateRealNameAuth",
