@@ -48,6 +48,10 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/UserCenter/updateChooseMate",
             token: localStorageService.get("token")
         })),
+        save_basic: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserCenter/userInfo",
+            token: localStorageService.get("token")
+        })),
         // 实名认证
         realname_authen: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/app/UserCenter/updateRealNameAuth",
@@ -75,7 +79,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // 消息列表
         query_messages: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/app/ChatManage/chatMessageList",
+            url: config.url + "/app/ChatManage/collectMsgList",
             token: localStorageService.get("token")
         })),
         query_send_messages: apiServices._get(angular.extend({}, config.common_params, {

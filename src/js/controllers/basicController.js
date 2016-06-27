@@ -403,6 +403,19 @@ angular.module("Love").controller("basicController", function($scope, $filter, $
 			}
 		})
 	}
+
+	$scope.save= function() {
+		userServices.save({
+
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	}
 });
 // uploadCoversController
 angular.module("Love").controller("uploadCoversController", function($scope, errorServices, toastServices, localStorageService, config) {

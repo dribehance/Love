@@ -1,31 +1,37 @@
 <div class="section">
     <div class="chat clearfix">
         <div class="chat-box" ng-repeat="chat in chats">
-        	<img ng-src="{{staticImageUrl+chat.receive_image_01}}" ng-if="chat.is_me_send == '0'" err-src="../images/banner.png" class="full-width full-height pull-left">
+            <img ng-src="{{staticImageUrl+chat.receive_image_01}}" ng-if="chat.is_me_send == '0'" err-src="../images/banner.png" class="full-width full-height pull-left">
             <img ng-src="{{staticImageUrl+chat.current_image_01}}" ng-if="chat.is_me_send=='1'" err-src="../images/banner.png" class="full-width full-height pull-right">
-        	<div class="chat-info">
-        		<p class="org" ng-class="{'org-left':chat.is_me_send == '0','org-right':chat.is_me_send=='1','pull-right':chat.is_me_send=='1'}">{{chat.content}}
-        			<span ng-class="{'col':chat.is_me_send=='1','cor':chat.is_me_send=='0'}"></span>
-        		</p>
-
-        	</div>
+            <div class="chat-info">
+                <p class="org" ng-class="{'org-left':chat.is_me_send == '0','org-right':chat.is_me_send=='1','pull-right':chat.is_me_send=='1'}">{{chat.content}}
+                    <span ng-class="{'col':chat.is_me_send=='1','cor':chat.is_me_send=='0'}"></span>
+                </p>
+            </div>
         </div>
         <!-- <div class="chat-box">
-        	<img src="../images/banner.png" class="full-width full-height pull-right">
-        	<div class="chat-info">
-        		<p class="org pull-right org-right">你的电话号码是多少呀？
-        			<span class="col"></span>
-        		</p>
+            <img src="../images/banner.png" class="full-width full-height pull-right">
+            <div class="chat-info">
+                <p class="org pull-right org-right">你的电话号码是多少呀？
+                    <span class="col"></span>
+                </p>
 
-        	</div>
+            </div>
         </div> -->
     </div>
-
 </div>
-
 <form class="section" ng-submit="send()" name="sendForm">
-	<div class="chat-input">
-		<input class="full-width" ng-model="input.content" required>
-		<button type="submit" class="btn btn-default btn-positon" ng-disabled="sendForm.$invalid">发送</button>
-	</div>
+    <div class="respond-wrap">
+        <input class="full-width" ng-model="input.content" required>
+        <div class="btn-positon">
+            <button type="submit" class="btn btn-default btn-positon" ng-disabled="sendForm.$invalid">发送</button>
+        </div>
+        <div class="icon icon-pb pull-right">
+            <select>
+                <option>屏蔽</option>
+                <option>取消</option>
+            </select>
+        </div>
+    </div>
+   
 </form>

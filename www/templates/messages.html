@@ -2,105 +2,55 @@
     <div class="search-wrap">
         <div class="tabs">
             <a href="" class="tabs-item tabs-width50 pull-left highlight" ng-href="#/messages">
-				收件箱
-			</a>
+                收件箱
+            </a>
             <a href="" class="tabs-item tabs-width50 pull-left" ng-href="#/send_messages">发件箱</a>
         </div>
     </div>
     <div href="" class="input-group">
-        <a href="" class="coach-item" ng-href="#/message">
+        <div class="coach-item" ng-repeat="new in news" ng-click="go(new.user_id)">
             <div class="coach-sm-items">
                 <div class="coach-sm-avatar">
-                    <img src="../images/banner.png" class="full-width full-height">
+                    <imageview src="staticImageUrl + new.image_01" data-rate="1"></imageview>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
                         <p>
-                            咚起大起
-                            <span class="icon icon-nan-2"></span>
+                            {{new.nickname}}
+                            <span class="icon" ng-class="{'icon-nan-2':new.sex=='1','icon-nv-2':new.sex=='0'}"></span>
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">
-                        <!-- <div class="icon icon-hotel"></div>
+                        <!-- <div class="icon icon-hotel"><s/div>
                         <div class="icon icon-cart"></div> -->
-                        <span>硕士</span>
+                        <span>{{new.edu}}</span>
                         <span>月薪</span>
-                        <span>10000-20000</span>
+                        <span>{{new.income}}</span>
                     </div>
-                    <div class="icon icon-suozhu pull-right"></div>
+                    <div class="icon icon-suozhu pull-right" ng-if="user.is_vip =='0'"></div>
                     <div class="coach-info-tip clearfix">
-                        <span>24岁</span>
-                        <span>165cm</span>
-                        <span>广东</span>
-                        <span>深圳</span>
+                        <span>{{new.age}}岁</span>
+                        <span>{{new.height}}</span>
+                        <span>{{new.province}}</span>
+                        <span>{{new.city}}</span>
                     </div>
                 </div>
-                
             </div>
-        </a>
-        <a href="" class="coach-item" ng-href="#/message">
-            <div class="coach-sm-items">
-                <div class="coach-sm-avatar">
-                    <img src="../images/banner.png" class="full-width full-height">
-                </div>
-                <div class="coach-info">
-                    <div class="coach-info-tip">
-                        <p>
-                            咚起大起
-                            <span class="icon icon-nan-2"></span>
-                        </p>
-                    </div>
-                    <div class="coach-info-tip clearfix">
-                        <div class="icon icon-hotel"></div>
-                        <div class="icon icon-cart"></div>
-                        <span>硕士</span>
-                        <span>月薪</span>
-                        <span>10000-20000</span>
-                    </div>
-                    <div class="icon icon-suozhu pull-right"></div>
-                    <div class="coach-info-tip clearfix">
-                        <span>24岁</span>
-                        <span>165cm</span>
-                        <span>广东</span>
-                        <span>深圳</span>
-                    </div>
-                </div>
-                
-            </div>
-        </a>
-        <a href="" class="coach-item" ng-href="#/message">
-            <div class="coach-sm-items">
-                <div class="coach-sm-avatar">
-                    <img src="../images/banner.png" class="full-width full-height">
-                </div>
-                <div class="coach-info">
-                    <div class="coach-info-tip">
-                        <p>
-                            咚起大起
-                            <span class="icon icon-nv-2"></span>
-                        </p>
-                    </div>
-                    <div class="coach-info-tip clearfix">
-                        <div class="icon icon-hotel"></div>
-                        <div class="icon icon-cart"></div>
-                        <span>硕士</span>
-                        <span>月薪</span>
-                        <span>10000-20000</span>
-                    </div>
-                    <div class="icon icon-suozhu pull-right"></div>
-                    <div class="coach-info-tip clearfix">
-                        <span>24岁</span>
-                        <span>165cm</span>
-                        <span>广东</span>
-                        <span>深圳</span>
-                    </div>
-                </div>
-                
-            </div>
-        </a>
+            
+        </div>
+        <div class="btn btn-primary btn-block btn-width" ng-click="loadMore()">{{page.message}}</div>
     </div>
+
     <dribehance-footer active="'messages'"></dribehance-footer>
 </div>
 
-
-
+<div class="modal-overlay" ng-if="modal.status == '1'">
+    <div class="madal-body">
+        
+        <div class="madal-body-info">
+            您还不是vip会员,是否成为vip会员？
+        </div>
+        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
+        <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
+    </div>
+</div>

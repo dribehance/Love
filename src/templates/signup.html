@@ -26,12 +26,9 @@
         <div class="signup">
             <div class="section">
                 <div class="signup-head" flow-init="{singleFile:true}" flow-attrs="{accept:'image/*'}" flow-btn ng-controller="uploadController">
-                    <a class="images">
-                        <img flow-img="$flow.files[0]" class="full-height full-width">
-                        <div class="text-center camera-top">
-                            <div class="icon icon-xiangji"></div>
-                            <div class="text-center">添加头像</div>
-                        </div>
+                    <a class="images" data-rate="1">
+                        <img src="../images/avatar_bg.png" flow-img="$flow.files[0]" class="full-height full-width">
+                       
                     </a>
                     <input type="hidden" name="filename" ng-model="input.filename" required>
                 </div>
