@@ -1,16 +1,15 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $window, oauthServices, localStorageService, config) {
-    if (!$rootScope.wx_browser) return {};
+    // if (!$rootScope.wx_browser) return {};
     oauthServices.initWeixin($location.absUrl().split("#")[0]).then(function(data) {
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-            $rootScope.timestamp = data.Result.item3.timestamp;
-            $rootScope.nonceStr = data.Result.item3.nonceStr;
+            alert(JSON.stringify(data))
             wx.config({
                 debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: config.weixin.appid, // 必填，公众号的唯一标识
-                timestamp: $rootScope.timestamp, // 必填，生成签名的时间戳
-                nonceStr: $rootScope.nonceStr, // 必填，生成签名的随机串
-                signature: data.Result.item3.signature, // 必填，签名，见附录1
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature, // 必填，签名，见附录1
                 jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone", "chooseWXPay"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
         }
@@ -132,14 +131,14 @@ angular.module("Love").factory("weixinServices", function($http, $route, $timeou
         },
         // payment
         pay: function(payment) {
-            console.log(payment)
+            alert(JSON.stringify(payment))
             toastServices.show();
             wx.chooseWXPay({
                 // "appId": payment.appId,//config.weixin.appid,
                 "timestamp": payment.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
                 "nonceStr": payment.nonceStr, // 支付签名随机串，不长于 32 位
                 "package": payment.package_web, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-                "signType": payment.weixinTemp.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                "signType": payment.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
                 "paySign": payment.paySign, // 支付签名
                 success: function(res) {
                     // 支付成功后的回调函数

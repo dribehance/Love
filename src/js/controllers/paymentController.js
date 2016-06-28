@@ -16,8 +16,15 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				$scope.payment = data.weixinTemp;
-				weixinServices.pay($scope.payment);
+				// errorServices.autoHide(data.message);
+				if ($scope.input.pay_type == '2') {
+					$scope.payment = data;
+					weixinServices.pay($scope.payment);
+				} else {
+					$timeout(function() {
+						$rootScope.back();
+					}, 2000)
+				}
 			} else {
 				errorServices.autoHide(data.message);
 			}
@@ -32,10 +39,15 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				errorServices.autoHide(data.message);
-				$timeout(function() {
-					$rootScope.back();
-				}, 2000)
+				// errorServices.autoHide(data.message);
+				if ($scope.input.pay_type == '2') {
+					$scope.payment = data;
+					weixinServices.pay($scope.payment);
+				} else {
+					$timeout(function() {
+						$rootScope.back();
+					}, 2000)
+				}
 			} else {
 				errorServices.autoHide(data.message);
 			}

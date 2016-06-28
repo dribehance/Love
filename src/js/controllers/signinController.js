@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("signinController", function($scope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("signinController", function($scope, $timeout, $location, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {
         telephone: "",
         password: ""
@@ -35,4 +35,7 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
             })
         })
     }
+    $scope.weixinLogin = function() {
+        weixinServices.queryAuthorizationCode && weixinServices.queryAuthorizationCode();
+    };
 })

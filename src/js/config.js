@@ -1,6 +1,6 @@
 angular.module("Love").constant("config", {
-	url: "http://121.40.201.53",
-	imageUrl: "http://121.40.201.53/files/image?name=",
+	url: "http://120.76.137.59",
+	imageUrl: "http://120.76.137.59/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -17,7 +17,7 @@ angular.module("Love").constant("config", {
 		"access_token_url": "https://api.weixin.qq.com/sns/oauth2/access_token",
 		"userinfo_url": "https://api.weixin.qq.com/sns/userinfo",
 		"appid": "wx24cc097bb3db1ce3",
-		"secret": "1428c0468f80f233c7f17d887582f2f6",
+		"secret": "b029f342a2e50a9a081a3d450424e71f",
 		"redirect_uri": "http://www.uelives.com/oauth",
 		"payment_redirect_uri": "http://www.uelives.com/h5/#/payment",
 		"response_type": "code",
@@ -54,6 +54,7 @@ angular.module("Love").constant("config", {
 		"single",
 		"search_conditional",
 		"send_messages",
+		"oauth",
 		"appointment1_refuse",
 		"appointment1_sure",
 		"appointment2_refuse",
