@@ -94,6 +94,17 @@ angular.module("Love").factory("weixinServices", function($http, $route, $timeou
         initWeixinShareEvent: function(title, link, thumbnail, desc) {
             initWeixinShareEvent(title, link, thumbnail, desc);
         },
+        // get code
+        get_code: function(input) {
+            return $http({
+                // by dribehance <dribehance.kksdapp.com>
+                url: config.url + "/app/WeixinCommon/getCode",
+                method: "GET",
+                params: angular.extend({}, config.common_params, input)
+            }).then(function(data) {
+                return data.data;
+            });
+        },
         // login
         queryAuthorizationCode: function() {
             var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(config.weixin.redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.scope + "&state=" + config.weixin.state + config.weixin.wechat_redirect;

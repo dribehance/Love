@@ -36,6 +36,9 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
         })
     }
     $scope.weixinLogin = function() {
-        weixinServices.queryAuthorizationCode && weixinServices.queryAuthorizationCode();
+        weixinServices.get_code().then(function(data) {
+            alert(JSON.stringify(data))
+        });
+        // weixinServices.queryAuthorizationCode && weixinServices.queryAuthorizationCode();
     };
 })
