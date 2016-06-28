@@ -1,15 +1,24 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $window, oauthServices, localStorageService, config) {
+angular.module("Love").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $window, localStorageService, config) {
     // if (!$rootScope.wx_browser) return {};
-    oauthServices.initWeixin($location.absUrl().split("#")[0]).then(function(data) {
-        if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-            alert(JSON.stringify(data))
+    // 获取当前url签名授权，全局配置微信
+    var url = $location.absUrl().split("#")[0];
+    var promise = $http({
+        // by dribehance <dribehance.kksdapp.com>
+        url: config.url + "/app/WeixinCommon/getSignature",
+        method: "GET",
+        params: angular.extend({}, config.common_params, {
+            current_url: url
+        })
+    }).then(function(data) {
+        var response = data.data;
+        if (response.code == config.request.SUCCESS && response.status == config.response.SUCCESS) {
             wx.config({
                 debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: config.weixin.appid, // 必填，公众号的唯一标识
-                timestamp: data.timestamp, // 必填，生成签名的时间戳
-                nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                signature: data.signature, // 必填，签名，见附录1
+                timestamp: response.timestamp, // 必填，生成签名的时间戳
+                nonceStr: response.nonceStr, // 必填，生成签名的随机串
+                signature: response.signature, // 必填，签名，见附录1
                 jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone", "chooseWXPay"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
         }
@@ -94,55 +103,13 @@ angular.module("Love").factory("weixinServices", function($http, $route, $timeou
         initWeixinShareEvent: function(title, link, thumbnail, desc) {
             initWeixinShareEvent(title, link, thumbnail, desc);
         },
-        // get code
-        get_code: function(input) {
-            return $http({
-                // by dribehance <dribehance.kksdapp.com>
-                url: config.url + "/app/WeixinCommon/getCode",
-                method: "GET",
-                params: angular.extend({}, config.common_params, input)
-            }).then(function(data) {
-                return data.data;
-            });
-        },
-        // login
-        queryAuthorizationCode: function() {
+        // login,in another word queryAuthorizationCode
+        login: function() {
             var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(config.weixin.redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.scope + "&state=" + config.weixin.state + config.weixin.wechat_redirect;
-            $window.location.href = url;
-        },
-        queryAccessToken: function(code) {
-            // var url = config.weixin.access_token_url + "?" + "appid=" + config.weixin.appid + "&secret=" + config.weixin.secret + "&code=" + code + "&grant_type=" + "authorization_code";
-            // $window.location.href = url;
-            var url = config.weixin.access_token_url + "?appid=" + config.weixin.appid + "&secret=" + config.weixin.secret + "&code=" + code + "&grant_type=authorization_code";
-            return $http({
-                // by dribehance <dribehance.kksdapp.com>
-                url: url,
-                method: "GET",
-            }).then(function(data) {
-                return data.data;
-            });
-        },
-        queryUserinfo: function(input) {
-            return $http({
-                // by dribehance <dribehance.kksdapp.com>
-                url: config.weixin.userinfo_url,
-                method: "GET",
-                params: angular.extend({}, {
-                    "access_token": input.access_token,
-                    "openid": input.openid,
-                    "lang": "zh_CN"
-                })
-            }).then(function(data) {
-                return data.data;
-            });
-        },
-        prepare_pay: function(payment) {
-            var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(config.weixin.payment_redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.scope + "&state=" + JSON.stringify(payment) + config.weixin.wechat_redirect;
             $window.location.href = url;
         },
         // payment
         pay: function(payment) {
-            alert(JSON.stringify(payment))
             toastServices.show();
             wx.chooseWXPay({
                 // "appId": payment.appId,//config.weixin.appid,

@@ -1,5 +1,6 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("signinController", function($scope, $timeout, $location, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("signinController", function($scope, $routeParams, $timeout, $location, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
+    $scope.uid = $routeParams.uid;
     $scope.input = {
         telephone: "",
         password: ""
@@ -18,7 +19,8 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
         }).then(function(data) {
             userServices.signin({
                 telephone: $scope.input.telephone,
-                password: $scope.input.password
+                password: $scope.input.password,
+                uid: $routeParams.uid
             }).then(function(data) {
                 toastServices.hide();
                 if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
@@ -26,7 +28,7 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
                     $scope.input.password = "";
                     localStorageService.set("token", data.token);
                     $timeout(function() {
-                        $location.path('ta').replace()
+                        $location.path('ta').search("uid", null).replace()
                     }, 2000)
                 } else {
                     $scope.input.password = "";
@@ -36,9 +38,6 @@ angular.module("Love").controller("signinController", function($scope, $timeout,
         })
     }
     $scope.weixinLogin = function() {
-        weixinServices.get_code().then(function(data) {
-            alert(JSON.stringify(data))
-        });
-        // weixinServices.queryAuthorizationCode && weixinServices.queryAuthorizationCode();
+        weixinServices.login();
     };
 })

@@ -15,10 +15,10 @@
         <div class="btn-center">
             <button type="submit" class="btn btn-block btn-width" ng-class="{'btn-default':signinForm.$invalid,'btn-primary':signinForm.$valid}" ng-disabled="signinForm.$invalid">登录</button>
         </div>
-        <div class="signin-info">
+        <div class="signin-info" ng-if="!uid">
             <div class="third-party">使用第三方登录</div>
         </div>
-        <div class="btn-center text-center" ng-click="weixinLogin()">
+        <div class="btn-center text-center" ng-if="!uid" ng-click="weixinLogin()">
             <a class="icon icon-weixin"></a>
         </div>
     </form>

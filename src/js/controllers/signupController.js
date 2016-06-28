@@ -1,7 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("signupController", function($scope, $rootScope, $location, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("signupController", function($scope, $rootScope, $routeParams, $location, $timeout, $location, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
 
-    $scope.step = 2;
+    $scope.step = 1;
     $scope.input = {};
     $scope.show_step = function(step) {
         $scope.step = step;
@@ -93,12 +93,15 @@ angular.module("Love").controller("signupController", function($scope, $rootScop
                 marry: $scope.input.marry,
                 income: $scope.input.income,
                 recommend_code: $scope.input.referee,
+                uid: $routeParams.uid
             }).then(function(data) {
                 toastServices.hide();
                 if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                     errorServices.autoHide(data.message);
+                    $scope.input.password = "";
+                    localStorageService.set("token", data.token);
                     $timeout(function() {
-                        $location.path('signin').replace()
+                        $location.path('ta').search("uid", null).replace()
                     }, 2000)
                 } else {
                     errorServices.autoHide(data.message)
