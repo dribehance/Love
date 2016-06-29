@@ -33,11 +33,18 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
 
     }
     $scope.loadMore();
+    userServices.query_basicinfo().then(function(data) {
+        if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+            $scope.user = data.Result.BaseInfo;
+        } else {
+            errorServices.autoHide(data.message);
+        }
+    });
     //消息
     $scope.send = function() {
         toastServices.show();
         userServices.send({
-            receive_user_id: $scope.chats[0].receive_user_id,
+            receive_user_id: $routeParams.id,
             content: $scope.input.content,
         }).then(function(data) {
             toastServices.hide()
@@ -45,15 +52,16 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
                 $scope.chats.push({
                     "is_read": "",
                     "receive_nickname": "",
-                    "current_image_01": "4131734_110157044032_22.jpg",
+                    "current_image_01": $scope.user.image_01,
                     "receive_image_01": "4131734_110157044032_22.jpg",
-                    "user_id": 1,
+                    "user_id": $scope.user.user_id,
                     "send_receive_time": "2016-02-29 13:51:00.0",
-                    "chat_message_id": $scope.chats[0].user_id,
-                    "receive_user_id": $scope.chats[0].receive_user_id,
+                    "chat_message_id": $scope.user.user_id,
+                    "receive_user_id": $routeParams.id,
                     "content": $scope.input.content,
                     "post_time": "2016-02-29 13:51:00",
-                    "current_nickname": "小明"
+                    "current_nickname": "小明",
+                    "is_me_send": "1"
                 })
                 $scope.input.content = "";
             } else {
