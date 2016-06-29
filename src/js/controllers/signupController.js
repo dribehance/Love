@@ -13,22 +13,29 @@ angular.module("Love").controller("signupController", function($scope, $rootScop
         $scope.modal.status = 1;
     }
     $scope.cancel_modal = function() {
-            $scope.modal.status = 0;
-        }
-        //获取验证码
-    $scope.get_smscode = function() {
+        $scope.modal.status = 0;
+    };
+    // 验证码
+    $scope.countdown = {
+        // count: "5",
+        message: "获取验证码",
+    }
+    $scope.countdown.callback = function() {
         toastServices.show();
         userServices.get_smscode({
             telephone: $scope.input.telephone
         }).then(function(data) {
-            toastServices.hide();
+            toastServices.hide()
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-                errorServices.autoHide(data.message);
-            } else {
                 errorServices.autoHide(data.message)
+            } else {
+                $scope.countdown.reset = true;
+                // $scope.modal.status = 3;
+                errorServices.autoHide(data.message);
             }
         })
-    };
+    }
+
     // upload success;
     $scope.$on("upload_success", function(event, args) {
         $scope.input.filename = args.message;

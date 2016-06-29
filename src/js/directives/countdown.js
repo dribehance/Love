@@ -22,12 +22,14 @@ angular.module("Love").directive('countdown', function($interval) {
 				counting = true;
 				scope.$apply(function() {
 					scope.countdown.message = count--;
+					scope.countdown.message = count + "s重新获取";
 					scope.countdown.mode = "disabled";
 					scope.countdown.reset = false;
 					scope.countdown.callback();
 				});
 				var timer = $interval(function() {
 					scope.countdown.message = count--;
+					scope.countdown.message = count + "s重新获取";
 					if (count < 0 || scope.countdown.reset) {
 						$interval.cancel(timer);
 						scope.countdown.message = last_message;

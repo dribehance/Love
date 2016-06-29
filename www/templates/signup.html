@@ -15,7 +15,7 @@
             </div>
             <div class="input-group-item">
                 <input type="text" placeholder="请输入验证码" class="input-lg-width" name="sms_code" ng-model="input.sms_code" required>
-                <button type="button" name="tel_code" class="btn btn-second btn-sm" ng-disabled="stepForm1.telephone.$invalid" ng-click="get_smscode()"><b>获取验证码</b></button>
+                <countdown class="btn btn-second btn-sm" countdown="countdown" countdown-disabled="phoneForm.telephone.$invalid">{{countdown.message}}</countdown>
             </div>
         </div>
         <div class="btn-center">
