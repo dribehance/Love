@@ -7,57 +7,70 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 	$scope.active = function(payment) {
 		$scope.input.pay_type = payment;
 	};
-	// 充值
-	$scope.charge = function() {
-		toastServices.show();
-		userServices.charge({
+	$scope.pay = function() {
+		var payment = {
 			pay_type: $scope.input.pay_type,
-			vip_price_id: $routeParams.id
-		}).then(function(data) {
+			vip_price_id: JSON.parse($routeParams.state).id,
+			trysted_user_id: JSON.parse($routeParams.state).id,
+			code: $routeParams.code
+		}
+		$routeParams.type == "charge" && $scope.input.pay_type == '1' && $scope.charge_by_balance(payment);
+		$routeParams.type == "charge" && $scope.input.pay_type == '2' && $scope.charge_by_weixin(payment);
+		$routeParams.type != "charge" && $scope.input.pay_type == '1' && $scope.yue_by_balance(payment);
+		$routeParams.type != "charge" && $scope.input.pay_type == '2' && $scope.yue_by_weixin(payment);
+	};
+	// 充值
+	$scope.charge_by_weixin = function(payment) {
+		toastServices.show();
+		userServices.charge(payment).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				// errorServices.autoHide(data.message);
-				if ($scope.input.pay_type == '2') {
-					$scope.payment = data;
-					weixinServices.pay($scope.payment);
-				} else {
-					$timeout(function() {
-						$rootScope.back();
-					}, 2000)
-				}
+				weixinServices.pay(data);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	}
+	$scope.charge_by_balance = function(payment) {
+		toastServices.show();
+		userServices.charge(payment).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				// errorServices.autoHide(data.message);
+				$timeout(function() {
+					$rootScope.back();
+				}, 2000)
 			} else {
 				errorServices.autoHide(data.message);
 			}
 		})
 	};
 	// 约会
-	$scope.yue_ta = function() {
+	$scope.yue_by_weixin = function(payment) {
 		toastServices.show();
-		userServices.yue_ta({
-			pay_type: $scope.input.pay_type,
-			trysted_user_id: $routeParams.id
-		}).then(function(data) {
+		userServices.yue_ta(payment).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				// errorServices.autoHide(data.message);
-				if ($scope.input.pay_type == '2') {
-					$scope.payment = data;
-					weixinServices.pay($scope.payment);
-				} else {
-					$timeout(function() {
-						$rootScope.back();
-					}, 2000)
-				}
+				weixinServices.pay(data);
 			} else {
 				errorServices.autoHide(data.message);
 			}
 		})
 	}
-	$scope.pay = function() {
-		if ($routeParams.type == 'charge') {
-			$scope.charge();
-			return;
-		}
-		$scope.yue_ta();
+	$scope.yue_by_balance = function(payment) {
+		toastServices.show();
+		userServices.yue_ta(payment).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				// errorServices.autoHide(data.message);
+				$timeout(function() {
+					$rootScope.back();
+				}, 2000)
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
 	}
 })

@@ -18,6 +18,7 @@ angular.module("Love").controller("basicController", function($scope, $filter, $
 			});
 			$scope.input.avatar = $scope.user.image_01;
 			$scope.input.heart = $scope.user.heart;
+			$scope.input.nickname = $scope.user.nickname;
 			$scope.input.gender = $scope.genders[$scope.user.sex];
 			$scope.input.height = $scope.user.height;
 			$scope.input.income = $scope.user.income;
@@ -404,7 +405,7 @@ angular.module("Love").controller("basicController", function($scope, $filter, $
 		})
 	}
 
-	$scope.save= function() {
+	$scope.save = function() {
 		userServices.save({
 
 		}).then(function(data) {
