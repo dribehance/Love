@@ -1,4 +1,4 @@
-angular.module("Love").controller("withdrawalsController", function($scope, $rootScope, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("withdrawalsController", function($scope, $rootScope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
     $scope.ajaxForm = function() {
         toastServices.show()
