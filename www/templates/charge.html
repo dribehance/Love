@@ -1,9 +1,9 @@
 <div class="section">
     <div class="service">
         <div class="service-group">
-            <div class="service-group-item service-border-bottom" ng-click="change_vips(vip.vip_price_id)" ng-repeat="vip in vips">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips(vip)" ng-repeat="vip in vips">
                 <div class="info-icon pull-right">
-                    <div class="icon icon-weixuanzhong" ng-class="{'active':vips.vip==vip.vip_price_id}"></div>
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':input.vip.vip_price_id==vip.vip_price_id}"></div>
                 </div>
                 <div class="info-wrap pull-left">
                     <div class="ticket-wrap pull-left">
@@ -20,7 +20,7 @@
         </div>
         <div class="section">
             <div class="btn-center">
-                <button href="" class="btn btn-primary btn-block btn-width" ng-click="show_step(2)">确认</button>
+                <a ng-href="#/payment?id={{input.vip.vip_price_id}}&money={{input.vip.price}}&type='charge'" class="btn btn-primary btn-block btn-width" >确认</a>
             </div>
         </div>
     </div>

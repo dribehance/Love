@@ -2,7 +2,8 @@
 angular.module("Love").controller("paymentController", function($scope, $rootScope, $routeParams, $location, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
 		money: $routeParams.money,
-		pay_type: "1"
+		pay_type: "2",
+		type: $routeParams.type || ""
 	};
 	$scope.active = function(payment) {
 		$scope.input.pay_type = payment;

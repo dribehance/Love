@@ -5,7 +5,7 @@ angular.module("Love").controller("chargeController", function($scope, $routePar
         toastServices.hide()
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.vips = data.Result.VipPrices;
-            $scope.vips.vip = $scope.vips[0].vip_price_id;
+            $scope.input.vip = $scope.vips[0];
         } else {
             errorServices.autoHide(data.message);
         }
@@ -14,20 +14,11 @@ angular.module("Love").controller("chargeController", function($scope, $routePar
 
 
     $scope.step = 1;
+    $scope.input = {};
     $scope.show_step = function(step) {
         $scope.step = step;
     }
-
     $scope.change_vips = function(vip) {
-        $scope.vips.vip = vip;
+        $scope.input.vip = vip;
     }
-    $scope.change_pays = function(pay) {
-        $scope.pays.pay = pay;
-    }
-    $scope.pays = {
-        pay: '微信支付'
-    };
-
-
-
 })
