@@ -1,4 +1,4 @@
-angular.module("Love").controller("appointment1SureController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("appointment1SureController", function($scope, $location, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.meettings = [];
     $scope.page = {
         pn: 1,
@@ -68,4 +68,5 @@ angular.module("Love").controller("appointment1SureController", function($scope,
             }
         })
     }
+    
 })

@@ -418,6 +418,9 @@ angular.module("Love").controller("basicController", function($scope, $filter, $
 		})
 	}
 });
+
+
+
 // uploadCoversController
 angular.module("Love").controller("uploadCoversController", function($scope, errorServices, toastServices, localStorageService, config) {
 	var filename, extension;

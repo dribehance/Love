@@ -48,8 +48,8 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/UserCenter/updateChooseMate",
             token: localStorageService.get("token")
         })),
-        save_basic: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/app/UserCenter/userInfo",
+        save: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserCenter/interestTalentInfo",
             token: localStorageService.get("token")
         })),
         // 实名认证

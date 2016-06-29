@@ -1165,6 +1165,7 @@ select {
     /* 模态框样式 */
 }
 
+
 .madal-body {
     position: relative;
     width: 250px;
@@ -1246,6 +1247,33 @@ select {
         background-color: fade(black, 50%);
         border-radius: 6px;
     }
+}
+
+.model-block{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    background-color: fade(black, 50%);
+    .model-block-body{
+        width: 300px;
+        margin: 145% auto;
+        border-radius: 6px;
+        background-color: white;
+    }
+}
+.madel-block-btn {
+    display: block;
+    padding: 10px 45px;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    text-align: center;
+    &:last-child{
+        border-bottom: none;
+    }
+
 }
 
 //消息回应

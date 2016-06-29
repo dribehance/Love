@@ -1,10 +1,12 @@
 angular.module("Love").controller("tagsController", function($scope, $rootScope, $routeParams, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
+
 	$scope.select = function(tag) {
 		tag.select = !tag.select;
 	}
 	if (!$routeParams.type) {
 		$rootScope.back()
 	}
+
 	toastServices.show();
 	loveServices.query_tags({
 		type: $routeParams.type
