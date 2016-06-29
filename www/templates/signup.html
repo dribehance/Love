@@ -14,8 +14,8 @@
                 <input type="text" placeholder="推荐人" name="referee" class="full-width" ng-model="input.referee">
             </div>
             <div class="input-group-item">
-                <input type="text" placeholder="请输入验证码" class="input-lg-width" name="sms_code" ng-model="input.sms_code" required>
-                <countdown class="btn btn-second btn-sm" countdown="countdown" countdown-disabled="phoneForm.telephone.$invalid">{{countdown.message}}</countdown>
+                <input type="text" placeholder="请输入验证码" class="input-sm-width" name="sms_code" ng-model="input.sms_code" required>
+                <countdown class="btn btn-second btn-sm  pull-right" countdown="countdown" countdown-disabled="phoneForm.telephone.$invalid">{{countdown.message}}</countdown>
             </div>
         </div>
         <div class="btn-center">

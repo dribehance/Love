@@ -5,9 +5,9 @@
                 <input type="text" placeholder="请输入手机号" name="telephone" ng-model="input.telephone" required class="full-width">
             </div>
             <div class="input-group-item">
-                <input type="text" placeholder="请输入验证码" name="smscode" ng-model="input.smscode" required class="input-lg-width">
+                <input type="text" placeholder="请输入验证码" name="smscode" ng-model="input.smscode" required class="input-sm-width">
                 <!-- <a class="btn btn-second btn-sm" ng-click="open_modal()"><b>获取验证码</b></a> -->
-                <countdown class="btn btn-second btn-sm" countdown="countdown" countdown-disabled="phoneForm.telephone.$invalid">{{countdown.message}}</countdown>
+                <countdown class="btn btn-second btn-sm pull-right" countdown="countdown" countdown-disabled="phoneForm.telephone.$invalid">{{countdown.message}}</countdown>
             </div>
         </div>
     </div>
