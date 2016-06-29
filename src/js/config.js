@@ -1,6 +1,6 @@
 angular.module("Love").constant("config", {
-	url: "http://www.yunzongdianzi.com",
-	imageUrl: "http://www.yunzongdianzi.com/files/image?name=",
+	url: "http://121.40.201.53",
+	imageUrl: "http://121.40.201.53/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"

@@ -1,15 +1,17 @@
 <div class="section">
     <div class="withdrawals">
         <div class="title">
-            当前可以提现金额:500元
+            当前可以提现金额:{{user.deposit}}元
         </div>
-        <div class="withdrawals-content">
-            <div class="input-wrap">
-                <input type="text" name="" id="" value="" class="full-width"/>
+        <form name="withdrawForm" ng-submit="ajaxForm()">
+            <div class="withdrawals-content">
+                <div class="input-wrap">
+                    <input type="text" class="full-width" name="draw_money" ng-model="input.draw_money" required/>
+                </div>
             </div>
-        </div>
-        <div class="btn-center">
-            <button href="" class="btn btn-primary btn-block btn-width">申请提现</button>
-        </div>
+            <div class="btn-center">
+                <button type="submit" class="btn btn-primary btn-block btn-width" ng-disabled="withdrawForm.$invalid">申请提现</button>
+            </div>
+        </form>
     </div>
 </div>

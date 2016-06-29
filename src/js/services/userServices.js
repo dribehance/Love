@@ -105,6 +105,10 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/Pays/payVip",
             token: localStorageService.get("token")
         })),
+        withdraw: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserCenter/userWithDraw",
+            token: localStorageService.get("token")
+        })),
         // 谁看过我
         query_visitors: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/api_url",
