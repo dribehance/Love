@@ -12,6 +12,9 @@ angular.module("Love").controller("searchController", function($scope, $routePar
         merrys: $routeParams.merrys,
     }
     $scope.get_tag = function(tag) {
+        if (tag == "") {
+            return [];
+        }
         return tag.split("#");
     }
     $scope.loadMore = function() {

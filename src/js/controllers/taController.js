@@ -39,6 +39,9 @@ angular.module("Love").controller("taController", function($scope, loveServices,
 	}
 	$scope.loadMore();
 	$scope.get_tag = function(tag) {
+		if (tag == "") {
+			return [];
+		}
 		return tag.split("#");
 	}
 })
