@@ -1,6 +1,6 @@
 angular.module("Love").controller("messagesController", function($scope, $location, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.news = [];
-    $scope.modal = {}
+    
     $scope.page = {
         pn: 1,
         page_size: 5,
@@ -39,6 +39,9 @@ angular.module("Love").controller("messagesController", function($scope, $locati
         }
     });
 
+    //收件箱    
+    $scope.modal = {}
+    
     $scope.go = function(id) {
         if ($scope.user.is_vip == '1') {
             $location.path("chat").search({
@@ -56,5 +59,8 @@ angular.module("Love").controller("messagesController", function($scope, $locati
         $location.path("charge").search({
             
         })
+    }
+    $scope.cancel_modal = function() {
+        $scope.modal.status = 0
     }
 })

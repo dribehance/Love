@@ -1,7 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").controller("signupController", function($scope, $rootScope, $location, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
 
-    $scope.step = 2;
+    $scope.step = 1;
     $scope.input = {};
     $scope.show_step = function(step) {
         $scope.step = step;

@@ -15,7 +15,7 @@
                 <p class="org pull-right org-right">你的电话号码是多少呀？
                     <span class="col"></span>
                 </p>
-
+            name="block_type" ng-model="input.block_type"
             </div>
         </div> -->
     </div>
@@ -26,12 +26,14 @@
         <div class="btn-positon">
             <button type="submit" class="btn btn-default btn-positon" ng-disabled="sendForm.$invalid">发送</button>
         </div>
-        <div class="icon icon-pb pull-right">
-            <select>
-                <option>屏蔽</option>
-                <option>取消</option>
-            </select>
+        <div class="icon icon-pb pull-right" ng-click="go()">
         </div>
     </div>
-   
 </form>
+
+<div class="model-block" ng-if="block.status == '1'">
+    <div class="model-block-body">
+        <div class="madel-block-btn" ng-click="block_model('1')">屏蔽</div>
+        <div class="madel-block-btn" ng-click="cancel_model('2')">取消</div>
+    </div>
+</div>
