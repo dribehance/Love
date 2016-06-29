@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("paymentController", function($scope, $rootScope, $routeParams, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("paymentController", function($scope, $rootScope, $routeParams, $location, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
 		money: $routeParams.money,
 		pay_type: "1"
@@ -10,8 +10,8 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 	$scope.pay = function() {
 		var payment = {
 			pay_type: $scope.input.pay_type,
-			vip_price_id: JSON.parse($routeParams.state).id,
-			trysted_user_id: JSON.parse($routeParams.state).id,
+			vip_price_id: JSON.parse($routeParams.state || "{}").id || $routeParams.id,
+			trysted_user_id: JSON.parse($routeParams.state || "{}").id || $routeParams.id,
 			code: $routeParams.code
 		}
 		$routeParams.type == "charge" && $scope.input.pay_type == '1' && $scope.charge_by_balance(payment);
@@ -37,9 +37,9 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 		userServices.charge(payment).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				// errorServices.autoHide(data.message);
+				errorServices.autoHide(data.message);
 				$timeout(function() {
-					$rootScope.back();
+					$location.path("ta").replace()
 				}, 2000)
 			} else {
 				errorServices.autoHide(data.message);
@@ -64,9 +64,9 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 		userServices.yue_ta(payment).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				// errorServices.autoHide(data.message);
+				errorServices.autoHide(data.message);
 				$timeout(function() {
-					$rootScope.back();
+					$location.path("ta").replace()
 				}, 2000)
 			} else {
 				errorServices.autoHide(data.message);

@@ -45,35 +45,16 @@ angular.module("Love").controller("appointment2SureController", function($scope,
         status: 0
     };
     $scope.complaint = "请联系官方客服，进行投诉维权";
-    $scope.open_modal = function(report_meetting, type) {
+    $scope.open_modal = function(report_meetting) {
         $scope.report_meetting = report_meetting;
-        $scope.report_meetting_type = type;
         $scope.modal.status = 1;
-        if ($scope.report_meetting_type == "agree") {
-            $scope.meetting_title = "同意约会";
-        }
-        if ($scope.report_meetting_type == "reject") {
-            $scope.meetting_title = "拒绝约会";
-        }
     }
-    $scope.reject = function() {
-        toastServices.show();
-        userServices.reject_meetting({
-            tryst_id: $scope.report_meetting.tryst_id,
-        }).then(function(data) {
-            toastServices.hide()
-            if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-                $scope.modal.status = 0;
-                $scope.report_meetting = "";
-                errorServices.autoHide(data.message);
-            } else {
-                errorServices.autoHide(data.message);
-            }
-        })
+    $scope.cancel_modal = function() {
+        $scope.modal.status = 0;
     }
-    $scope.agree = function() {
+    $scope.confirm_modal = function() {
         toastServices.show();
-        userServices.agree_meetting({
+        userServices.report({
             tryst_id: $scope.report_meetting.tryst_id,
             complainted_user_id: $scope.report_meetting.trysted_user_id
         }).then(function(data) {
@@ -86,18 +67,5 @@ angular.module("Love").controller("appointment2SureController", function($scope,
                 errorServices.autoHide(data.message);
             }
         })
-    }
-    $scope.cancel_modal = function() {
-        $scope.modal.status = 0;
-    }
-    $scope.confirm_modal = function() {
-        if ($scope.report_meetting_type == "agree") {
-            $scope.meetting_title = "同意约会";
-            $scope.agree();
-        }
-        if ($scope.report_meetting_type == "reject") {
-            $scope.meetting_title = "拒绝约会";
-            $scope.reject();
-        }
     }
 })

@@ -21,9 +21,9 @@
                     <imageview src="staticImageUrl+meetting.User.image_01" data-rate="1"></imageview>
                 </div>
                 <div class="btn-box pull-right">
-                    <!-- <span class="btn btn-second btn-xs pull-right" ng-click="open_modal(meetting)"><b>约会投诉</b></span> -->
-                    <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal(meetting,'agree')"><b>同意</b></span>
-                <span class="btn btn-second btn-xs sure-date sure-date-position12" ng-click="open_modal(meetting,'reject')"><b>拒绝</b></span>
+                    <span class="btn btn-second btn-xs pull-right" ng-click="open_modal(meetting)"><b>约会投诉</b></span>
+                    <!-- <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal(meetting,'agree')"><b>同意</b></span>
+                <span class="btn btn-second btn-xs sure-date sure-date-position12" ng-click="open_modal(meetting,'reject')"><b>拒绝</b></span> -->
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">
@@ -52,10 +52,13 @@
     </div>
     <div class="btn btn-primary btn-block btn-width" ng-click="loadMore()">{{page.message}}</div>
 </div>
-<div class="modal-overlay" ng-if="modal.status == '1'">
+<div class="modal-show" ng-if="modal.status == '1'">
     <div class="madal-body">
         <div class="madal-body-content">
-            {{meetting_title}}
+            <span>{{complaint}}</span>
+            <span>电话号码:{{report_info.complaint_email}}</span>
+            <span>投诉信箱:{{report_info.complaint_telephone}}</span>
+            <span>QQ:{{report_info.complaint_QQ}}</span>
         </div>
         <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
         <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
