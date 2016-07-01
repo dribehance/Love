@@ -87,6 +87,12 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			errorServices.autoHide(data.message);
 		}
 	});
+	$scope.preview_image = function() {
+		$scope.preview = "preview"
+	}
+	$scope.close_preview = function() {
+		$scope.preview = ""
+	}
 	$scope.get_images = function(images) {
 		if (!images) {
 			return [];

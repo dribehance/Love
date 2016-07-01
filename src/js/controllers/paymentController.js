@@ -1,7 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").controller("paymentController", function($scope, $rootScope, $routeParams, $location, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
-		money: $routeParams.money,
+		money: JSON.parse($routeParams.state || "{}").money || $routeParams.money,
 		pay_type: "2",
 		type: $routeParams.type || ""
 	};

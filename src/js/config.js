@@ -1,6 +1,6 @@
 angular.module("Love").constant("config", {
-	url: "http://121.40.201.53",
-	imageUrl: "http://121.40.201.53/files/image?name=",
+	url: "http://www.henduoniu.com",
+	imageUrl: "http://www.henduoniu.com/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -18,8 +18,8 @@ angular.module("Love").constant("config", {
 		"userinfo_url": "https://api.weixin.qq.com/sns/userinfo",
 		"appid": "wx24cc097bb3db1ce3",
 		"secret": "b029f342a2e50a9a081a3d450424e71f",
-		"redirect_uri": "http://www.yunzongdianzi.com/oauth",
-		"payment_redirect_uri": "http://www.yunzongdianzi.com/mobile/#/payment",
+		"redirect_uri": "http://www.henduoniu.com/oauth",
+		"payment_redirect_uri": "http://www.henduoniu.com/mobile/#/payment",
 		"response_type": "code",
 		"silence_scope": "snsapi_base",
 		"scope": "snsapi_userinfo",

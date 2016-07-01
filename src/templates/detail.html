@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="my-banner clearfix">
-            <div class="col-xm-4 pull-left" style="position:relative" ng-repeat="image in input.covers">
+            <div class="col-xm-4 pull-left" ng-click="preview_image()" style="position:relative" ng-repeat="image in input.covers">
                 <div class="banner-img">
                     <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png">
                 </div>
@@ -236,4 +236,10 @@
         <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
         <div class="madal-body-btn" ng-click="confirm_modal()">约TA</div>
     </div>
+</div>
+<div class="modal-overlay" ng-if="preview =='preview'">
+    <span class="close" ng-click="close_preview()">x</span>
+    <banner data-rate="1" style="margin-top:88px">
+        <imageview src="staticImageUrl + image" data-rate="1" ng-repeat="image in input.covers" on-repeat-done></imageview>
+    </banner>
 </div>

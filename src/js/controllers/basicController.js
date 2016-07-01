@@ -92,16 +92,51 @@ angular.module("Love").controller("basicController", function($scope, $filter, $
 	// mock {id:"",url:""}
 	$scope.input.covers = [];
 	$scope.$on("upload_cover_success", function(event, args) {
-		$scope.input.covers.push(args.message);
+		toastServices.show();
+		userServices.update_cover({
+			image_index: "2",
+			fileName: args.message
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				// errorServices.autoHide(data.message);
+				$scope.input.covers.push(args.message);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
 	});
 	// 移除封面
 	$scope.remove_cover = function(cover) {
-		$scope.input.covers = $scope.input.covers.filter(function(c) {
-			return cover != c;
+		toastServices.show();
+		userServices.remove_cover({
+			oleFileName: cover
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				// errorServices.autoHide(data.message);
+				$scope.input.covers = $scope.input.covers.filter(function(c) {
+					return cover != c;
+				})
+			} else {
+				errorServices.autoHide(data.message);
+			}
 		})
 	};
 	$scope.$on("upload_avatar_success", function(event, args) {
-		$scope.input.avatar = args.message
+		toastServices.show();
+		userServices.update_cover({
+			image_index: "1",
+			fileName: args.message
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				// errorServices.autoHide(data.message);
+				$scope.input.avatar = args.message
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
 	});
 	$scope.get_images = function(images) {
 		if (!images) {
