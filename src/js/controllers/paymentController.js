@@ -1,7 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").controller("paymentController", function($scope, $rootScope, $routeParams, $location, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
-		money: JSON.parse($routeParams.state || "{}").money || $routeParams.money,
+		money: $routeParams.money,
 		pay_type: "2",
 		type: $routeParams.type || ""
 	};
@@ -11,9 +11,8 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 	$scope.pay = function() {
 		var payment = {
 			pay_type: $scope.input.pay_type,
-			vip_price_id: JSON.parse($routeParams.state || "{}").id || $routeParams.id,
-			trysted_user_id: JSON.parse($routeParams.state || "{}").id || $routeParams.id,
-			code: $routeParams.code
+			vip_price_id: $routeParams.id,
+			trysted_user_id: $routeParams.id,
 		}
 		$routeParams.type == "charge" && $scope.input.pay_type == '1' && $scope.charge_by_balance(payment);
 		$routeParams.type == "charge" && $scope.input.pay_type == '2' && $scope.charge_by_weixin(payment);
@@ -22,16 +21,10 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 	};
 	// 充值
 	$scope.charge_by_weixin = function(payment) {
-		toastServices.show();
-		userServices.charge(payment).then(function(data) {
-			toastServices.hide()
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				// errorServices.autoHide(data.message);
-				weixinServices.pay(data);
-			} else {
-				errorServices.autoHide(data.message);
-			}
-		})
+		weixinServices.prepare_pay({
+			token: localStorageService.get("token"),
+			vip_price_id: $routeParams.id
+		});
 	}
 	$scope.charge_by_balance = function(payment) {
 		toastServices.show();
@@ -49,16 +42,10 @@ angular.module("Love").controller("paymentController", function($scope, $rootSco
 	};
 	// 约会
 	$scope.yue_by_weixin = function(payment) {
-		toastServices.show();
-		userServices.yue_ta(payment).then(function(data) {
-			toastServices.hide()
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				// errorServices.autoHide(data.message);
-				weixinServices.pay(data);
-			} else {
-				errorServices.autoHide(data.message);
-			}
-		})
+		weixinServices.prepare_pay({
+			token: localStorageService.get("token"),
+			vip_price_id: $routeParams.id
+		});
 	}
 	$scope.yue_by_balance = function(payment) {
 		toastServices.show();

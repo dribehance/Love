@@ -26,7 +26,7 @@
         <div class="btn-positon">
             <button type="submit" class="btn btn-default btn-positon" ng-disabled="sendForm.$invalid">发送</button>
         </div>
-        <div class="icon icon-pb pull-right" ng-click="go()">
+        <div class="icon icon-pb pull-right" ng-click="show_model()">
         </div>
     </div>
 </form>
@@ -34,6 +34,6 @@
 <div class="model-block" ng-if="block.status == '1'">
     <div class="model-block-body">
         <div class="madel-block-btn" ng-click="block_model('1')">屏蔽</div>
-        <div class="madel-block-btn" ng-click="cancel_model('2')">取消</div>
+        <div class="madel-block-btn" ng-click="close_model('2')">取消</div>
     </div>
 </div>

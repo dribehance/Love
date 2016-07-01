@@ -137,13 +137,13 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 	}
 	$scope.confirm_modal = function() {
 		$scope.modal.status = 0;
-		// $location.path("payment").search({
-		// 	id: $routeParams.id,
-		// 	money: $scope.report_info.bond_money
-		// })
-		weixinServices.prepare_pay({
+		$location.path("payment").search({
 			id: $routeParams.id,
 			money: $scope.report_info.bond_money
 		});
+		// weixinServices.prepare_pay({
+		// 	id: $routeParams.id,
+		// 	money: $scope.report_info.bond_money,
+		// });
 	}
 })

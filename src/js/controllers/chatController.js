@@ -68,20 +68,17 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
                 errorServices.autoHide(data.message);
             }
         })
-    }
-
+    };
     //屏蔽
     $scope.block = {
 
     };
-
-    $scope.go = function() {
+    $scope.show_model = function() {
         $scope.block.status = 1
-
     };
-
-
-
+    $scope.close_model = function() {
+        $scope.block.status = "";
+    };
     $scope.block_model = function(t) {
         toastServices.show();
         userServices.block({
@@ -103,7 +100,4 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
         })
 
     }
-
-
-
 })
