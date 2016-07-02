@@ -21,6 +21,9 @@
         <div class="btn-center">
             <button type="button" class="btn btn-block btn-width" ng-disabled="stepForm1.$invalid" ng-class="{'btn-primary':stepForm1.$valid,'btn-default':stepForm1.$invalid}" ng-click="show_step(2)">下一步</button>
         </div>
+        <div class="btn-center btn-margin">
+            <a ng-href="#/signin" class="btn btn-block btn-primary btn-width" ng-disabled="stepForm1.$invalid">已有账号，登录</a>
+        </div>
     </div>
     <div class="signup" ng-if="step == 2" ng-form="stepForm2">
         <div class="signup">
@@ -123,7 +126,7 @@
                     </div>
                     <div class="icon icon-jiantou"></div>
                 </div>
-                <div class="item-tips">
+                <div class="item-tips" ng-click="go('privacy')">
                     <label>注册即同意因爱网<b>服务条款</b>和<b>隐私政策</b></span>
                 </div>
             </div>

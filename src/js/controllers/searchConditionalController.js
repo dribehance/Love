@@ -19,13 +19,16 @@ angular.module("Love").controller("searchConditionalController", function($scope
             $scope.input.city = $scope.cities[0];
         });
     };
-    var height = 145,
-        heights = [];
-    for (var i = 0; i < 60; i++) {
-        height++;
-        heights.push(height + "cm")
+    // 身高
+    var height = 155,
+        heights = ["155CM以下"];
+    for (var i = 0; i < 9; i++) {
+        to = height + 5;
+        heights.push(height + "CM" + "-" + to + "CM")
+        height = to;
     }
     $scope.heights = heights;
+    $scope.heights.push("200CM以上")
     $scope.input.height = $scope.heights[0];
     // 学历
     $scope.input.age = "20-22岁";
@@ -45,7 +48,7 @@ angular.module("Love").controller("searchConditionalController", function($scope
         //     toastServices.hide();
         //     if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
         //         errorServices.autoHide(data.message);
-                
+
         //     } else {
         //         errorServices.autoHide(data.message)
         //     }

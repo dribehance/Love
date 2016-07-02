@@ -1,15 +1,15 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").controller("chatController", function($scope, $routeParams, $timeout, $rootScope, $location, userServices, errorServices, toastServices, localStorageService, config) {
-    $scope.input = {};
+    $scope.input = {
+        block_status: $routeParams.status
+    };
     $scope.chats = [];
-
     $scope.page = {
         pn: 1,
         page_size: 500,
         message: "点击加载更多",
         receive_user_id: $routeParams.id
     }
-
     $scope.loadMore = function() {
         if ($scope.no_more) {
             return;
@@ -22,6 +22,11 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                 $scope.chats = $scope.chats.concat(data.Result.ChatMessages.list);
                 $scope.no_more = $scope.chats.length == data.Result.ChatMessages.totalRow ? true : false;
+                $timeout(function() {
+                    $("html, body").animate({
+                        scrollTop: $(document).height()
+                    }, 100);
+                }, 500)
             } else {
                 errorServices.autoHide("服务器错误");
             }
@@ -30,7 +35,6 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
             }
             $scope.page.pn++;
         })
-
     }
     $scope.loadMore();
     userServices.query_basicinfo().then(function(data) {
@@ -64,15 +68,16 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
                     "is_me_send": "1"
                 })
                 $scope.input.content = "";
+                $("html, body").animate({
+                    scrollTop: $(document).height()
+                }, 100);
+                $("input").blur()
             } else {
                 errorServices.autoHide(data.message);
             }
         })
     };
-    //屏蔽
-    $scope.block = {
-
-    };
+    $scope.block = {};
     $scope.show_model = function() {
         $scope.block.status = 1
     };
@@ -84,7 +89,6 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
         userServices.block({
             ta_user_id: $routeParams.id,
             black_type: t,
-
         }).then(function(data) {
             toastServices.hide()
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
@@ -95,9 +99,32 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
                 errorServices.autoHide(data.message);
                 $location.path("chat").search();
             }
-
-
         })
-
     }
+    $("input").focus(function() {
+        var self = $(this);
+        $("html, body").animate({
+            scrollTop: $(document).height()
+        }, 100);
+        $timeout(function() {
+            self.parents(".respond-wrap").css({
+                position: "absolute",
+                top: $(document).height() - 53,
+                bottom: "auto"
+            })
+        }, 100)
+    })
+    $("input").blur(function() {
+        var self = $(this);
+        $("html, body").animate({
+            scrollTop: $(document).height()
+        }, 100);
+        $timeout(function() {
+            self.parents(".respond-wrap").css({
+                position: "fixed",
+                top: "auto",
+                bottom: "0"
+            })
+        }, 100)
+    })
 })

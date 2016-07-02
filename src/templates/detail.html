@@ -2,7 +2,7 @@
     <div class="my">
         <div class="my-adv">
             <div data-rate="131/113">
-                <img ng-src="{{staticImageUrl + user.image_01}}" show-on-loaded err-src="../images/banner.png">
+                <img ng-src="{{staticImageUrl + user.image_01}}" show-center-on-loaded err-src="../images/banner.png">
             </div>
             <div class="left-camera">
                 <div class="icon icon-xiangji"></div>
@@ -12,7 +12,7 @@
                 <div class="icon icon-xihuan"></div>
             </div>
         </div>
-        <div class="my-banner clearfix">
+        <div class="my-banner clearfix" ng-if="input.covers.length>0">
             <div class="col-xm-4 pull-left" ng-click="preview_image()" style="position:relative" ng-repeat="image in input.covers">
                 <div class="banner-img">
                     <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png">

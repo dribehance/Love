@@ -136,6 +136,9 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 		$scope.modal.status = 0;
 	}
 	$scope.confirm_modal = function() {
+		if (localStorageService.get("token")) {
+			$location.path("signin").replace()
+		}
 		$scope.modal.status = 0;
 		$location.path("payment").search({
 			id: $routeParams.id,

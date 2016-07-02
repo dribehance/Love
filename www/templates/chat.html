@@ -1,30 +1,20 @@
 <div class="section">
     <div class="chat clearfix">
         <div class="chat-box" ng-repeat="chat in chats">
-            <img ng-src="{{staticImageUrl+chat.receive_image_01}}" ng-if="chat.is_me_send == '0'" err-src="../images/banner.png" class="full-width full-height pull-left">
-            <img ng-src="{{staticImageUrl+chat.current_image_01}}" ng-if="chat.is_me_send=='1'" err-src="../images/banner.png" class="full-width full-height pull-right">
+            <img ng-src="{{staticImageUrl+chat.current_image_01}}" ng-class="{'pull-right':chat.is_me_send=='1','pull-left':chat.is_me_send == '0'}" err-src="../images/banner.png" class="full-width full-height">
             <div class="chat-info">
-                <p class="org" ng-class="{'org-left':chat.is_me_send == '0','org-right':chat.is_me_send=='1','pull-right':chat.is_me_send=='1'}">{{chat.content}}
+                <p class="org" ng-class="{'org-left':chat.is_me_send == '0','org-right':chat.is_me_send=='1','pull-right':chat.is_me_send=='1','pull-left':chat.is_me_send=='0'}">{{chat.content}}
                     <span ng-class="{'col':chat.is_me_send=='1','cor':chat.is_me_send=='0'}"></span>
                 </p>
             </div>
         </div>
-        <!-- <div class="chat-box">
-            <img src="../images/banner.png" class="full-width full-height pull-right">
-            <div class="chat-info">
-                <p class="org pull-right org-right">你的电话号码是多少呀？
-                    <span class="col"></span>
-                </p>
-            name="block_type" ng-model="input.block_type"
-            </div>
-        </div> -->
     </div>
 </div>
 <form class="section" ng-submit="send()" name="sendForm">
     <div class="respond-wrap">
         <input class="full-width" ng-model="input.content" required>
         <div class="btn-positon">
-            <button type="submit" class="btn btn-default btn-positon" ng-disabled="sendForm.$invalid">发送</button>
+            <button type="submit" class="btn btn-positon" ng-class="{'btn-default':sendForm.$invalid,'btn-primary':sendForm.$valid}" ng-disabled="sendForm.$invalid">发送</button>
         </div>
         <div class="icon icon-pb pull-right" ng-click="show_model()">
         </div>
@@ -33,7 +23,8 @@
 
 <div class="model-block" ng-if="block.status == '1'">
     <div class="model-block-body">
-        <div class="madel-block-btn" ng-click="block_model('1')">屏蔽</div>
+        <div class="madel-block-btn" ng-click="block_model('1')" ng-if="input.block_status!='3'">屏蔽</div>
+        <div class="madel-block-btn" ng-click="block_model('2')" ng-if="input.block_status=='3'">取消屏蔽</div>
         <div class="madel-block-btn" ng-click="close_model('2')">取消</div>
     </div>
 </div>

@@ -4,6 +4,7 @@ angular.module("Love").controller("searchController", function($scope, $routePar
     $scope.page = {
         pn: 1,
         page_size: 5,
+        intelligent_type: "1",
         message: "点击加载更多",
         heights: $routeParams.heights,
         ages: $routeParams.ages,
@@ -40,4 +41,23 @@ angular.module("Love").controller("searchController", function($scope, $routePar
 
     }
     $scope.loadMore();
+    $scope.smart_search = function() {
+        $scope.loves = [];
+        $scope.page.intelligent_type == "1" ? $scope.page.intelligent_type = "2" : $scope.page.intelligent_type = "1";
+        var type = $scope.page.intelligent_type
+        $scope.page = {
+            pn: 1,
+            page_size: 5,
+            intelligent_type: type,
+            message: "点击加载更多",
+            heights: $routeParams.heights,
+            ages: $routeParams.ages,
+            incomes: $routeParams.incomes,
+            edus: $routeParams.edus,
+            merrys: $routeParams.merrys,
+            height_intelligent: ""
+        }
+        $scope.no_more = false;
+        $scope.loadMore();
+    }
 })

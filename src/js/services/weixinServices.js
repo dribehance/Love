@@ -110,7 +110,7 @@ angular.module("Love").factory("weixinServices", function($http, $route, $timeou
         },
         // prepare_payment
         prepare_pay: function(payment) {
-            var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(config.weixin.payment_redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.silence_scope + "&state=" + JSON.stringify(payment) + config.weixin.wechat_redirect;
+            var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(payment.redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.silence_scope + "&state=" + JSON.stringify(payment) + config.weixin.wechat_redirect;
             $window.location.href = url;
         },
         // payment

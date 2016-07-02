@@ -21,7 +21,7 @@
                     <imageview src="staticImageUrl+meetting.User.image_01" data-rate="1"></imageview>
                 </div>
                 <div class="btn-box pull-right">
-                    <span class="btn btn-second btn-xs pull-right" ng-click="open_modal(meetting)"><b>约会投诉</b></span>
+                    <span class="btn btn-second btn-xs pull-right" ng-click="open_modal(meetting)" ng-if="meetting.status == '2'"><b>约会投诉</b></span>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">

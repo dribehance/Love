@@ -1,6 +1,6 @@
 angular.module("Love").controller("appointment2RefuseController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.meettings = [];
-	$scope.modalshow={};
+	$scope.modalshow = {};
 	$scope.page = {
 		pn: 1,
 		page_size: 5,
@@ -71,21 +71,15 @@ angular.module("Love").controller("appointment2RefuseController", function($scop
 		})
 	}
 	$scope.go = function(id) {
-        if ($scope.user.is_vip == '1') {
-            $location.path("chat").search({
-                id: id
-            })
-        } else {
+		if ($scope.user.is_vip == '1') {
+			$location.path("chat").search({
+				id: id
+			})
+		} else {
 
-            $scope.modal.status = 1
+			$scope.modal.status = 1
 
-        }
+		}
 
-    };
-
-    $scope.confirm_modal = function() {
-        $location.path("").search({
-            
-        })
-    }
+	};
 })

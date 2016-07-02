@@ -64,13 +64,15 @@ angular.module("Love").controller("signupController", function($scope, $rootScop
     };
     // 第三步骤
     // 身高
-    var height = 145,
-        heights = [];
-    for (var i = 0; i < 60; i++) {
-        height++;
-        heights.push(height + "cm")
+    var height = 155,
+        heights = ["155CM以下"];
+    for (var i = 0; i < 9; i++) {
+        to = height + 5;
+        heights.push(height + "CM" + "-" + to + "CM")
+        height = to;
     }
     $scope.heights = heights;
+    $scope.heights.push("200CM以上")
     $scope.input.height = $scope.heights[0];
     // 学历
     $scope.input.ages = "20-22岁";

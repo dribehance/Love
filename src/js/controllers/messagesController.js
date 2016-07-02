@@ -1,6 +1,6 @@
 angular.module("Love").controller("messagesController", function($scope, $location, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.news = [];
-    
+
     $scope.page = {
         pn: 1,
         page_size: 5,
@@ -41,11 +41,12 @@ angular.module("Love").controller("messagesController", function($scope, $locati
 
     //收件箱    
     $scope.modal = {}
-    
-    $scope.go = function(id) {
+
+    $scope.go = function(message) {
         if ($scope.user.is_vip == '1') {
             $location.path("chat").search({
-                id: id
+                id: message.user_id,
+                status: message.chat_status
             })
         } else {
 

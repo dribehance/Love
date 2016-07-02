@@ -22,8 +22,9 @@
                 </div>
                 <div class="btn-box pull-right">
                     <!-- <span class="btn btn-second btn-xs pull-right" ng-click="open_modal(meetting)"><b>约会投诉</b></span> -->
-                    <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal(meetting,'agree')"><b>同意</b></span>
-                    <span class="btn btn-second btn-xs sure-date sure-date-position12" ng-click="open_modal(meetting,'reject')"><b>拒绝</b></span>
+                    <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal(meetting,'agree')" ng-if="meetting.status !=3"><b>同意</b></span>
+                    <span class="btn btn-second btn-xs sure-date sure-date-position12" ng-click="open_modal(meetting,'reject')" ng-if="meetting.status !=3"><b>拒绝</b></span>
+                    <span class="btn btn-second btn-xs sure-date sure-date-position12" ng-if="meetting.status ==3"><b>已拒绝</b></span>
                 </div>
                 <div class="coach-info">
                     <div class="coach-info-tip">

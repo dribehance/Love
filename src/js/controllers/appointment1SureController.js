@@ -1,4 +1,4 @@
-angular.module("Love").controller("appointment1SureController", function($scope, $location, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("appointment1SureController", function($scope, $location, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.meettings = [];
     $scope.page = {
         pn: 1,
@@ -71,20 +71,25 @@ angular.module("Love").controller("appointment1SureController", function($scope,
         })
     }
     $scope.agree = function() {
-        toastServices.show();
-        userServices.agree_meetting({
+        weixinServices.prepare_pay({
+            redirect_uri: config.url + "/app/WeixinPayController/payAgreeTryst",
+            token: localStorageService.get("token"),
             tryst_id: $scope.report_meetting.tryst_id,
-            complainted_user_id: $scope.report_meetting.trysted_user_id
-        }).then(function(data) {
-            toastServices.hide()
-            if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-                $scope.modal.status = 0;
-                $scope.report_meetting = "";
-                errorServices.autoHide(data.message);
-            } else {
-                errorServices.autoHide(data.message);
-            }
-        })
+        });
+        // toastServices.show();
+        // userServices.agree_meetting({
+        //     tryst_id: $scope.report_meetting.tryst_id,
+        //     complainted_user_id: $scope.report_meetting.trysted_user_id
+        // }).then(function(data) {
+        //     toastServices.hide()
+        //     if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+        //         $scope.modal.status = 0;
+        //         $scope.report_meetting = "";
+        //         errorServices.autoHide(data.message);
+        //     } else {
+        //         errorServices.autoHide(data.message);
+        //     }
+        // })
     }
     $scope.cancel_modal = function() {
         $scope.modal.status = 0;

@@ -21,7 +21,7 @@
                     <imageview src="staticImageUrl+meetting.User.image_01" data-rate="1"></imageview>
                 </div>
                 <div class="btn-box pull-right">
-                    <span class="btn btn-second btn-xs pull-right" ng-click="open_modal(meetting)"><b>约会投诉</b></span>
+                    <span class="btn btn-second btn-xs pull-right" ng-if="meetting.status == '2'" ng-click="open_modal(meetting)"><b>约会投诉</b></span>
                     <!-- <span class="btn btn-second btn-xs sure-date sure-date-position8" ng-click="open_modal(meetting,'agree')"><b>同意</b></span>
                 <span class="btn btn-second btn-xs sure-date sure-date-position12" ng-click="open_modal(meetting,'reject')"><b>拒绝</b></span> -->
                 </div>

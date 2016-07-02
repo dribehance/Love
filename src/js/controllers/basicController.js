@@ -151,13 +151,16 @@ angular.module("Love").controller("basicController", function($scope, $filter, $
 		return tags.split("#")
 	}
 	$scope.genders = ["女", "男"];
-	var height = 145,
-		heights = [];
-	for (var i = 0; i < 60; i++) {
-		height++;
-		heights.push(height + "cm")
+	// 身高
+	var height = 155,
+		heights = ["155CM以下"];
+	for (var i = 0; i < 9; i++) {
+		to = height + 5;
+		heights.push(height + "CM" + "-" + to + "CM")
+		height = to;
 	}
 	$scope.heights = heights;
+	$scope.heights.push("200CM以上");
 	$scope.incomes = ["5000元以下", "5000-8000元", "8000-10000元", "10000-20000元", "20000-30000元", "30000-40000元", "40000-50000元", "50000元以上"];
 	// 获取省份列表
 	loveServices.query_province().then(function(data) {

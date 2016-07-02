@@ -8,7 +8,7 @@
         </div>
     </div>
     <div href="" class="input-group">
-        <div class="coach-item" ng-repeat="new in news" ng-click="go(new.user_id)">
+        <div class="coach-item" ng-repeat="new in news" ng-click="go(new)">
             <div class="coach-sm-items">
                 <div class="coach-sm-avatar">
                     <imageview src="staticImageUrl + new.image_01" data-rate="1"></imageview>
@@ -18,6 +18,8 @@
                         <p>
                             {{new.nickname}}
                             <span class="icon" ng-class="{'icon-nan-2':new.sex=='1','icon-nv-2':new.sex=='0'}"></span>
+                            <i class="fa fa-minus-circle pull-right text-primary" aria-hidden="true" ng-if="new.chat_status=='3'" ></i>
+                            <i class="fa fa-circle pull-right text-primary" aria-hidden="true" ng-if="new.is_has_read=='1'" ></i>
                         </p>
                     </div>
                     <div class="coach-info-tip clearfix">

@@ -23,7 +23,7 @@ angular.module("Love").controller("myloveController", function($scope, $location
 				errorServices.autoHide("服务器错误");
 			}
 			if ($scope.no_more) {
-				$scope.page.message = "没有喜欢的人/喜欢你的人";
+				$scope.page.message = "加载完成，共加载" + $scope.loves.length + "条记录";
 			}
 			$scope.page.pn++;
 		})
