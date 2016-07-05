@@ -80,6 +80,11 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
             url: config.url + "/app/Home/deleteLove",
             token: localStorageService.get("token")
         })),
+        // 约TA 判断
+        prepare_yue_ta: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/UserCenter/isChat",
+            token: localStorageService.get("token")
+        })),
         // 约TA
         yue_ta: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/app/TrystManage/addTryst",
@@ -92,6 +97,10 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         query_send_messages: apiServices._get(angular.extend({}, config.common_params, {
             url: config.url + "/app/ChatManage/sendOutList",
+            token: localStorageService.get("token")
+        })),
+        clear_message: apiServices._get(angular.extend({}, config.common_params, {
+            url: config.url + "/app/ChatManage/clearChats",
             token: localStorageService.get("token")
         })),
         // 消息详情 聊天列表 chat

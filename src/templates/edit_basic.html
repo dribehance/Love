@@ -1,0 +1,483 @@
+<div class="">
+    <div class="">
+        <div class="my">
+            <div class="my-adv">
+                <div flow-init="{singleFile:true}" ng-controller="uploadAvatarController" flow-btn>
+                    <div data-rate="1">
+                        <img ng-src="{{staticImageUrl + user.image_01}}" flow-img="$flow.files[0]" uploader err-src="../images/banner.png">
+                    </div>
+                </div>
+                <div class="left-camera">
+                    <div class="icon icon-xiangji"></div>
+                    <span>{{input.covers.length}}/8</span>
+                </div>
+            </div>
+            <div class="my-banner clearfix">
+                <div class="col-xm-4 pull-left" ng-click="preview_image(image)"  style="position:relative" ng-repeat="image in input.covers">
+                    <!-- <div class="banner-img" data-rate="1">
+                        <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png" show-center-on-loaded>
+                    </div> -->
+                    <imageview data-rate="1"  src="staticImageUrl + image" class="banner-img"></imageview>
+                    <input type="hidden" name="cover" ng-model="cover" required>
+                    <a ng-click="remove_cover(image,$event)" class="remove text-white" style="position:absolute;right:5px;top:0;"><i class="fa fa-times"></i></a>
+                </div>
+                <div class="col-xm-4 pull-left" flow-init="{singleFile:true}" ng-controller="uploadCoversController" flow-btn>
+                    <!-- <div class="banner-img" data-rate="1">
+                        <img ng-src="{{staticImageUrl + image}}" err-src="../images/button_tianjia.png" show-center-on-loaded>
+                    </div> -->
+                    <imageview data-rate="1"  src="'../images/button_tianjia.png'" class="banner-img"></imageview>
+                </div>
+            </div>
+            <div class="my-id">
+                <span>ID:&nbsp;&nbsp;{{user.user_id}}</span>
+            </div>
+            <div class="my-title">
+                <div class="icon icon-nan-3 pull-left"></div>
+                <span>{{user.nickname}} {{user.age}}岁</span>
+            </div>
+            <div class="my-second">
+                <div class="icon icon-dingwei2"></div>
+                <span>{{user.province}}  {{user.city}}</span>
+            </div>
+        </div>
+        <div class="items">
+            <a class="item" ng-href="#/show">
+                <i class="icon icon-tr-db bg-color"></i>
+                <div class="item-title">个人独白</div>
+                <div class="item-content">
+                    {{input.heart||'暂无填写'}}
+                </div>
+            </a>
+            <div class="item">
+                <i class="icon icon-tr-rz bg-color"></i>
+                <div class="item-title">认证</div>
+                <div class="item-content">
+                    <div class="my-subnav clearfix">
+                        <div class="content-rz  col-xm-4 pull-left">
+                            <span><div class="icon icon-authen_1"></div></span>
+                            <span ng-if="user.is_real_name">实名认证</span>
+                            <span ng-if="!user.is_real_name">未认证</span>
+                        </div>
+                        <div class="content-rz  col-xm-4 pull-left" ng-if="user.is_phone_auth">
+                            <span><div class="icon icon-authen_2"></div></span>
+                            <span ng-if="user.is_phone_auth">手机认证</span>
+                            <span ng-if="!user.is_phone_auth">未认证</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="item" ng-href="#/tags?type=1">
+                <i class="icon icon-tr-aihao bg-color"></i>
+                <div class="item-title">兴趣爱好</div>
+                <div class="item-content">
+                    <div class="btn btn-second btn-xs tag-bottom" ng-repeat="tag in get_tags(user.taste) track by $index">{{tag}}</div>
+                    <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.taste).length==0">暂无填写</div>
+                </div>
+            </a>
+            <a class="item" ng-href="#/tags?type=2">
+                <i class="icon icon-tr-caiyi bg-color"></i>
+                <div class="item-title">才艺</div>
+                <div class="item-content">
+                    <div class="btn btn-second btn-xs tag-bottom" ng-repeat="talent in get_tags(user.talent_skill) track by $index">{{talent}}</div>
+                    <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.talent_skill).length==0">暂无填写</div>
+                </div>
+            </a>
+            <div class="item">
+                <i class="icon icon-tr-zl bg-color"></i>
+                <div class="item-title">基本资料</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>ID<span>{{user.user_id}}</span></li>
+                        <li>昵称
+                            <span><input name="nickname" ng-model="input.nickname" placeholder="昵称"></span>
+                        </li>
+                        <li>
+                            性别
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="gender" ng-model="input.gender" ng-options="gender for gender in genders">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li class="pickadate">出生年月
+                            <span ng-click="pick($event)">
+                                {{input.birthday}}
+                                <input type="hidden" ng-model="input.birthday">
+                                <!-- <input type="date" style="webkit-box-shadow:none;box-shadow:none" ng-model="input.birthday"> -->
+                            </span>
+                        </li>
+                        <li>身高
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="height" ng-model="input.height" ng-options="height for height in heights">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>
+                            收入
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="income" ng-model="input.income" ng-options="income for income in incomes">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>居住地
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <div class="select-lg-width pull-right">
+                                <select class="select select-right pull-left" name="province" ng-model="input.province" ng-options="province for province in provinces">
+                                    <option value="">请选择</option>
+                                </select>
+                                <select class="select pull-left" name="city" ng-model="input.city" ng-options="city for city in cities">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>学历
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="degree" ng-model="input.degree" ng-options="degree for degree in degrees">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>婚姻状况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="marry" ng-model="input.marry" ng-options="marry for marry in marrys">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>有无子女
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="child" ng-model="input.child" ng-options="child for child in children">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>购房情况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="house" ng-model="input.house" ng-options="house for house in houses">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>购车情况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="car" ng-model="input.car" ng-options="car for car in cars">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>职业情况
+                            <span><input class="" name="job" ng-model="input.job" placeholder="请填写职业"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item">
+                <i class="icon icon-tr-zo bg-color"></i>
+                <div class="item-title">择偶要求</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>年龄
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <div class="select-lg-width pull-right">
+                                <select class="select select-right pull-left" name="age_from" ng-model="input.age_from" ng-options="age for age in ages" style="width:50px;overflow:hidden">
+                                    <option value="">请选择</option>
+                                </select>
+                                <b class="pull-left">- &nbsp;</b>
+                                <select class="select pull-left" name="age_to" ng-model="input.age_to" ng-options="age for age in ages" style="width:50px;overflow:hidden">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>身高
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <div class="select-lg-width pull-right">
+                                <select class="select select-right pull-left" name="height_from" ng-model="input.height_from" ng-options="height for height in heights" style="width:50px;overflow:hidden">
+                                    <option value="">请选择</option>
+                                </select>
+                                <b class="pull-left">- &nbsp;</b>
+                                <select class="select pull-left" name="height_to" ng-model="input.height_to" ng-options="height for height in heights" style="width:50px;overflow:hidden">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>收入
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="income_1" ng-model="input.income_1" ng-options="income for income in incomes">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>居住地
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <div class="select-lg-width pull-right">
+                                <select class="select select-right pull-left" name="province_1" ng-model="input.province_1" ng-options="province for province in provinces">
+                                    <option value="">请选择</option>
+                                </select>
+                                <select class="select pull-left" name="city_1" ng-model="input.city_1" ng-options="city for city in cities_1">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>学历
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="degree_1" ng-model="input.degree_1" ng-options="degree for degree in degrees">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>婚姻状况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="marry_1" ng-model="input.marry_1" ng-options="marry for marry in marrys">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>有无子女
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="child_1" ng-model="input.child_1" ng-options="child for child in children">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>购房情况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select-lg-width pull-right" name="house_1" ng-model="input.house_1" ng-options="house for house in houses">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <!-- <li>购房情况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select-lg-width pull-right" name="car_1" ng-model="input.car_1" ng-options="car for car in cars">
+                                <option value="">请选择</option>
+                            </select>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="item">
+                <i class="icon icon-tr-dangan bg-color"></i>
+                <div class="item-title">小档案</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>家乡
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <div class="select-lg-width pull-right">
+                                <select class="select-right pull-left" name="province_2" ng-model="input.province_2" ng-options="province for province in provinces">
+                                    <option value="">请选择</option>
+                                </select>
+                                <select class="pull-left" name="city_2" ng-model="input.city_2" ng-options="city for city in cities_2">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>民族
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="nation" ng-model="input.nation" ng-options="nation for nation in nations">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>属相<span>{{input.shuxiang||"-"}}</span></li>
+                        <li>星座<span>{{input.xinzuo||"-"}}</span></li>
+                        <li>血型
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="blood" ng-model="input.blood" ng-options="blood for blood in bloods">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>体型
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="body" ng-model="input.body" ng-options="body for body in bodys">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>体重
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="weight" ng-model="input.weight" ng-options="weight for weight in weights">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>相貌自评
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="score" ng-model="input.score" ng-options="score for score in scores">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>宗教信仰
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="region" ng-model="input.region" ng-options="region for region in regions">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>是否吸烟
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="smoke" ng-model="input.smoke" ng-options="smoke for smoke in smokes">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>是否饮酒
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="drink" ng-model="input.drink" ng-options="drink for drink in drinks">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item">
+                <i class="icon icon-tr-jygz bg-color"></i>
+                <div class="item-title">教育及工作单位</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>毕业院校<span><input name="school" ng-model="input.school" placeholder="毕业院校"></span></li>
+                        <li>所学专业
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="major" ng-model="input.major" ng-options="major for major in majors">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>职业职务
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="position" ng-model="input.position" ng-options="position for position in positions">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <!-- <li>公司性质
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select-lg-width pull-right" name="company_nature" ng-model="input.company_nature" ng-options="company_nature for company_nature in company_natures">
+                                <option value="">请选择</option>
+                            </select>
+                        </li> -->
+                        <li>公司行业
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select-lg-width pull-right" name="industry" ng-model="input.industry" ng-options="industry for industry in industries">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <!-- <li>工作状态
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select-lg-width pull-right" name="work_status" ng-model="input.work_status" ng-options="work_status for work_status in work_statuses">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>掌握语言
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="language" ng-model="input.language" ng-options="language for language in languages">
+                                <option value="">请选择</option>
+                            </select>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="item">
+                <i class="icon icon-tr-td bg-color"></i>
+                <div class="item-title">我有态度</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>金钱观<span><input name="about_money" ng-model="input.about_money" placeholder="金钱观"></span></li>
+                        <li>性观念<span><input name="about_sex" ng-model="input.about_sex" placeholder="性观念"></span></li>
+                        <li>事业与爱情<span><input name="about_love" ng-model="input.about_love" placeholder="事业与爱情"></span></li>
+                    </ul>
+                </div>
+            </div> -->
+            <div class="item">
+                <i class="icon icon-tr-aiqing bg-color"></i>
+                <div class="item-title">爱情规划</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>结婚计划
+                            <span><input name="marry_plan" ng-model="input.marry_plan" placeholder="结婚计划"></span>
+                        </li>
+                        <!-- <li>家务分工
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="housework" ng-model="input.housework" ng-options="housework for housework in houseworks">
+                                <option value="">请选择</option>
+                            </select>
+                        </li> -->
+                        <li>是否想要孩子
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="baby" ng-model="input.baby" ng-options="baby for baby in babys">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>是否与父母同住
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="live_with_parent" ng-model="input.live_with_parent" ng-options="live_with_parent for live_with_parent in live_with_parents">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <!-- <li>夫妻模式
+                            <span><input name="couple" ng-model="input.couple" placeholder="夫妻模式"></span>
+                        </li>
+                        <li>相处模式
+                            <span><input name="alone_with" ng-model="input.alone_with" placeholder="相处模式"></span>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="item">
+                <i class="icon icon-tr-yj bg-color"></i>
+                <div class="item-title">生活印记</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>
+                            最向往的事
+                            <span><input name="yearing" ng-model="input.yearing" placeholder="最向往的事"></span>
+                        </li>
+                        <li>最喜欢的书
+                            <span><input name="like_book" ng-model="input.like_book" placeholder="最喜欢的书"></span>
+                        </li>
+                        <li>最喜欢的电影
+                            <span><input name="like_film" ng-model="input.like_film" placeholder="最喜欢的电影"></span>
+                        </li>
+                        <li>最喜欢的音乐
+                            <span><input name="like_film" ng-model="input.like_music" placeholder="最喜欢的音乐"></span>
+                        </li>
+                        <li>喜欢的运动
+                            <span><input name="focus_topic" ng-model="input.focus_topic" placeholder="喜欢的运动"></span>
+                        </li>
+                        <!-- <li>最关注的话题
+                            <span><input name="focus_topic" ng-model="input.focus_topic" placeholder="最关注的话题"></span>
+                        </li> -->
+                        <li>最骄傲的事
+                            <span><input name="proud" ng-model="input.proud" placeholder="最骄傲的事"></span>
+                        </li>
+                        <li>厨艺状况
+                            <div class="icon icon-jiantou3 pull-right"></div>
+                            <select class="select select-lg-width pull-right" name="cooking" ng-model="input.cooking" ng-options="cooking for cooking in cookings">
+                                <option value="">请选择</option>
+                            </select>
+                        </li>
+                        <li>到过的地方
+                            <span><input name="had_been" ng-model="input.had_been" placeholder="到过的地方"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item" style="margin-bottom:52px">
+                <i class="icon icon-tr-shq bg-color"></i>
+                <div class="item-title">生活圈</div>
+                <div class="edit-list">
+                    <ul>
+                        <li>工作地点
+                            <span><input name="work_place" ng-model="input.work_place" placeholder="工作地点"></span>
+                        </li>
+                        <li>生活地点
+                            <span><input name="life_place" ng-model="input.life_place" placeholder="生活地点"></span>
+                        </li>
+                        <!-- <li>常出没地
+                            <span><input name="offen_go" ng-model="input.offen_go" placeholder="常出没地"></span>
+                        </li> -->
+                        <!-- <li>工作单位
+                            <span><input name="company" ng-model="input.company" placeholder="工作单位"></span>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer justified" style="bottom:50px;background-color:#c0b1ca">
+    <a class="footer-item" ng-click="save()">
+        <i class="icon icon-save" ng-class="{'active':active=='search'}"></i>
+        <span class="block" ng-class="{'text-primary':active=='search'}">保存</span>
+    </a>
+</div>
+<!-- footer tab bar -->
+<dribehance-footer active="'me'"></dribehance-footer>
+<div class="modal-overlay" ng-if="preview =='preview'">
+    <span class="close" ng-click="close_preview()">x</span>
+    <banner data-rate="1" style="margin-top:88px">
+        <imageview src="staticImageUrl + preview_images" data-rate="1" on-repeat-done></imageview>
+    </banner>
+    <!-- <img ng-src="{{staticImageUrl + preview_images}}" class="full-width" alt=""> -->
+</div>

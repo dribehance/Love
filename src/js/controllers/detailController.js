@@ -27,8 +27,10 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			$scope.input.house = $scope.user.buy_house;
 			$scope.input.is_buy_car = $scope.user.is_buy_car;
 			$scope.input.job = $scope.user.job;
-			$scope.input.age_1 = $scope.user.UserOther.choose_mate_age;
-			$scope.input.height_1 = $scope.user.UserOther.choose_mate_height;
+			// $scope.input.age_1 = $scope.user.UserOther.choose_mate_age;
+			$scope.input.age_1 = ($scope.user.UserOther.choose_mate_start_age || "不限") + " - " + ($scope.user.UserOther.choose_mate_end_age || "不限");
+			// $scope.input.height_1 = $scope.user.UserOther.choose_mate_heart;
+			$scope.input.height_1 = ($scope.user.UserOther.choose_mate_start_height || "不限") + " - " + ($scope.user.UserOther.choose_mate_end_height || "不限");
 			$scope.input.income_1 = $scope.user.UserOther.choose_mate_income;
 			$scope.input.province_1 = $scope.user.UserOther.choose_mate_province;
 			$scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
@@ -41,7 +43,7 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			$scope.input.city_2 = $scope.user.UserOther.dossier_city;
 			$scope.input.nation = $scope.user.UserOther.dossier_nation;
 			$scope.input.shuxiang = $scope.user.UserOther.dossier_shuxiang;
-			$scope.input.xinzuo = $scope.user.UserOther.dossier_xinzuo;
+			$scope.input.xinzuo = $scope.user.UserOther.dossier_xingzuo;
 			$scope.input.blood = $scope.user.UserOther.dossier_xuexing;
 			$scope.input.body = $scope.user.UserOther.dossier_tixing;
 			$scope.input.weight = $scope.user.UserOther.dossier_tizhong;
@@ -87,7 +89,8 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			errorServices.autoHide(data.message);
 		}
 	});
-	$scope.preview_image = function() {
+	$scope.preview_image = function(images) {
+		$scope.preview_images = images;
 		$scope.preview = "preview"
 	}
 	$scope.close_preview = function() {
@@ -124,18 +127,37 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 		status: 0
 	};
 	$scope.open_modal = function() {
-		if ($scope.user.is_chat == '1') {
-			$location.path("chat").search(id, $scope.user.user_id);
-			return;
-		}
-		if ($scope.user.is_chat != '1') {
-			$scope.modal.status = 1;
-		}
+		toastServices.show();
+		userServices.prepare_yue_ta({
+			ta_user_id: $routeParams.id
+		}).then(function(data) {
+			toastServices.hide();
+			$scope.chat_status = data.status;
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				$location.path("chat").search({
+					id: $scope.user.user_id,
+					status: $scope.user.chat_status
+				});
+			} else {
+				$scope.modal.status = 1;
+				errorServices.autoHide(data.message);
+			}
+		});
+		// if ($scope.user.is_chat == '1') {
+		// 	$location.path("chat").search({
+		// 		id: $scope.user.user_id,
+		// 		status: $scope.user.chat_status
+		// 	});
+		// 	return;
+		// }
+		// if ($scope.user.is_chat != '1') {
+		// 	$scope.modal.status = 1;
+		// }
 	}
 	$scope.cancel_modal = function() {
 		$scope.modal.status = 0;
 	}
-	$scope.confirm_modal = function() {
+	$scope.deposit = function() {
 		if (localStorageService.get("token")) {
 			$location.path("signin").replace()
 		}
@@ -144,9 +166,12 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			id: $routeParams.id,
 			money: $scope.report_info.bond_money
 		});
-		// weixinServices.prepare_pay({
-		// 	id: $routeParams.id,
-		// 	money: $scope.report_info.bond_money,
-		// });
+	}
+	$scope.vip = function() {
+		if (localStorageService.get("token")) {
+			$location.path("signin").replace()
+		}
+		$scope.modal.status = 0;
+		$location.path("charge");
 	}
 })

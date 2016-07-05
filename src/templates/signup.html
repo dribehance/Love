@@ -86,43 +86,21 @@
                 <div class="input-group-item">
                     <div class="icon icon-xueli"></div>
                     <div class="sm-select">
-                        <select class="full-width" name="degree" ng-model="input.degree">
-                            <option>初中以上</option>
-                            <option>高中以上</option>
-                            <option>中专以上</option>
-                            <option>大专以上</option>
-                            <option>本科以上</option>
-                            <option>硕士以上</option>
-                            <option>博士</option>
-                        </select>
+                        <select class="full-width" name="degree" ng-model="input.degree" ng-options="degree for degree in degrees"></select>
                     </div>
                     <div class="icon icon-jiantou"></div>
                 </div>
                 <div class="input-group-item">
                     <div class="icon icon-hunyin"></div>
                     <div class="sm-select">
-                        <select class="full-width" name="marry" ng-model="input.marry">
-                            <option>未婚</option>
-                            <option>已婚</option>
-                            <option>离异</option>
-                            <option>丧偶</option>
-                        </select>
+                        <select class="full-width" name="marry" ng-model="input.marry" ng-options="marry for marry in marrys"></select>
                     </div>
                     <div class="icon icon-jiantou"></div>
                 </div>
                 <div class="input-group-item">
                     <div class="icon icon-shouru"></div>
                     <div class="sm-select">
-                        <select class="full-width" name="income" ng-model="input.income">
-                            <option>5000元以下</option>
-                            <option>5000-8000元</option>
-                            <option>8000-10000元</option>
-                            <option>10000-20000元</option>
-                            <option>20000-30000元</option>
-                            <option>30000-40000元</option>
-                            <option>40000-50000元</option>
-                            <option>50000元以上</option>
-                        </select>
+                        <select class="full-width" name="income" ng-model="input.income" ng-options="income for income in incomes"></select>
                     </div>
                     <div class="icon icon-jiantou"></div>
                 </div>

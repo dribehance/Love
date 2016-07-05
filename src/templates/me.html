@@ -1,9 +1,10 @@
 <div class="">
     <div class="my">
         <div class="my-adv">
-            <div data-rate="131/113">
+            <!-- <div data-rate="1">
                 <img ng-src="{{staticImageUrl + user.image_01}}" show-center-on-loaded err-src="../images/banner.png">
-            </div>
+            </div> -->
+            <imageview data-rate="1"  src="staticImageUrl + user.image_01"></imageview>
             <!-- <div class="icon icon-plane plane"></div> -->
             <div class="left-camera">
                 <div class="icon icon-xiangji"></div>
@@ -12,10 +13,11 @@
             <a class="right-baseinfo btn-sm" ng-href="#/basic">基本资料</a>
         </div>
         <div class="my-banner clearfix">
-            <div class="col-xm-4 pull-left" ng-repeat="image in get_images(user.image_other)">
-                <div class="banner-img">
-                    <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png">
-                </div>
+            <div class="col-xm-4 pull-left" ng-click="preview_image(image)"  ng-repeat="image in get_images(user.image_other)">
+                <!-- <div class="banner-img" data-rate="1">
+                    <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png" show-center-on-loaded>
+                </div> -->
+                <imageview data-rate="1"  src="staticImageUrl + image" class="banner-img"></imageview>
             </div>
         </div>
         <div class="my-title">
@@ -30,7 +32,7 @@
             <span>{{user.province}} {{user.city}}</span>
         </div>
         <div class="interval"></div>
-        <a class="my-titlebar" ng-href="#/services">
+        <a class="my-titlebar">
             我的服务
             <div class="icon icon-jiantou4 pull-right"></div>
         </a>
@@ -43,24 +45,26 @@
             <div class="my-subnav-list col-xm-4 pull-left">
                 <span><div class="icon icon-yuehuifei2"></div></span>
                 <span>VIP会员费</span>
-                <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>购买VIP</b></a></span>
+                <span><a class="btn btn-second btn-xs" ng-href="#/charge?vip={{user.is_vip}}"><b>购买VIP</b></a></span>
             </div>
         </div>
         <div class="interval"></div>
-        <a class="my-titlebar" ng-href="#/account">
+        <a class="my-titlebar">
             我的账户
             <div class="icon icon-jiantou4 pull-right"></div>
         </a>
         <div class="my-subnav clearfix">
             <div class="my-subnav-list col-xm-4 pull-left">
                 <span><div class="icon icon-baozhengjin2"></div></span>
+                <span>押金</span>
                 <span>剩余{{user.deposit}}元</span>
-                <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>充值</b></a></span>
+                <!-- <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>充值</b></a></span> -->
             </div>
             <div class="my-subnav-list col-xm-4 pull-left">
                 <span><div class="icon icon-yuehuifei2"></div></span>
+                <span>VIP</span>
                 <span>剩余{{user.vip_money}}元</span>
-                <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>续费VIP</b></a></span>
+                <!-- <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>购买VIP</b></a></span> -->
             </div>
         </div>
         <div class="interval"></div>
@@ -103,4 +107,11 @@
         <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
         <div class="madal-body-btn" ng-click="confirm_modal()">确定</div>
     </div>
+</div>
+<div class="modal-overlay" ng-if="preview =='preview'">
+    <span class="close" ng-click="close_preview()">x</span>
+    <banner data-rate="1" style="margin-top:88px">
+        <imageview src="staticImageUrl + preview_images" data-rate="1" on-repeat-done></imageview>
+    </banner>
+    <!-- <img ng-src="{{staticImageUrl + preview_images}}" class="full-width" alt=""> -->
 </div>

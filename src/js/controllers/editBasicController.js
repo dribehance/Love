@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("basicController", function($scope, $route, $filter, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("editBasicController", function($scope, $route, $filter, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	toastServices.show();
 	userServices.query_userinfo({
@@ -36,10 +36,12 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 			$scope.input.car = $scope.user.buy_car;
 			$scope.input.is_buy_car = $scope.user.is_buy_car;
 			$scope.input.job = $scope.user.job;
-			// $scope.input.age_1 = $scope.user.UserOther.choose_mate_age;
-			$scope.input.age_1 = ($scope.user.UserOther.choose_mate_start_age || "不限") + " - " + ($scope.user.UserOther.choose_mate_end_age || "不限");
-			// $scope.input.height_1 = $scope.user.UserOther.choose_mate_heart;
-			$scope.input.height_1 = ($scope.user.UserOther.choose_mate_start_height || "不限") + " - " + ($scope.user.UserOther.choose_mate_end_height || "不限");
+			$scope.input.age_1 = $scope.user.UserOther.choose_mate_age;
+			$scope.input.age_from = $scope.user.UserOther.choose_mate_start_age;
+			$scope.input.age_to = $scope.user.UserOther.choose_mate_end_age;
+			$scope.input.height_1 = $scope.user.UserOther.choose_mate_heart;
+			$scope.input.height_from = $scope.user.UserOther.choose_mate_start_height;
+			$scope.input.height_to = $scope.user.UserOther.choose_mate_end_height;
 			$scope.input.income_1 = $scope.user.UserOther.choose_mate_income;
 			$scope.input.province_1 = $scope.user.UserOther.choose_mate_province;
 			// $scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
@@ -109,7 +111,9 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 		})
 	});
 	// 移除封面
-	$scope.remove_cover = function(cover) {
+	$scope.remove_cover = function(cover, e) {
+		e.preventDefault();
+		e.stopPropagation();
 		toastServices.show();
 		userServices.remove_cover({
 			oleFileName: cover
@@ -161,6 +165,7 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 		height++
 	}
 	$scope.heights = heights;
+	// $scope.heights.push("250cm以上");
 	$scope.incomes = ["5000元以下", "5000-10000元", "10000-20000元", "20000-30000元", "30000以上"];
 	// 获取省份列表
 	loveServices.query_province().then(function(data) {
@@ -204,7 +209,7 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 		});
 	};
 	// 学历
-	$scope.degrees = ["初中以上", "高中以上", "中专以上", "大专以上", "本科以上", "硕士以上", "博士以上"];
+	$scope.degrees = ["初中", "高中", "中专", "大专", "本科", "硕士", "博士"];
 	// 婚姻状况
 	$scope.marrys = ["未婚", "已婚", "离异", "丧偶"];
 	// 有无子女
@@ -342,7 +347,6 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 	// 	})
 	// }
 	$scope.save = function() {
-		$route.reload();
 		toastServices.show();
 		userServices.save_userinfo_1({
 			"sex": $scope.input.gender == '男' ? '1' : '0',
@@ -424,6 +428,10 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 			"choose_mate_age": $scope.input.age_1,
 			"choose_mate_heart": $scope.input.height_1,
 			// "choose_mate_heart": $scope.input.heart,
+			"choose_mate_start_age": $scope.input.age_from,
+			"choose_mate_end_age": $scope.input.age_to,
+			"choose_mate_start_height": $scope.input.height_from,
+			"choose_mate_end_height": $scope.input.height_to,
 			"choose_mate_province": $scope.input.province_1,
 			"choose_mate_city": $scope.input.city_1,
 			"choose_mate_marry": $scope.input.marry,
@@ -446,8 +454,36 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 	}
 	$scope.close_preview = function() {
 		$scope.preview = ""
-	}
+	};
+	// pickadate
+	var picker = "";
+	$timeout(function() {
+		var date = $(".pickadate").pickadate();
+		picker = date.pickadate('picker');
+		picker.on({
+			set: function(thingSet) {
+				var select = picker.get("select", "yyyy-mm-dd");
+				console.log(select)
+				$scope.$apply(function() {
+					$scope.input.birthday = select;
+				})
+			}
+		})
+	}, 2000);
+	$scope.pick = function(e) {
+		picker.open();
+		e.preventDefault();
+		e.stopPropagation();
+	};
+	// edit
+	$scope.editing = 0;
+	$scope.edit = function() {
+		$scope.editing = 1;
+	};
 });
+
+
+
 // uploadCoversController
 angular.module("Love").controller("uploadCoversController", function($scope, errorServices, toastServices, localStorageService, config) {
 	var filename, extension;

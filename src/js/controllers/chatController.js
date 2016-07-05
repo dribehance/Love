@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("chatController", function($scope, $routeParams, $timeout, $rootScope, $location, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("chatController", function($scope, $route, $routeParams, $timeout, $rootScope, $location, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {
         block_status: $routeParams.status
     };
@@ -95,6 +95,23 @@ angular.module("Love").controller("chatController", function($scope, $routeParam
                 errorServices.autoHide(data.message);
                 $rootScope.back();
 
+            } else {
+                errorServices.autoHide(data.message);
+                $location.path("chat").search();
+            }
+        })
+    }
+    $scope.clear_message = function(t) {
+        toastServices.show();
+        userServices.clear_message({
+            receive_user_id: $routeParams.id
+        }).then(function(data) {
+            toastServices.hide()
+            if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+                errorServices.autoHide(data.message);
+                $timeout(function() {
+                    $route.reload();
+                }, 1000)
             } else {
                 errorServices.autoHide(data.message);
                 $location.path("chat").search();

@@ -1,9 +1,10 @@
 <div class="">
     <div class="my">
         <div class="my-adv">
-            <div data-rate="131/113">
+            <!-- <div data-rate="1">
                 <img ng-src="{{staticImageUrl + user.image_01}}" show-center-on-loaded err-src="../images/banner.png">
-            </div>
+            </div> -->
+            <imageview data-rate="1" src="staticImageUrl + user.image_01"></imageview>
             <div class="left-camera">
                 <div class="icon icon-xiangji"></div>
                 <span>{{input.covers.length}}/8</span>
@@ -11,12 +12,17 @@
             <div class="right-baseinfo btn-sm" ng-click="like()">
                 <div class="icon icon-xihuan"></div>
             </div>
+            <!-- <div class="right-baseinfo btn-sm" ng-click="go('edit_basic')">
+                <div class="icon icon-plane"></div>
+                编辑
+            </div> -->
         </div>
         <div class="my-banner clearfix" ng-if="input.covers.length>0">
-            <div class="col-xm-4 pull-left" ng-click="preview_image()" style="position:relative" ng-repeat="image in input.covers">
-                <div class="banner-img">
-                    <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png">
-                </div>
+            <div class="col-xm-4 pull-left" ng-click="preview_image(image)" style="position:relative" ng-repeat="image in input.covers">
+                <!-- <div class="banner-img" data-rate="1">
+                    <img ng-src="{{staticImageUrl + image}}" err-src="../images/banner.png" show-center-on-loaded>
+                </div> -->
+                <imageview data-rate="1" src="staticImageUrl + image" class="banner-img"></imageview>
             </div>
         </div>
         <div class="my-title">
@@ -60,7 +66,7 @@
             <div class="item-title">兴趣爱好</div>
             <div class="item-content">
                 <div class="btn btn-second btn-xs tag-bottom" ng-repeat="tag in get_tags(user.taste)">{{tag}}</div>
-                    <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.taste).length==0">暂无填写</div>
+                <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.taste).length==0">暂无填写</div>
             </div>
         </div>
         <div class="item">
@@ -68,7 +74,7 @@
             <div class="item-title">才艺</div>
             <div class="item-content">
                 <div class="btn btn-second btn-xs tag-bottom" ng-repeat="talent in get_tags(user.talent_skill)">{{talent}}</div>
-                    <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.talent_skill).length==0">暂无填写</div>
+                <div class="btn btn-second btn-xs tag-bottom" ng-if="get_tags(user.talent_skill).length==0">暂无填写</div>
             </div>
         </div>
         <div class="item">
@@ -135,14 +141,14 @@
                     <li>毕业院校<span>{{input.school||'暂无填写'}}</span></li>
                     <li>所学专业<span>{{input.major||'暂无填写'}}</span></li>
                     <li>职业职务<span>{{input.position||'暂无填写'}}</span></li>
-                    <li>公司性质<span>{{input.company_nature||'暂无填写'}}</span></li>
+                    <!-- <li>公司性质<span>{{input.company_nature||'暂无填写'}}</span></li> -->
                     <li>公司行业<span>{{input.industry||'暂无填写'}}</span></li>
-                    <li>工作状态<span>{{input.work_status||'暂无填写'}}</span></li>
-                    <li>掌握语言<span>{{input.language||'暂无填写'}}</span></li>
+                    <!-- <li>工作状态<span>{{input.work_status||'暂无填写'}}</span></li> -->
+                    <!-- <li>掌握语言<span>{{input.language||'暂无填写'}}</span></li> -->
                 </ul>
             </div>
         </div>
-       <!--  <div class="item">
+        <!--  <div class="item">
             <i class="icon icon-tr-jygz bg-color"></i>
             <div class="item-title">家庭状况</div>
             <div class="edit-list">
@@ -156,7 +162,7 @@
                 </ul>
             </div>
         </div> -->
-        <div class="item">
+        <!-- <div class="item">
             <i class="icon icon-tr-td bg-color"></i>
             <div class="item-title">我有态度</div>
             <div class="edit-list">
@@ -166,18 +172,18 @@
                     <li>事业与爱情<span>{{input.about_love||'暂无填写'}}</span></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="item">
             <i class="icon icon-tr-aiqing bg-color"></i>
             <div class="item-title">爱情规划</div>
             <div class="edit-list">
                 <ul>
                     <li>结婚计划<span>{{input.marry_plan||'暂无填写'}}</span></li>
-                    <li>家务分工<span>{{input.housework||'暂无填写'}}</span></li>
+                    <!-- <li>家务分工<span>{{input.housework||'暂无填写'}}</span></li> -->
                     <li>是否想要孩子<span>{{input.baby||'暂无填写'}}</span></li>
                     <li>是否与父母同住<span>{{input.live_with_parent||'暂无填写'}}</span></li>
-                    <li>夫妻模式<span>{{input.couple||'暂无填写'}}</span></li>
-                    <li>相处模式<span>{{input.alone_with||'暂无填写'}}</span></li>
+                    <!-- <li>夫妻模式<span>{{input.couple||'暂无填写'}}</span></li> -->
+                    <!-- <li>相处模式<span>{{input.alone_with||'暂无填写'}}</span></li> -->
                 </ul>
             </div>
         </div>
@@ -189,7 +195,9 @@
                     <li>最向往的事<span>{{input.yearing||'暂无填写'}}</span></li>
                     <li>最喜欢的书<span>{{input.like_book||'暂无填写'}}</span></li>
                     <li>最喜欢的电影<span>{{input.like_film||'暂无填写'}}</span></li>
-                    <li>最关注的话题<span>{{input.focus_topic||'暂无填写'}}</span></li>
+                    <li>最喜欢的音乐<span>{{input.like_music||'暂无填写'}}</span></li>
+                    <!-- <li>最关注的话题<span>{{input.focus_topic||'暂无填写'}}</span></li> -->
+                    <li>喜欢的运动<span>{{input.focus_topic||'暂无填写'}}</span></li>
                     <li>最骄傲的事<span>{{input.proud||'暂无填写'}}</span></li>
                     <li>厨艺状况<span>{{input.cooking||'暂无填写'}}</span></li>
                     <li>到过的地方<span>{{input.had_been||'暂无填写'}}</span></li>
@@ -206,23 +214,23 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="section">
-        <div class="btn-fixed">
-            <div class="btn-wrap pull-left">
-                <div class="btn-content">
-                    <button ng-click="like()" class="btn btn-danger btn-block btn-width" ng-click="">
-                        <div class="icon icon-heart-ta_1"></div>
-                        喜欢TA
-                    </button>
+        <div class="section">
+            <div class="btn-fixed">
+                <div class="btn-wrap pull-left">
+                    <div class="btn-content">
+                        <button ng-click="like()" class="btn btn-danger btn-block btn-width" ng-click="">
+                            <div class="icon icon-heart-ta_1"></div>
+                            喜欢TA
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="btn-wrap pull-left">
-                <div class="btn-content">
-                    <a class="btn btn-primary btn-block btn-width" ng-click="open_modal()">
-                        <div class="icon icon-heart-ta"></div>
-                        约会TA
-                    </a>
+                <div class="btn-wrap pull-left">
+                    <div class="btn-content">
+                        <a class="btn btn-primary btn-block btn-width" ng-click="open_modal()">
+                            <div class="icon icon-heart-ta"></div>
+                            约会TA
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -233,13 +241,17 @@
         <div class="madal-body-content">
             约会心仪TA需要{{report_info.bond_money|currency:"￥"}}人民币哟~~
         </div>
-        <div class="madal-body-btn" ng-click="cancel_modal()">取消</div>
-        <div class="madal-body-btn" ng-click="confirm_modal()">约TA</div>
+        <div class="justified">
+            <div style="padding:15px" ng-click="cancel_modal()">取消</div>
+            <div style="padding:15px" class="text-primary" ng-click="vip()" ng-if="chat_status=='2'">充值VIP</div>
+            <div style="padding:15px" class="text-primary" ng-click="deposit()" ng-if="chat_status=='3'">缴纳保证金</div>
+        </div>
     </div>
 </div>
 <div class="modal-overlay" ng-if="preview =='preview'">
     <span class="close" ng-click="close_preview()">x</span>
     <banner data-rate="1" style="margin-top:88px">
-        <imageview src="staticImageUrl + image" data-rate="1" ng-repeat="image in input.covers" on-repeat-done></imageview>
+        <imageview src="staticImageUrl + preview_images" data-rate="1" on-repeat-done></imageview>
     </banner>
+    <!-- <img ng-src="{{staticImageUrl + preview_images}}" class="full-width" alt=""> -->
 </div>

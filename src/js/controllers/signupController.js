@@ -63,21 +63,32 @@ angular.module("Love").controller("signupController", function($scope, $rootScop
         });
     };
     // 第三步骤
+    // 年龄
+    var age = 18,
+        ages = [];
+    for (var i = 0; i < 83; i++) {
+        ages.push(age + "岁");
+        age++;
+    }
+    $scope.ages = ages;
+    $scope.input.age = $scope.ages[0];
     // 身高
-    var height = 155,
-        heights = ["155CM以下"];
-    for (var i = 0; i < 9; i++) {
-        to = height + 5;
-        heights.push(height + "CM" + "-" + to + "CM")
-        height = to;
+    var height = 100,
+        heights = [];
+    for (var i = 0; i < 150; i++) {
+        heights.push(height + "cm")
+        height++
     }
     $scope.heights = heights;
-    $scope.heights.push("200CM以上")
     $scope.input.height = $scope.heights[0];
     // 学历
-    $scope.input.ages = "20-22岁";
-    $scope.input.degree = "初中以上";
-    $scope.input.marry = "未婚";
+    $scope.degrees = ["初中", "高中", "中专", "大专", "本科", "硕士", "博士"];
+    $scope.input.degree = $scope.degrees[0];
+    // 婚姻状况
+    $scope.marrys = ["未婚", "已婚", "离异", "丧偶"];
+    $scope.input.marry = $scope.marrys[0];
+    // 收入
+    $scope.incomes = ["5000元以下", "5000-10000元", "10000-20000元", "20000-30000元", "30000以上"];
     $scope.input.income = "5000元以下";
     $scope.ajaxForm = function() {
         toastServices.show();

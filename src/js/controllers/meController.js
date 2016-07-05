@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Love").controller("meController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Love").controller("meController", function($scope, $location, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.modal = {
         status: 0
     };
@@ -21,6 +21,13 @@ angular.module("Love").controller("meController", function($scope, userServices,
             errorServices.autoHide(data.message);
         }
     });
+    $scope.preview_image = function(images) {
+        $scope.preview_images = images;
+        $scope.preview = "preview"
+    }
+    $scope.close_preview = function() {
+        $scope.preview = ""
+    }
     $scope.get_images = function(images) {
         if (!images) {
             return [];
