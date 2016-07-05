@@ -11,6 +11,10 @@ angular.module("Love").controller("searchController", function($scope, $routePar
         incomes: $routeParams.incomes,
         edus: $routeParams.edus,
         merrys: $routeParams.merrys,
+        ages_start: $routeParams.age_from,
+        ages_end: $routeParams.age_to,
+        height_start: $routeParams.height_from,
+        height_end: $routeParams.height_from,
     }
     $scope.get_tag = function(tag) {
         if (tag == "") {
@@ -55,7 +59,11 @@ angular.module("Love").controller("searchController", function($scope, $routePar
             incomes: $routeParams.incomes,
             edus: $routeParams.edus,
             merrys: $routeParams.merrys,
-            height_intelligent: ""
+            height_intelligent: "",
+            ages_start: $routeParams.age_from,
+            ages_end: $routeParams.age_to,
+            height_start: $routeParams.height_from,
+            height_end: $routeParams.height_from,
         }
         $scope.no_more = false;
         $scope.loadMore();

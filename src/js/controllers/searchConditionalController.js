@@ -72,6 +72,10 @@ angular.module("Love").controller("searchConditionalController", function($scope
             kw: $scope.input.user_id,
             province: $scope.input.province,
             city: $scope.input.city,
+            age_from: $scope.input.age_from,
+            age_to: $scope.input.age_to,
+            height_from: $scope.input.height_from,
+            height_to: $scope.input.height_to,
         }).replace();
     };
 
