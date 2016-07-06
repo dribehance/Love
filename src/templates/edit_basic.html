@@ -99,11 +99,14 @@
                             </select>
                         </li>
                         <li class="pickadate">出生年月
-                            <span ng-click="pick($event)">
+                            <span>
+                                <mobilepicker options="input.options"></mobilepicker>
+                            </span>
+                            <!-- <span ng-click="pick($event)">
                                 {{input.birthday}}
                                 <input type="hidden" ng-model="input.birthday">
-                                <!-- <input type="date" style="webkit-box-shadow:none;box-shadow:none" ng-model="input.birthday"> -->
-                            </span>
+                                <input type="date" style="webkit-box-shadow:none;box-shadow:none" ng-model="input.birthday">
+                            </span> -->
                         </li>
                         <li>身高
                             <div class="icon icon-jiantou3 pull-right"></div>

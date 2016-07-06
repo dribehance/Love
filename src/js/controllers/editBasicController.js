@@ -1,6 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Love").controller("editBasicController", function($scope, $route, $filter, $timeout, userServices, loveServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
+	$scope.input.options = {};
 	toastServices.show();
 	userServices.query_userinfo({
 		type: '1'
@@ -10,8 +11,10 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 			$scope.user = data.Result.UserInfo;
 			if (!$scope.user.birthday) {
 				$scope.input.birthday = $filter("date")(new Date(), "yyyy-MM-dd");
+				$scope.input.options.value = $scope.input.birthday
 			} else {
 				$scope.input.birthday = $scope.user.birthday;
+				$scope.input.options.value = $scope.user.birthday;
 			}
 			$scope.input.covers = $scope.user.image_other.split("#").filter(function(i) {
 				return i != "";
@@ -350,7 +353,7 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 		toastServices.show();
 		userServices.save_userinfo_1({
 			"sex": $scope.input.gender == '男' ? '1' : '0',
-			"birthday": $filter("date")($scope.input.birthday, "yyyy-MM-dd"),
+			"birthday": $scope.input.options.value, //$filter("date")($scope.input.birthday, "yyyy-MM-dd"),
 			"province": $scope.input.province,
 			"city": $scope.input.city,
 			"height": $scope.input.height,
@@ -456,25 +459,25 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 		$scope.preview = ""
 	};
 	// pickadate
-	var picker = "";
-	$timeout(function() {
-		var date = $(".pickadate").pickadate();
-		picker = date.pickadate('picker');
-		picker.on({
-			set: function(thingSet) {
-				var select = picker.get("select", "yyyy-mm-dd");
-				console.log(select)
-				$scope.$apply(function() {
-					$scope.input.birthday = select;
-				})
-			}
-		})
-	}, 2000);
-	$scope.pick = function(e) {
-		picker.open();
-		e.preventDefault();
-		e.stopPropagation();
-	};
+	// var picker = "";
+	// $timeout(function() {
+	// 	var date = $(".pickadate").pickadate();
+	// 	picker = date.pickadate('picker');
+	// 	picker.on({
+	// 		set: function(thingSet) {
+	// 			var select = picker.get("select", "yyyy-mm-dd");
+	// 			console.log(select)
+	// 			$scope.$apply(function() {
+	// 				$scope.input.birthday = select;
+	// 			})
+	// 		}
+	// 	})
+	// }, 2000);
+	// $scope.pick = function(e) {
+	// 	picker.open();
+	// 	e.preventDefault();
+	// 	e.stopPropagation();
+	// };
 	// edit
 	$scope.editing = 0;
 	$scope.edit = function() {
