@@ -167,7 +167,8 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 		$scope.modal.status = 0;
 		$location.path("payment").search({
 			id: $routeParams.id,
-			money: $scope.report_info.bond_money
+			money: $scope.report_info.bond_money,
+			type: "meeting"
 		});
 	}
 	$scope.vip = function() {
@@ -175,6 +176,8 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			$location.path("signin").replace()
 		}
 		$scope.modal.status = 0;
-		$location.path("charge");
+		$location.path("charge").search({
+			vip: 0
+		});
 	}
 })

@@ -28,6 +28,10 @@ angular.module("Love")
 				}
 
 				function calculate_center_image_size_on_loaded(e) {
+					$(e.target).css({
+						width: 'auto',
+						height: 'auto'
+					})
 					var image_loaded = $(e.target),
 						image_loaded_width = image_loaded.width(),
 						image_loaded_height = image_loaded.height(),

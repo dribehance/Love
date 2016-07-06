@@ -1,5 +1,5 @@
 angular.module("Love").controller("chargeController", function($scope, $routeParams, userServices, $location, loveServices, errorServices, toastServices, localStorageService, config) {
-
+    $scope.is_vip = $routeParams.vip;
     toastServices.show();
     loveServices.query_vips().then(function(data) {
         toastServices.hide()
@@ -12,14 +12,18 @@ angular.module("Love").controller("chargeController", function($scope, $routePar
     })
 
     $scope.confirm = function() {
+        var type = 'charge';
         if ($routeParams.vip == "1") {
             errorServices.autoHide("您已经是VIP，无需再充值");
             return;
         }
+        if ($routeParams.vip == "0") {
+            type = 'vip';
+        }
         $location.path("payment").search({
             id: $scope.input.vip.vip_price_id,
             money: $scope.input.vip.price,
-            type: 'charge'
+            type: type
         })
     }
 

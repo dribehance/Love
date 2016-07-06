@@ -37,12 +37,12 @@
             <div class="icon icon-jiantou4 pull-right"></div>
         </a>
         <div class="my-subnav clearfix">
-            <div class="my-subnav-list col-xm-4 pull-left">
+            <div class="my-subnav-list col-xs-6 pull-left">
                 <span><div class="icon icon-baozhengjin2"></div></span>
                 <span>押金</span>
                 <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>充值</b></a></span>
             </div>
-            <div class="my-subnav-list col-xm-4 pull-left">
+            <div class="my-subnav-list col-xs-6 pull-left">
                 <span><div class="icon icon-yuehuifei2"></div></span>
                 <span>VIP会员费</span>
                 <span><a class="btn btn-second btn-xs" ng-href="#/charge?vip={{user.is_vip}}"><b>购买VIP</b></a></span>
@@ -54,19 +54,25 @@
             <div class="icon icon-jiantou4 pull-right"></div>
         </a>
         <div class="my-subnav clearfix">
-            <div class="my-subnav-list col-xm-4 pull-left">
+            <div class="my-subnav-list col-xs-6 pull-left">
                 <span><div class="icon icon-baozhengjin2"></div></span>
                 <span>押金</span>
                 <span>剩余{{user.deposit}}元</span>
                 <!-- <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>充值</b></a></span> -->
             </div>
-            <div class="my-subnav-list col-xm-4 pull-left">
+            <div class="my-subnav-list col-xs-6 pull-left">
                 <span><div class="icon icon-yuehuifei2"></div></span>
                 <span>VIP</span>
                 <span>剩余{{user.vip_money}}元</span>
                 <!-- <span><a class="btn btn-second btn-xs" ng-href="#/charge"><b>购买VIP</b></a></span> -->
             </div>
         </div>
+        <a class="my-titlebar" ng-if="user.deposit_time" style="border-top: 1px solid #eee;">
+            最近一次充值：{{user.deposit_time}}
+        </a>
+        <a class="my-titlebar" ng-if="user.is_vip =='1'" style="border-top: 1px solid #eee;">
+            VIP到期：{{user.vip_end_datetime}}
+        </a>
         <div class="interval"></div>
         <div class="input-group">
             <a class="input-group-item" ng-href="#/withdrawals">
