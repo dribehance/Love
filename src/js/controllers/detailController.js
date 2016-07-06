@@ -19,12 +19,15 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			$scope.input.province = $scope.user.province;
 			$timeout(function() {
 				$scope.input.city = $scope.user.city;
+				$scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
+				$scope.input.city_2 = $scope.user.UserOther.dossier_hometown_city;
 			}, 2000);
 			$scope.input.degree = $scope.user.edu;
 			$scope.input.marry = $scope.user.marry;
-			$scope.input.child = $scope.user.child;
+			$scope.input.child = $scope.user.is_has_child;
 			$scope.input.is_buy_house = $scope.user.is_buy_house;
 			$scope.input.house = $scope.user.buy_house;
+			$scope.input.car = $scope.user.buy_car;
 			$scope.input.is_buy_car = $scope.user.is_buy_car;
 			$scope.input.job = $scope.user.job;
 			// $scope.input.age_1 = $scope.user.UserOther.choose_mate_age;
@@ -33,14 +36,14 @@ angular.module("Love").controller("detailController", function($scope, $routePar
 			$scope.input.height_1 = ($scope.user.UserOther.choose_mate_start_height || "不限") + " - " + ($scope.user.UserOther.choose_mate_end_height || "不限");
 			$scope.input.income_1 = $scope.user.UserOther.choose_mate_income;
 			$scope.input.province_1 = $scope.user.UserOther.choose_mate_province;
-			$scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
+			// $scope.input.city_1 = $scope.user.UserOther.choose_mate_city;
 			$scope.input.degree_1 = $scope.user.UserOther.choose_mate_edu;
 			$scope.input.marry_1 = $scope.user.UserOther.choose_mate_marry;
 			$scope.input.child_1 = $scope.user.UserOther.choose_mate_has_child;
 			$scope.input.house_1 = $scope.user.UserOther.choose_mate_has_house;
 			$scope.input.car_1 = $scope.user.UserOther.choose_mate_has_car;
-			$scope.input.province_2 = $scope.user.UserOther.dossier_province;
-			$scope.input.city_2 = $scope.user.UserOther.dossier_city;
+			$scope.input.province_2 = $scope.user.UserOther.dossier_hometown_province;
+			// $scope.input.city_2 = $scope.user.UserOther.dossier_city;
 			$scope.input.nation = $scope.user.UserOther.dossier_nation;
 			$scope.input.shuxiang = $scope.user.UserOther.dossier_shuxiang;
 			$scope.input.xinzuo = $scope.user.UserOther.dossier_xingzuo;

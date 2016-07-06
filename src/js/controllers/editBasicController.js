@@ -268,7 +268,7 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 	weights.push("100公斤以上");
 	$scope.weights = weights;
 	// 相貌自评
-	$scope.scores = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+	$scope.scores = ["1分", "2分", "3分", "4分", "5分", "6分", "7分", "8分", "9分", "10分"];
 	// 宗教信仰
 	$scope.regions = ["无神论", "佛教", "道教", "基督教", "天主教", "儒教", "犹太教", "回教", "伊斯兰教", "其他"];
 	// 是否吸烟
