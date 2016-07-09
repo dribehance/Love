@@ -23,6 +23,7 @@
         <div class="my-title">
             <div class="icon icon-nan-3 pull-left"></div>
             <span>{{user.nickname}} {{user.age}}岁</span>
+            <span ng-if="user.is_vip == '1'" class="text-primary">vip</span>
             <div class="icon icon-hotel" ng-if="user.is_buy_house"></div>
             <div class="icon icon-cart" ng-if="user.is_buy_car"></div>
             <div class="icon icon-people" ng-if="user.is_real_name"></div>

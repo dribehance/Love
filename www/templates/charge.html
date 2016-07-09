@@ -1,6 +1,6 @@
 <div class="section">
     <div class="service">
-        <div class="service-group">
+        <div class="service-group" ng-if="is_vip">
             <div class="service-group-item service-border-bottom" ng-click="change_vips(vip)" ng-repeat="vip in vips">
                 <div class="info-icon pull-right">
                     <div class="icon icon-weixuanzhong" ng-class="{'active':input.vip.vip_price_id==vip.vip_price_id}"></div>
@@ -12,6 +12,23 @@
                     <div class="price-wrap">
                         <div class="price pull-left">
                             <span>{{vip.price}}元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="service-group" ng-if="!is_vip">
+            <div class="service-group-item service-border-bottom" ng-click="change_vips(vip)" ng-repeat="vip in vips">
+                <div class="info-icon pull-right">
+                    <div class="icon icon-weixuanzhong" ng-class="{'active':input.vip.vip_price_id==vip.vip_price_id}"></div>
+                </div>
+                <div class="info-wrap pull-left">
+                    <div class="ticket-wrap pull-left" ng-if="is_vip">
+                        <div class="ticket"><span>{{vip.months}}个月VIP</span></div>
+                    </div>
+                    <div class="price-wrap">
+                        <div class="price pull-left">
+                            <span>{{vip.price}}元/人次</span>
                         </div>
                     </div>
                 </div>

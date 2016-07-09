@@ -15,7 +15,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // forget password 忘记密码
         forget: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/api_url",
+            url: config.url + "/app/UserCenter/ResetPassword",
         })),
         // reset password 重置密码
         reset: apiServices._get(angular.extend({}, config.common_params, {
@@ -23,7 +23,7 @@ angular.module("Love").factory("userServices", function($rootScope, $http, apiSe
         })),
         // 获取验证码
         get_smscode: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/app/UserCenter/getRegisterCode",
+            url: config.url + "/app/UserCenter/GetCode",
         })),
         // query basic information 基本信息
         query_basicinfo: apiServices._get(angular.extend({}, config.common_params, {

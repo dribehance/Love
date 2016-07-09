@@ -10,10 +10,14 @@
                 <input type="password" class="full-width" name="password" ng-model="input.password" required placeholder="请输入密码">
                 <i class="fa fa-times-circle-o clear" aria-hidden="true" ng-if="signinForm.password.$valid" ng-click="clear()"></i>
             </div>
-            
         </div>
         <div class="btn-center">
             <button type="submit" class="btn btn-block btn-width" ng-class="{'btn-default':signinForm.$invalid,'btn-primary':signinForm.$valid}" ng-disabled="signinForm.$invalid">登录</button>
+        </div>
+        <div class="input-group">
+            <div class="input-group-item clearfix">
+                <a ng-href="#/forget" class="pull-right">修改密码</a>
+            </div>
         </div>
         <div class="signin-info" ng-if="!uid">
             <div class="third-party">使用第三方登录</div>

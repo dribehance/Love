@@ -19,6 +19,7 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 			$scope.input.avatar = $scope.user.image_01;
 			$scope.input.heart = $scope.user.heart;
 			$scope.input.nickname = $scope.user.nickname;
+			$scope.input.user_realname = $scope.user.user_realname;
 			$scope.input.gender = $scope.genders[$scope.user.sex];
 			$scope.input.height = $scope.user.height;
 			$scope.input.income = $scope.user.income;
@@ -65,6 +66,7 @@ angular.module("Love").controller("basicController", function($scope, $route, $f
 			$scope.input.position = $scope.user.UserOther.edu_job_zhiye_zhiwu;
 			$scope.input.company_nature = $scope.user.UserOther.edu_job_nature_company;
 			$scope.input.industry = $scope.user.UserOther.edu_job_company_hangye;
+			$scope.input.work_unit = $scope.user.UserOther.edu_job_work_unit;
 			$scope.input.work_status = $scope.user.UserOther.edu_job_work_status;
 			$scope.input.language = $scope.user.UserOther.edu_job_master_language;
 			$scope.input.about_money = $scope.user.UserOther.attitude_money;

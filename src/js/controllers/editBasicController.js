@@ -22,6 +22,7 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 			$scope.input.avatar = $scope.user.image_01;
 			$scope.input.heart = $scope.user.heart;
 			$scope.input.nickname = $scope.user.nickname;
+			$scope.input.user_realname = $scope.user.user_realname;
 			$scope.input.gender = $scope.genders[$scope.user.sex];
 			$scope.input.height = $scope.user.height;
 			$scope.input.income = $scope.user.income;
@@ -70,6 +71,7 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 			$scope.input.position = $scope.user.UserOther.edu_job_zhiye_zhiwu;
 			$scope.input.company_nature = $scope.user.UserOther.edu_job_nature_company;
 			$scope.input.industry = $scope.user.UserOther.edu_job_company_hangye;
+			$scope.input.work_unit = $scope.user.UserOther.edu_job_work_unit;
 			$scope.input.work_status = $scope.user.UserOther.edu_job_work_status;
 			$scope.input.language = $scope.user.UserOther.edu_job_master_language;
 			$scope.input.about_money = $scope.user.UserOther.attitude_money;
@@ -170,6 +172,7 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 	$scope.heights = heights;
 	// $scope.heights.push("250cm以上");
 	$scope.incomes = ["5000元以下", "5000-10000元", "10000-20000元", "20000-30000元", "30000以上"];
+	$scope.incomes_1 = ["不限", "5000元以下", "5000-10000元", "10000-20000元", "20000-30000元", "30000以上"];
 	// 获取省份列表
 	loveServices.query_province().then(function(data) {
 		$scope.provinces = data.province;
@@ -213,12 +216,15 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 	};
 	// 学历
 	$scope.degrees = ["初中", "高中", "中专", "大专", "本科", "硕士", "博士"];
+	$scope.degrees_1 = ["不限", "初中", "高中", "中专", "大专", "本科", "硕士", "博士"];
 	// 婚姻状况
 	$scope.marrys = ["未婚", "已婚", "离异", "丧偶"];
+	$scope.marrys_1 = ["不限", "未婚", "已婚", "离异", "丧偶"];
 	// 有无子女
-	$scope.children = ["没有", "有，和我住一起", "有，不和我住一起", "有，有时和我住一起"];
+	$scope.children = ["无孩子", "有，在一起", "有，不在一起"];
+	$scope.children_1 = ["不限", "无孩子", "有，在一起", "有，不在一起"];
 	// 购房情况
-	$scope.houses = ["以后再告诉你", "已购房(有房贷)", "与父母同住", "租房", "已购房(无房贷)", "住单位房", "住亲朋家", "需要时购置"];
+	$scope.houses = ["不限", "已购房(有房贷)", "租房", "已购房(无房贷)", "住单位房", "需要时购置"];
 	// 购车情况
 	$scope.cars = ["已购车", "未购车", "单位用车", "需要时购置"];
 	// ---------------------择偶
@@ -306,8 +312,10 @@ angular.module("Love").controller("editBasicController", function($scope, $route
 	// 家务分工
 	$scope.houseworks = ["任劳任怨", "希望对方承担家务", "一起分工合作", "看各自闲忙，协商分担"];
 	// 是否想要孩子
-	$scope.babys = ["想", "不想", "还没想好", "视情况而定", "其他"]
-		// 是否与父母同住
+	$scope.babys = ["想", "不想", "看情况"];
+	// 结婚计划
+	$scope.marry_plan = ["认同闪婚", "一年内", "两年内", "时机成熟就结婚"];
+	// 是否与父母同住
 	$scope.live_with_parents = ["愿意", "不愿意", "视情况而定"];
 	// 夫妻模式
 	$scope.input.couple = "";

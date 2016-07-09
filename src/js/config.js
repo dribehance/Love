@@ -36,6 +36,7 @@ angular.module("Love").constant("config", {
 		"edit_basic",
 		"chat",
 		"create_appointment",
+		"forget",
 		"index",
 		"lovers",
 		"manual_authen",

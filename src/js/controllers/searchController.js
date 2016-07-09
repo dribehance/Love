@@ -15,6 +15,7 @@ angular.module("Love").controller("searchController", function($scope, $routePar
         ages_end: $routeParams.age_to,
         height_start: $routeParams.height_from,
         height_end: $routeParams.height_from,
+        VIPS: $routeParams.member
     }
     $scope.get_tag = function(tag) {
         if (tag == "") {
@@ -45,10 +46,11 @@ angular.module("Love").controller("searchController", function($scope, $routePar
 
     }
     $scope.loadMore();
-    $scope.smart_search = function() {
+    $scope.smart_search = function(type) {
+        $scope.dropdown_status = "";
         $scope.loves = [];
-        $scope.page.intelligent_type == "1" ? $scope.page.intelligent_type = "2" : $scope.page.intelligent_type = "1";
-        var type = $scope.page.intelligent_type
+        // $scope.page.intelligent_type == "1" ? $scope.page.intelligent_type = "2" : $scope.page.intelligent_type = "1";
+        // var type = $scope.page.intelligent_type
         $scope.page = {
             pn: 1,
             page_size: 5,
@@ -64,8 +66,12 @@ angular.module("Love").controller("searchController", function($scope, $routePar
             ages_end: $routeParams.age_to,
             height_start: $routeParams.height_from,
             height_end: $routeParams.height_from,
+            VIPS: $routeParams.member
         }
         $scope.no_more = false;
         $scope.loadMore();
+    }
+    $scope.open_dropdown = function() {
+        $scope.dropdown_status = "open";
     }
 })

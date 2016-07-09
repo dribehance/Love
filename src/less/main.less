@@ -5,7 +5,7 @@ a:hover {
     color: #000;
 }
 
-*:not(input,textarea){
+*:not(input, textarea) {
     -webkit-touch-callout: none;
     /* iOS Safari */
     -webkit-user-select: none;
@@ -79,7 +79,6 @@ select {
 .select-lg-width {
     width: 80%;
 }
-
 
 .select-lg-width {
     width: 50%;
@@ -583,12 +582,10 @@ select {
             text-align: center;
             height: 100px;
             vertical-align: middle;
-            
             background-position: center center;
             background-color: #E8E8E8;
             img {
                 margin: auto;
-                
             }
         }
     }
@@ -1122,8 +1119,11 @@ select {
                 display: inline-block;
                 text-align: left;
                 width: 53%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
-            .select-right{
+            .select-right {
                 margin-right: 5px;
             }
         }
@@ -1186,6 +1186,7 @@ select {
     font-size: 26px;
     color: white;
 }
+
 .madal-body {
     position: relative;
     width: 250px;
@@ -1269,7 +1270,7 @@ select {
     }
 }
 
-.model-block{
+.model-block {
     position: fixed;
     left: 0;
     top: 0;
@@ -1277,7 +1278,7 @@ select {
     width: 100%;
     z-index: 1000;
     background-color: fade(black, 50%);
-    .model-block-body{
+    .model-block-body {
         position: fixed;
         left: 0;
         right: 0;
@@ -1289,16 +1290,16 @@ select {
         background-color: white;
     }
 }
+
 .madel-block-btn {
     display: block;
     padding: 10px 45px;
     border-bottom: 1px solid #eee;
     box-sizing: border-box;
     text-align: center;
-    &:last-child{
+    &:last-child {
         border-bottom: none;
     }
-
 }
 
 //消息回应
@@ -1386,6 +1387,7 @@ select {
         }
     }
 }
+
 .picker {
     left: -10px;
 }

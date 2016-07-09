@@ -28,6 +28,7 @@
         <div class="my-title">
             <div class="icon icon-nan_3 pull-left"></div>
             <span>{{user.nickname}} {{user.age}}岁</span>
+            <span ng-if="user.is_vip == '1'" class="text-primary">vip</span>
             <!-- <div class="icon icon-hotel"></div>
             <div class="icon icon-cart"></div>
             <div class="icon icon-people"></div> -->
@@ -124,10 +125,10 @@
                     <li>属相<span>{{input.shuxiang||'暂无填写'}}</span></li>
                     <li>星座<span>{{input.xinzuo||'暂无填写'}}</span></li>
                     <li>血型<span>{{input.blood||'暂无填写'}}</span></li>
-                    <li>体型<span>{{input.body||'暂无填写'}}</span></li>
-                    <li>体重<span>{{input.weight||'暂无填写'}}</span></li>
-                    <li>相貌自评<span>{{input.score}}</span></li>
-                    <li>宗教信仰<span>{{input.region||'暂无填写'}}</span></li>
+                    <!-- <li>体型<span>{{input.body||'暂无填写'}}</span></li> -->
+                    <!-- <li>体重<span>{{input.weight||'暂无填写'}}</span></li> -->
+                    <!-- <li>相貌自评<span>{{input.score}}</span></li> -->
+                    <!-- <li>宗教信仰<span>{{input.region||'暂无填写'}}</span></li> -->
                     <li>是否吸烟<span>{{input.smoke||'暂无填写'}}</span></li>
                     <li>是否饮酒<span>{{input.drink||'暂无填写'}}</span></li>
                 </ul>

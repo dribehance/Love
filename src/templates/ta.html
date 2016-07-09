@@ -10,6 +10,7 @@
                     <div class="coach-info-tip">
                         <p>
                             {{love.nickname}}
+                            <span ng-if="love.is_vip == '1'" class="text-primary">vip</span>
                             <span name="sex" class="icon" ng-class="{'icon-nan-2':love.sex=='1','icon-nv-2':love.sex=='0'}"></span>
                         </p>
                     </div>

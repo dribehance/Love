@@ -1,0 +1,21 @@
+<form name="forgetForm" ng-submit="ajaxForm()">
+    <div class="forget">
+        <div class="input-group">
+            <div class="input-group-item addon">
+                <div class="icon icon-shouji"></div>
+                <input type="text" name="telephone" placeholder="请输入手机号码" class="full-width" ng-model="input.telephone" required>
+            </div>
+            <div class="input-group-item addon">
+                <div class="icon icon-pwd"></div>
+                <input type="password" name="password" placeholder="请输入密码" class="full-width" ng-model="input.password" required>
+            </div>
+            <div class="input-group-item">
+                <input type="text" placeholder="请输入验证码" class="input-sm-width" name="sms_code" ng-model="input.sms_code" required>
+                <countdown class="btn btn-second btn-sm  pull-right" countdown="countdown" countdown-disabled="forgetForm.telephone.$invalid">{{countdown.message}}</countdown>
+            </div>
+        </div>
+        <div class="btn-center">
+            <button type="submit" class="btn btn-block btn-width" ng-disabled="forgetForm.$invalid" ng-class="{'btn-primary':forgetForm.$valid,'btn-default':forgetForm.$invalid}" >找回密码</button>
+        </div>
+    </div>
+</form>

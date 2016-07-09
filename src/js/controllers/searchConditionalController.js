@@ -4,7 +4,6 @@ angular.module("Love").controller("searchConditionalController", function($scope
     // 获取省份列表
     loveServices.query_province().then(function(data) {
         $scope.provinces = data.province;
-        $scope.input.province = $scope.provinces[0];
     });
     $scope.$watch('input.province', function(n, o) {
         if (n === undefined) {
@@ -16,7 +15,6 @@ angular.module("Love").controller("searchConditionalController", function($scope
     $scope.query_city = function(province) {
         loveServices.query_city().then(function(data) {
             $scope.cities = data[province];
-            $scope.input.city = $scope.cities[0];
         });
     };
     // 年龄
@@ -37,15 +35,17 @@ angular.module("Love").controller("searchConditionalController", function($scope
     }
     $scope.heights = heights;
     // 学历
-    $scope.degrees = ["初中", "高中", "中专", "大专", "本科", "硕士", "博士"];
+    $scope.degrees = ["不限", "初中", "高中", "中专", "大专", "本科", "硕士", "博士"];
     $scope.input.degree = $scope.degrees[0];
     // 婚姻状况
-    $scope.marrys = ["未婚", "已婚", "离异", "丧偶"];
+    $scope.marrys = ["不限", "未婚", "已婚", "离异", "丧偶"];
     $scope.input.marry = $scope.marrys[0];
     // 收入
-    $scope.incomes = ["5000元以下", "5000-10000元", "10000-20000元", "20000-30000元", "30000以上"];
-    $scope.input.income = "5000元以下";
-
+    $scope.incomes = ["不限", "5000元以下", "5000-10000元", "10000-20000元", "20000-30000元", "30000以上"];
+    $scope.input.income = "不限";
+    // 会员
+    $scope.members = ["不限", "VIP会员"];
+    $scope.input.member = "不限";
     $scope.search = function() {
         // toastServices.show();
         // loveServices.query_loves({
@@ -76,6 +76,7 @@ angular.module("Love").controller("searchConditionalController", function($scope
             age_to: $scope.input.age_to,
             height_from: $scope.input.height_from,
             height_to: $scope.input.height_to,
+            member: $scope.input.member
         }).replace();
     };
 

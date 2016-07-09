@@ -1,11 +1,21 @@
 <div class="section">
     <div class="search-wrap">
         <div class="tabs">
-            <a class="tabs-item tabs-width50 pull-left highlight" ng-click="smart_search()">
+            <a class="tabs-item tabs-width50 pull-left highlight" ng-click="open_dropdown()">
                 智能搜索
                 <i class="icon icon-paixu active"></i>
             </a>
             <a class="tabs-item tabs-width50 pull-left" ng-href="#/search_conditional">条件搜索<i class="icon icon-xiala"></i></a>
+        </div>
+        <div class="search-dropdown" ng-if="dropdown_status == 'open'">
+            <div class="list-group">
+                <div class="list-group-item" ng-click="smart_search('1')">
+                    按收入排序
+                </div>
+                <div class="list-group-item" ng-click="smart_search('2')">
+                    按身高排序
+                </div>
+            </div>
         </div>
         <div class="input-group">
             <a class="coach-item clearfix" ng-href="#/detail?id={{love.user_id}}" ng-repeat="love in loves">
@@ -18,6 +28,7 @@
                         <div class="coach-info-tip">
                             <p>
                                 {{love.nickname}}
+                                <span ng-if="love.is_vip == '1'" class="text-primary">vip</span>
                                 <span name="sex" class="icon" ng-class="{'icon-nan-2':love.sex=='1','icon-nv-2':love.sex=='0'}"></span>
                             </p>
                         </div>

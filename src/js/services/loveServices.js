@@ -3,7 +3,8 @@ angular.module("Love").factory("loveServices", function($http, apiServices, loca
     return {
         // 首页约爱列表 条件搜索 智能搜索
         query_loves: apiServices._get(angular.extend({}, config.common_params, {
-            url: config.url + "/app/Home/taList"
+            url: config.url + "/app/Home/taList",
+            token: localStorageService.get("token")
         })),
         // 约爱详情
         query_love_by_id: apiServices._get(angular.extend({}, config.common_params, {

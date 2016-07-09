@@ -51,8 +51,12 @@
             <div class="icon icon-jiantou pull-right"></div>
             <div class="input-select select-text-right pull-right">
 
-                <select name="province" ng-model="input.province" ng-options="province for province in provinces"></select>
-                <select name="city" ng-model="input.city" ng-options="city for city in cities"></select>
+                <select name="province" ng-model="input.province" ng-options="province for province in provinces">
+                    <option value="">不限</option>
+                </select>
+                <select name="city" ng-model="input.city" ng-if="input.province" ng-options="city for city in cities">
+                    <option value="">不限</option>
+                </select>
             </div>
             
         </a>
@@ -75,6 +79,13 @@
             <div class="icon icon-jiantou"></div>
             <div class="sm-select select-text-direction">
                 <select class="full-width" name="marry" ng-model="input.marry" ng-options="marry for marry in marrys"></select>
+            </div>
+        </a>
+        <a class="input-group-item">
+            <div class="xs-select-text">会员类型</div>
+            <div class="icon icon-jiantou"></div>
+            <div class="sm-select select-text-direction">
+                <select class="full-width" name="member" ng-model="input.member" ng-options="member for member in members"></select>
             </div>
         </a>
         <div class="section">

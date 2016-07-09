@@ -1,7 +1,13 @@
 angular.module("Love").controller("chargeController", function($scope, $routeParams, userServices, $location, loveServices, errorServices, toastServices, localStorageService, config) {
     $scope.is_vip = $routeParams.vip;
+    var price_type = 2;
+    if ($scope.is_vip != undefined) {
+        price_type = 1;
+    }
     toastServices.show();
-    loveServices.query_vips().then(function(data) {
+    loveServices.query_vips({
+        type: price_type
+    }).then(function(data) {
         toastServices.hide()
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.vips = data.Result.VipPrices;
